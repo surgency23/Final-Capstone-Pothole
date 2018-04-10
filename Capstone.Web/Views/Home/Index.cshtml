@@ -3,24 +3,25 @@
     ViewBag.Title = "Index";
 }
 @using Capstone.Web.Models;
-@using GoogleMaps.LocationServices;
 
 @model Pothole
 <h2>City PotHole Managment Homepage</h2>
 <p>Heavy traffic flow and seasonal changes can brutalize roads and cause dangerous pothole hazards. Help protect drivers, 
     and expedite road repairs, by reporting any road damage you encounter.</p>
 <div>
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("DetailHole", "Home", FormMethod.Post))
     {
-        @Html.Label("PotHole Location")
-        @Html.TextBoxFor(m => m.Latitude)
-        @Html.TextBoxFor(m => m.Longitude)
-        @Html.Label("Current Date")
-        @Html.TextBoxFor(m => m.DateReported);
+        @Html.HiddenFor(m => m.Latitude)
+        @Html.HiddenFor(m => m.Longitude)
+        @Html.HiddenFor(m => m.DateReported, DateTime.UtcNow.Date);
+        <button id="reportBtn" class="btn btn-danger">Report PotHole Using Current Coordinates</button>
     }
-    <button id="reportBtn" class="btn btn-danger">Report PotHole Using Current Coordinates</button>
+    <p>Click <a href="/Home/ManualPotHoleEntry"> here</a> to report a pothole at a specific address</p>
+ 
 </div>
 <br/>
+
+
 <div>
     <div>Enter Nearest Available Address</div>
     <input type="text" id="manualAddressEntry" placeholder="Address" />
