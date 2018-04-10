@@ -5,6 +5,9 @@ namespace Capstone.Web.App_Start
 {
     using System;
     using System.Web;
+    using Capstone.Web.DAL;
+    using Capstone.Web.Models;
+    using System.Configuration;
 
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
@@ -61,6 +64,8 @@ namespace Capstone.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<IPotholeDAL>().To<PotholeDAL>().WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings["PotHoles"].ConnectionString);
+            
         }        
     }
 }

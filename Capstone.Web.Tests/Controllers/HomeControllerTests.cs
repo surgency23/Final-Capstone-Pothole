@@ -6,6 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using Capstone.Web.DAL;
+using Capstone.Web.Models;
+using System.Configuration;
 
 namespace Capstone.Web.Controllers.Tests
 {
@@ -15,8 +18,10 @@ namespace Capstone.Web.Controllers.Tests
         [TestMethod()]
         public void HomeController_IndexAction_ReturnIndexView()
         {
+            PotholeDAL potholeDAL = new PotholeDAL(ConfigurationManager.ConnectionStrings["PotHoles"].ConnectionString);
+
             //Arrange
-            HomeController controller = new HomeController();
+            HomeController controller = new HomeController(potholeDAL);
 
             //Act
             ViewResult result = controller.Index() as ViewResult;
