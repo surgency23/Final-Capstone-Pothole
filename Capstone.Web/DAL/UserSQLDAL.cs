@@ -12,23 +12,21 @@ namespace Capstone.Web.DAL
         private string connectionString;
 
         private const string SQL_CreateUser = @"
-        USE [Potholes]
-        GO
-
         INSERT INTO [dbo].[Users]
            ([Username]
            ,[Password]
            ,[FirstName]
            ,[LastName]
-           ,[Is_Employee])
+           ,[Is_Employee]
+           ,[Email])
          VALUES
            (
            @Username,
            @Password,
            @FirstName,
            @LastName,
-           @Is_Employee)
-        GO";
+           @Is_Employee,
+           @Email)";
 
         public UserSQLDAL(string connectionString)
         {
@@ -49,6 +47,7 @@ namespace Capstone.Web.DAL
                     cmd.Parameters.AddWithValue("@Password", user.Password);
                     cmd.Parameters.AddWithValue("@FirstName", user.FirstName);
                     cmd.Parameters.AddWithValue("@LastName", user.LastName);
+                    cmd.Parameters.AddWithValue("@Is_Employee", user.Is_Employee);
                     cmd.Parameters.AddWithValue("@Email", user.Email);
 
                     result = cmd.ExecuteNonQuery();
