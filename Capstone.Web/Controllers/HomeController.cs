@@ -22,5 +22,10 @@ namespace Capstone.Web.Controllers
         {
             return View("Index");
         }
+
+        public ActionResult ViewPotholes()
+        {
+            return View("ViewPotholes", potholeDAL.GetAllPotholes());
+        }
     }
 }
