@@ -2,7 +2,13 @@
 @{
     ViewBag.Title = "Index";
 }
-
+@using Capstone.Web.Models;
 <h2>Index</h2>
 
-<div>Welcome to Capstones!</div>
+<div>
+    @using (Html.BeginForm())
+    {
+
+    }
+    <button id="reportBtn" class="btn btn-danger">Report PotHole</button>
+</div>
