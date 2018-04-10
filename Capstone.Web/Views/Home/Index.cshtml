@@ -3,12 +3,18 @@
     ViewBag.Title = "Index";
 }
 @using Capstone.Web.Models;
-<h2>Index</h2>
-
+@model Pothole
+<h2>City PotHole Managment Homepage</h2>
+<p>Heavy traffic flow and seasonal changes can brutalize roads and cause dangerous pothole hazards. Help protect drivers, 
+    and expedite road repairs, by reporting any road damage you encounter.</p>
 <div>
     @using (Html.BeginForm())
     {
-
+        @Html.Label("PotHole Location")
+        @Html.TextBoxFor(m => m.Latitude)
+        @Html.TextBoxFor(m => m.Longitude)
+        @Html.Label("Current Date")
+        @Html.TextBoxFor(m => m.DateReported);
     }
     <button id="reportBtn" class="btn btn-danger">Report PotHole</button>
 </div>

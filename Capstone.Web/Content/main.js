@@ -1,4 +1,0 @@
-﻿$("ReportBtn").on("click")
-{
-
-}
