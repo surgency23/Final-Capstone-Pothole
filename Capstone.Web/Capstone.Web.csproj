@@ -195,6 +195,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Home\DetailHole.cshtml" />
     <Content Include="Views\Home\ManualPotHoleEntry.cshtml" />
+    <Content Include="Views\Home\ViewPotholes.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
