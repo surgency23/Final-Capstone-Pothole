@@ -1,3 +1,4 @@
+
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Capstone.Web.DAL;
 using System;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 using System.Transactions;
 using System.Data.SqlClient;
 using Capstone.Web.Models;
+
 
 namespace Capstone.Web.Tests.DAL
 {
@@ -45,7 +47,7 @@ namespace Capstone.Web.Tests.DAL
                     'LastName',
                     1,
                     'TestEmail@test.com')", conn);
-                userID = cmd.ExecuteNonQuery();  
+                userID = cmd.ExecuteNonQuery();
 
             }
         }
@@ -74,3 +76,4 @@ namespace Capstone.Web.Tests.DAL
         }
     }
 }
+

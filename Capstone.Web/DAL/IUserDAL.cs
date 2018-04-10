@@ -9,6 +9,6 @@ namespace Capstone.Web.DAL
 {
     public interface IUserDAL
     {
-       bool CreateUser(Users user);
+        bool CreateUser(Users user);
     }
 }
