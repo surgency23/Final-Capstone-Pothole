@@ -3,6 +3,8 @@
     ViewBag.Title = "Index";
 }
 @using Capstone.Web.Models;
+@using GoogleMaps.LocationServices;
+
 @model Pothole
 <h2>City PotHole Managment Homepage</h2>
 <p>Heavy traffic flow and seasonal changes can brutalize roads and cause dangerous pothole hazards. Help protect drivers, 
@@ -16,5 +18,13 @@
         @Html.Label("Current Date")
         @Html.TextBoxFor(m => m.DateReported);
     }
-    <button id="reportBtn" class="btn btn-danger">Report PotHole</button>
+    <button id="reportBtn" class="btn btn-danger">Report PotHole Using Current Coordinates</button>
+</div>
+<br/>
+<div>
+    <div>Enter Nearest Available Address</div>
+    <input type="text" id="manualAddressEntry" placeholder="Address" />
+    <input type="text" id="manualCityEntry" placeholder="City" />
+    <input type="text" id="manualStateEntry" placeholder="State" />
+    <button id="reportBtnMan" class="btn btn-danger">Report PotHole With Specific Address</button>
 </div>
