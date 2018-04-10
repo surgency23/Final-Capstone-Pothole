@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Capstone.Web.DAL;
 using Capstone.Web.Models;
+using GoogleMaps.LocationServices;
 
 namespace Capstone.Web.Controllers
 {
@@ -23,9 +24,27 @@ namespace Capstone.Web.Controllers
             return View("Index");
         }
 
-        public ActionResult ViewPotholes()
+        [HttpPost]
+        public ActionResult DetailHole(Pothole pothole)
         {
-            return View("ViewPotholes", potholeDAL.GetAllPotholes());
+            return View("DetailHole", pothole);
+        }
+
+        public ActionResult ManualPotHoleEntry()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ManualPotHoleEntry(AddressData address)
+        {
+            Pothole pothole = new Pothole();
+            GoogleLocationService gls = new GoogleLocationService();
+            MapPoint latlong = gls.GetLatLongFromAddress(address);
+            pothole.Latitude = (decimal)latlong.Latitude;
+            pothole.Longitude = (decimal)latlong.Longitude;
+
+            return View("DetailHole", pothole);
         }
     }
 }

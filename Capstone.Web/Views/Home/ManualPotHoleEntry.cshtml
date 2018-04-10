@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "ManualPotHoleEntry";
+}
+@using GoogleMaps.LocationServices
+@model AddressData
+
+<h2>ManualPotHoleEntry</h2>
+
+<div>
+    @using (Html.BeginForm("ManualPotHoleEntry", "Home", FormMethod.Post))
+    {
+        @Html.Label("Address")
+        @Html.TextBoxFor(m => m.Address)
+        @Html.Label("City")
+        @Html.TextBoxFor(m => m.City)
+        @Html.Label("State")
+        @Html.TextBoxFor(m => m.State)
+        <button class="btn btn-danger">Submit</button>
+    }
+</div>
