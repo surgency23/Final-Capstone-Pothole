@@ -32,16 +32,21 @@ namespace Capstone.Web.DAL
 
                     while (reader.Read())
                     {
-                        Pothole pothole = new Pothole
+
+
+                        Pothole pothole = new Pothole();
+
+                        pothole.PotholeID = Convert.ToInt32(reader["PotHole_ID"]);
+                        pothole.Status = Convert.ToString(reader["Status"]);
+                        pothole.Severity = Convert.ToInt32(reader["Severity"]);
+                        pothole.DateReported = Convert.ToDateTime(reader["Date_Reported"]);
+                        pothole.Longitude = Convert.ToDecimal(reader["Longitude"]);
+                        pothole.Latitude = Convert.ToDecimal(reader["Latitude"]);
+                        if (DBNull.Value.Equals(reader["User_ID"]))
                         {
-                            PotholeID = Convert.ToInt32(reader["PotHole_ID"]),
-                            Status = Convert.ToString(reader["Status"]),
-                            Severity = Convert.ToInt32(reader["Severity"]),
-                            DateReported = Convert.ToDateTime(reader["Date_Reported"]),
-                            UserID = Convert.ToInt32(reader["User_ID"]),
-                            Longitude = Convert.ToDecimal(reader["Longitude"]),
-                            Latitude = Convert.ToDecimal(reader["Latitude"])
-                        };
+                            pothole.UserID = null;
+                        }
+                    
                         potholeList.Add(pothole);
                     }
                 }
