@@ -19,17 +19,5 @@ namespace Capstone.Web.Models
         public string lastName;
         public int is_Employee; // bit pulled from DATABASE
 
-
-        public bool Employee(int is_Employee)
-        {
-            if (is_Employee > 0)
-            {
-                Is_Employee = true;
-            }
-            else
-            {
-                Is_Employee = false;
-            }
-        }
     }
 }
