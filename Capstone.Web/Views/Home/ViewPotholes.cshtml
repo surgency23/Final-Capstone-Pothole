@@ -2,7 +2,7 @@
 @model List<Pothole>
 
 
-<!DOCTYPE html>
+
 
 <html>
 <head>
@@ -17,9 +17,8 @@
             @foreach (var pothole in Model)
             {
                 <tr>
-                    <td>@pothole.Latitude</td>
-                    <td>@pothole.Longitude</td>
-                    <td>@pothole.Status</td> <td>@pothole.Severity</td><td> @pothole.DateReported </td>
+                    <td>@pothole.Latitude, @pothole.Longitude</td>
+                    <td>Status:@pothole.Status</td> <td>Severity:@pothole.Severity</td><td>Date Reported: @pothole.DateReported </td>
                 </tr>
             
             }
