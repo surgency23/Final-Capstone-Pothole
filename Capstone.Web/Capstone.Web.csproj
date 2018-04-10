@@ -166,6 +166,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Pothole.cs" />
+    <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -194,7 +195,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+<<<<<<< HEAD
     <Folder Include="NewFolder1\" />
+=======
+    <Folder Include="DAL\" />
+
+>>>>>>> 7468b120302faee488c30c79de5c85dbbfcc826e
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
