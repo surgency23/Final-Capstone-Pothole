@@ -15,8 +15,7 @@ namespace Capstone.Web.Tests.DAL
     public class UserDALTest
     {
         private TransactionScope tran;
-        private string connectionString = @"Data Source=LAPTOP-PT17B1L6\LOCALHOSTSQL;Initial Catalog=Potholes;Integrated Security=True";
-            /*@"Data Source =.\sqlexpress;Initial Catalog = Potholes; Integrated Security = True";*/
+        private string connectionString = @"Data Source =.\sqlexpress;Initial Catalog = Potholes; Integrated Security = True";
         private int userID;
 
 
