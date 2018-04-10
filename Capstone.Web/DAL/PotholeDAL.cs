@@ -10,7 +10,7 @@ namespace Capstone.Web.DAL
     public class PotholeDAL : IPotholeDAL
     {
         private string SQL_GetAllPotholes = @"SELECT * FROM Pothole ORDER BY Date_Reported";
-        private string SQL_InsertPothole = @"INSERT INTO [dbo].[Pothole] ([Status],[Severity],[Date_Reported],[User_ID],[Longitude],[Latitude]) VALUES('Reported', @severity,@dateReported,@userid,@longitude,@latitude)";
+        private string SQL_InsertPothole = @"INSERT INTO [dbo].[Pothole] ([Status],[Severity],[Date_Reported],[Longitude],[Latitude]) VALUES('Reported', @severity,@dateReported,@longitude,@latitude)";
 
         string connectionString;
 
@@ -32,16 +32,17 @@ namespace Capstone.Web.DAL
 
                     while (reader.Read())
                     {
-                        Pothole pothole = new Pothole
-                        {
-                            PotholeID = Convert.ToInt32(reader["PotHole_ID"]),
-                            Status = Convert.ToString(reader["Status"]),
-                            Severity = Convert.ToInt32(reader["Severity"]),
-                            DateReported = Convert.ToDateTime(reader["Date_Reported"]),
-                            UserID = Convert.ToInt32(reader["User_ID"]),
-                            Longitude = Convert.ToDecimal(reader["Longitude"]),
-                            Latitude = Convert.ToDecimal(reader["Latitude"])
-                        };
+
+
+                        Pothole pothole = new Pothole();
+
+                        pothole.PotholeID = Convert.ToInt32(reader["PotHole_ID"]);
+                        pothole.Status = Convert.ToString(reader["Status"]);
+                        pothole.Severity = Convert.ToInt32(reader["Severity"]);
+                        pothole.DateReported = Convert.ToDateTime(reader["Date_Reported"]);
+                        pothole.Longitude = Convert.ToDecimal(reader["Longitude"]);
+                        pothole.Latitude = Convert.ToDecimal(reader["Latitude"]);
+
                         potholeList.Add(pothole);
                     }
                 }
@@ -64,7 +65,6 @@ namespace Capstone.Web.DAL
                     SqlCommand cmd = new SqlCommand(SQL_InsertPothole, conn);
                     cmd.Parameters.AddWithValue("@severity", newPothole.Severity);
                     cmd.Parameters.AddWithValue("@dateReported", DateTime.UtcNow.Date);
-                    cmd.Parameters.AddWithValue("@userid", newPothole.UserID);
                     cmd.Parameters.AddWithValue("@longitude", newPothole.Longitude);
                     cmd.Parameters.AddWithValue("@latitude", newPothole.Latitude);
 
