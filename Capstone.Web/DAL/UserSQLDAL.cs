@@ -8,7 +8,12 @@ namespace Capstone.Web.DAL
 {
     public class UserSQLDAL
     {
-        private const string connectionString = connectionString;
+        private string connectionString;
+
+        public UserSQLDAL(string connectionString)
+        {
+            this.connectionString = connectionString;
+        }
 
     }
 }
