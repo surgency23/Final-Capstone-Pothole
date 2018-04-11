@@ -1,11 +1,15 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Capstone.Web.DAL;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Transactions;
 using System.Data.SqlClient;
-using System.Configuration;
 using Capstone.Web.Models;
-using Capstone.Web.DAL;
+
 
 namespace Capstone.Web.Tests.DAL
 {
@@ -14,7 +18,6 @@ namespace Capstone.Web.Tests.DAL
     {
         private TransactionScope tran;
         private string connectionString = @"Data Source =.\sqlexpress;Initial Catalog = Potholes; Integrated Security = True";
-        
         private int userID;
 
 
@@ -73,3 +76,4 @@ namespace Capstone.Web.Tests.DAL
         }
     }
 }
+

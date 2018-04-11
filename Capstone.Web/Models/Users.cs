@@ -11,10 +11,8 @@ namespace Capstone.Web.Models
         public string Password { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public int Is_Employee { get; set; } //bit identifier
         public string Email { get; set; }
-
-
+        public int Is_Employee { get; set; } //bit identifier
 
     }
 }
