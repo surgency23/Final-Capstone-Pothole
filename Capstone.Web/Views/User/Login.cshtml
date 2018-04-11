@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+@using Capstone.Web.Models
+@model Users
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Username)
+        @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "User Name" })
+        @Html.ValidationMessageFor(m => m.Username)
+        @Html.ValidationMessage("invalid-user")
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+        @Html.ValidationMessageFor(m => m.Password)
+        @Html.ValidationMessage("invalid-password")
+    </div>
+
+            <button type="submit" class="btn btn-primary">Login</button>
+}

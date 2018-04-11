@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace Capstone.Web.DAL
 {
-    public class UserSQLDAL
+    public class UserSQLDAL : IUserSQLDAL
     {
         private string connectionString;
 

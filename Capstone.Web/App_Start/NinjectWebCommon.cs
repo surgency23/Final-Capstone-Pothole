@@ -65,7 +65,8 @@ namespace Capstone.Web.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IPotholeDAL>().To<PotholeDAL>().WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings["PotHoles"].ConnectionString);
-            
-        }        
+            kernel.Bind<IUserSQLDAL>().To<UserSQLDAL>().WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings["PotHoles"].ConnectionString);
+
+        }
     }
 }

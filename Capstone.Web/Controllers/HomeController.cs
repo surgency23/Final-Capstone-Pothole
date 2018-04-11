@@ -40,7 +40,7 @@ namespace Capstone.Web.Controllers
         public ActionResult ManualPotHoleEntry(AddressData2 location)
         {
             Pothole pothole = new Pothole();
-            GoogleLocationService gls = new GoogleLocationService();
+            GoogleLocationService gls = new GoogleLocationService("AIzaSyDYwiD - MW959R9rMr0_if1ULhHvYs03Q38");
             MapPoint latlong = gls.GetLatLongFromAddress(location.ToString());
             pothole.Latitude = (decimal)latlong.Latitude;
             pothole.Longitude = (decimal)latlong.Longitude;
