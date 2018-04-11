@@ -10,41 +10,18 @@
     <style>
         /* Always set the map height explicitly to define the size of the div
             * element that contains the map. */
-        #map {
-            height: 400px;
-            width: 600px;
-            margin: auto;
-        }
-        /* Optional: Makes the sample page fill the window. */
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
 
-        #buttons {
-            margin-top: 10px;
-        }
-
-        #wrapper {
-            margin: 15px;
-        }
-
-        .tablespace {
-            padding-right: 1em;
-        }
-        td{
-            text-align:center;
-        }
         
     </style>
     <script src="~/Scripts/viewpothole.js"></script>
 
 </head>
 <body>
-    <div class="container-fluid">
-        <h4>Reported Potholes</h4>
-        <div id="map"></div>
+    <div class="container">
+        <h4 class="headersmall">Reported Potholes</h4>
+        <div id="wrapper">
+            <div id="map"></div>
+        </div>
         <span id="listcount" hidden>@listCount</span>
         <table class="table">
             @{int count = 0; }
@@ -58,7 +35,7 @@
                     <td><span id="@lat">@pothole.Latitude</span>, <span id="@lng">@pothole.Longitude</span></td>
                     <td><span class="tablespace">Status:</span>@pothole.Status</td>
                     <td><span class="tablespace">Severity:</span>@pothole.Severity</td>
-                    <td><span class="tablespace">Date Reported:</span> @pothole.DateReported </td>
+                    <td><span class="tablespace">Date Reported:</span> @pothole.DateReported.ToShortDateString() </td>
                 </tr>
                 
             }
@@ -71,6 +48,6 @@
     </p>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSatSYUL3YwnEgUtqsIpU1Cd-mR9OT148&callback=initMap"
-            ></script>
+></script>
 </body>
 </html>
