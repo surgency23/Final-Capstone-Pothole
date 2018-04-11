@@ -47,7 +47,7 @@ namespace Capstone.Web.DAL
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
 
                 throw;

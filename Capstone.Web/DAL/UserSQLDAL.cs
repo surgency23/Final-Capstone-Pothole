@@ -52,8 +52,7 @@ namespace Capstone.Web.DAL
 
                     result = cmd.ExecuteNonQuery();
                 }
-            }
-            catch (Exception ex)
+            }catch(Exception ex)
             {
                 throw;
             }

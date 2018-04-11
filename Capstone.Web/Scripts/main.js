@@ -1,3 +1,4 @@
+
 ﻿/// <reference path="../Scripts/jquery-3.1.1.js" />
 
 $(document).ready(function () {
@@ -12,7 +13,13 @@ $(document).ready(function () {
 
         $("#Longitude").val(position.coords.longitude);
     }
-
+﻿function ColorChange() {/*method for navbar color change*/
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") 
+	{
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
     });
-
-
