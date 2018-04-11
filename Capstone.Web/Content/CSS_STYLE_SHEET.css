@@ -32,3 +32,15 @@ font-size: 17px;
 .topnav .icon {
     display: none;
 }
+.jumbotron {
+
+    background-image: url('Images/marc-olivier-jodoin-502572-unsplash.jpg');
+    height: 400px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 25%;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}

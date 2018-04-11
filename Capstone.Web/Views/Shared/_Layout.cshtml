@@ -14,25 +14,22 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-
-    <div class="topnav" id="myTopnav">
-            <a>PotHole Manager</a>@*not sure how to make this unhighlightable. what element would would rather than A*@
-            <a href="#home" class="active">Pothole Report Form</a>
-            <a href="#news">Pothole News</a>
+    <div class="container-fluid">
+        <div class="topnav" id="myTopnav">
+            @*<a href="#home">PotHole Manager</a>*@@*not sure how to make this unhighlightable. what element would would rather than A*@
+            <a href="~/Home/" class="active">Pothole Report Form</a>
+            <a href="~/Home/ViewPotholes">View Reported Potholes</a>
             <a href="#contact">Contact</a>
             <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="ColorChange()">&#9776;</a>
-    </div>
-        <div style="padding-left:16px">
-
-            <p>
-                Heavy traffic flow and seasonal changes can brutalize roads and cause dangerous pothole hazards. Help protect drivers,
-                and expedite road repairs, by reporting any road damage you encounter.
-            </p>
         </div>
-  
-
+    </div>
+    <div class="container-fluid">
+        <div class="jumbotron">
+        </div>
+    </div>
+    <section class="container-fluid">
+        @RenderBody()
+    </section>
 </body>
-<section>
-     @RenderBody();
-</section>
+
 </html>
