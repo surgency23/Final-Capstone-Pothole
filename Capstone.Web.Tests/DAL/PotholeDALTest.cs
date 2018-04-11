@@ -53,5 +53,22 @@ namespace Capstone.Web.Tests
             List<Pothole> potholeList = sql.GetAllPotholes();
             Assert.AreEqual(potholeCount + 1, potholeList.Count);
         }
+
+        [TestMethod]
+        public void InsertPotholeTest()
+        {
+            PotholeDAL sql = new PotholeDAL(connectionString);
+            Pothole pothole = new Pothole
+            {
+                Status = "Reported",
+                Severity = 4,
+                DateReported = DateTime.UtcNow.Date,
+                Longitude = -83.045653M,
+                Latitude= 39.99753999999996M,
+            };
+            Assert.AreEqual(true, sql.InsertPothole(pothole));
+        }
+
+
     }
 }
