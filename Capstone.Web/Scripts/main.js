@@ -13,7 +13,7 @@ $(document).ready(function () {
 
         $("#Longitude").val(position.coords.longitude);
     }
-﻿function ColorChange() {
+﻿function ColorChange() {/*method for navbar color change*/
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav") 
 	{
