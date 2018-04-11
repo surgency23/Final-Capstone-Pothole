@@ -63,7 +63,7 @@ namespace Capstone.Web.DAL
                 {
                     conn.Open();
                     SqlCommand cmd = new SqlCommand(SQL_InsertPothole, conn);
-                    cmd.Parameters.AddWithValue("@severity", newPothole.Severity);
+                    cmd.Parameters.AddWithValue("@severity", Convert.ToInt32(newPothole.Severity));
                     cmd.Parameters.AddWithValue("@dateReported", DateTime.UtcNow.Date);
                     cmd.Parameters.AddWithValue("@longitude", newPothole.Longitude);
                     cmd.Parameters.AddWithValue("@latitude", newPothole.Latitude);

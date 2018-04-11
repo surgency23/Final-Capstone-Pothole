@@ -2,8 +2,8 @@
 @{
     ViewBag.Title = "ManualPotHoleEntry";
 }
-@using GoogleMaps.LocationServices
-@model AddressData
+@using Capstone.Web.Models
+@model AddressData2
 
 <h2>ManualPotHoleEntry</h2>
 
@@ -11,11 +11,13 @@
     @using (Html.BeginForm("ManualPotHoleEntry", "Home", FormMethod.Post))
     {
         @Html.Label("Address")
-        @Html.TextBoxFor(m => m.Address)
+        @Html.EditorFor(m => m.Address)
         @Html.Label("City")
         @Html.TextBoxFor(m => m.City)
         @Html.Label("State")
         @Html.TextBoxFor(m => m.State)
+        @Html.Label("Severity")
+        @Html.DropDownListFor(m => m.Severity, AddressData2.SeverityLevels)
         <button class="btn btn-danger">Submit</button>
     }
 </div>

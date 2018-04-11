@@ -173,12 +173,14 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\IPotholeDAL.cs" />
     <Compile Include="DAL\UserSQLDAL.cs" />
     <Compile Include="DAL\PotholeDAL.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AddressData2.cs" />
     <Compile Include="Models\Pothole.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -203,6 +205,7 @@
     <Content Include="Views\Home\DetailHole.cshtml" />
     <Content Include="Views\Home\ManualPotHoleEntry.cshtml" />
     <Content Include="Views\Home\ViewPotholes.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
