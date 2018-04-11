@@ -11,21 +11,14 @@
 <div>
     @using (Html.BeginForm("DetailHole", "Home", FormMethod.Post))
     {
+        <span hidden>@DateTime.Now.Date</span>
         @Html.HiddenFor(m => m.Latitude)
         @Html.HiddenFor(m => m.Longitude)
         @Html.HiddenFor(m => m.DateReported, DateTime.UtcNow.Date);
+        @Html.DropDownListFor(m => m.Severity, Pothole.SeverityLevels)
         <button id="reportBtn" class="btn btn-danger">Report PotHole Using Current Coordinates</button>
     }
     <p>Click <a href="/Home/ManualPotHoleEntry"> here</a> to report a pothole at a specific address</p>
  
 </div>
 <br/>
-
-
-<div>
-    <div>Enter Nearest Available Address</div>
-    <input type="text" id="manualAddressEntry" placeholder="Address" />
-    <input type="text" id="manualCityEntry" placeholder="City" />
-    <input type="text" id="manualStateEntry" placeholder="State" />
-    <button id="reportBtnMan" class="btn btn-danger">Report PotHole With Specific Address</button>
-</div>
