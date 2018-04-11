@@ -75,6 +75,8 @@ namespace Capstone.Web.DAL
                     conn.Open();
 
                     SqlCommand cmd = new SqlCommand(SQL_GetUser, conn);
+                    cmd.Parameters.AddWithValue("@Username", Convert.ToString(username));
+                    cmd.Parameters.AddWithValue("@Password", Convert.ToString(password));
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
@@ -100,7 +102,7 @@ namespace Capstone.Web.DAL
         {
             try
             {
-                string SQL = $"UPDATE Users SET Password = '{newPassword}' WHERE username = '{username}'";
+                string SQL = $"UPDATE Users SET Password = '{newPassword}' WHERE Username = '{username}'";
 
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
@@ -124,7 +126,7 @@ namespace Capstone.Web.DAL
 
             try
             {
-                string sql = $"SELECT TOP 1 * FROM app_user WHERE user_name = '{username}'";
+                string sql = $"SELECT TOP 1 * FROM users WHERE username = '{username}'";
 
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {

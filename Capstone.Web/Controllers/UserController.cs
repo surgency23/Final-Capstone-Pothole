@@ -30,7 +30,7 @@ namespace Capstone.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var currentUser = userDAL.GetUser(model.Username, model.Password);
+                var currentUser = userDAL.GetUser(model.Username);
 
                 if(currentUser == null)
                 {
