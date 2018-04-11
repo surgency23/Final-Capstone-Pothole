@@ -1,26 +1,66 @@
 ﻿@using Capstone.Web.Models
 @model List<Pothole>
-
-
+@{ int listCount = Model.Count;}
 
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>View</title>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+            * element that contains the map. */
+        #map {
+            height: 400px;
+            width: 600px;
+            margin: auto;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #buttons {
+            margin-top: 10px;
+        }
+
+        #wrapper {
+            margin: 15px;
+        }
+
+        .tablespace {
+            padding-right: 1em;
+        }
+        td{
+            text-align:center;
+        }
+        
+    </style>
+    <script src="~/Scripts/viewpothole.js"></script>
+
 </head>
 <body>
-    <div>
+    <div class="container-fluid">
         <h4>Reported Potholes</h4>
-
+        <div id="map"></div>
+        <span id="listcount" hidden>@listCount</span>
         <table class="table">
+            @{int count = 0; }
             @foreach (var pothole in Model)
             {
+                count++;
+                string lat = $"lat{count}";
+                string lng = $"lng{count}";
                 <tr>
-                    <td>@pothole.Latitude, @pothole.Longitude</td>
-                    <td>Status:@pothole.Status</td> <td>Severity:@pothole.Severity</td><td>Date Reported: @pothole.DateReported </td>
+                    <td id="count">@count</td>
+                    <td><span id="@lat">@pothole.Latitude</span>, <span id="@lng">@pothole.Longitude</span></td>
+                    <td><span class="tablespace">Status:</span>@pothole.Status</td>
+                    <td><span class="tablespace">Severity:</span>@pothole.Severity</td>
+                    <td><span class="tablespace">Date Reported:</span> @pothole.DateReported </td>
                 </tr>
-            
+                
             }
 
         </table>
@@ -29,5 +69,8 @@
         @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
         @Html.ActionLink("Back to List", "Index")
     </p>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSatSYUL3YwnEgUtqsIpU1Cd-mR9OT148&callback=initMap"
+            ></script>
 </body>
 </html>
