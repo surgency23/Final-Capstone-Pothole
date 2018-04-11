@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 using Capstone.Web.Models;
+using System.Configuration;
 using System.Data.SqlClient;
 
 namespace Capstone.Web.DAL
@@ -10,6 +12,7 @@ namespace Capstone.Web.DAL
     public class UserSQLDAL : IUserSQLDAL
     {
         private string connectionString;
+        private const string SQL_GetUser = @"SELECT * FROM Users WHERE Username = @Username AND Password = @Password";
 
         private const string SQL_CreateUser = @"
         INSERT INTO [dbo].[Users]
@@ -52,11 +55,67 @@ namespace Capstone.Web.DAL
 
                     result = cmd.ExecuteNonQuery();
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw;
             }
             return (result > 0);
+        }
+
+        public Users GetUser(string username, string password)
+        {
+            Users user = null;
+
+            try
+            {
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(SQL_GetUser, conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        user = new Users
+                        {
+                            Username = Convert.ToString(reader["Username"]),
+                            Password = Convert.ToString(reader["Password"])
+                        };
+                    }
+
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw;
+            }
+
+            return user;
+        }
+
+        public bool ChangePassword(string username, string newPassword)
+        {
+            try
+            {
+                string SQL = $"UPDATE Users SET Password = '{newPassword}' WHERE username = '{username}'";
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(SQL, conn);
+
+                    int result = cmd.ExecuteNonQuery();
+
+                    return result > 0;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw;
+            }
         }
     }
 }

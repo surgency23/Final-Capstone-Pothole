@@ -9,8 +9,10 @@ namespace Capstone.Web.DAL
 {
     public class PotholeDAL : IPotholeDAL
     {
-        private string SQL_GetAllPotholes = @"SELECT * FROM Pothole ORDER BY Date_Reported";
-        private string SQL_InsertPothole = @"INSERT INTO [dbo].[Pothole] ([Status],[Severity],[Date_Reported],[Longitude],[Latitude]) VALUES('Reported', @severity,@dateReported,@longitude,@latitude)";
+
+        
+        private const string SQL_GetAllPotholes = @"SELECT * FROM Pothole ORDER BY Date_Reported";
+        private const string SQL_InsertPothole = @"INSERT INTO [dbo].[Pothole] ([Status],[Severity],[Date_Reported],[Longitude],[Latitude]) VALUES('Reported', @severity,@dateReported,@longitude,@latitude)";
 
         string connectionString;
 

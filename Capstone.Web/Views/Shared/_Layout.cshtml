@@ -10,24 +10,27 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
 
-    <script src="~/Scripts/main.js"></script>
+
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
     <div class="container-fluid">
         <div class="topnav" id="myTopnav">
-            @*<a href="#home">PotHole Manager</a>*@@*not sure how to make this unhighlightable. what element would would rather than A*@
-            <a href="~/Home/" class="active">Pothole Report Form</a>
+
+            @*a href="#home">PotHole Manager</a>*@@*not sure how to make this unhighlightable. what element would would rather than A*@
+            <a href="~/Home/" >Pothole Report Form</a>
+
             <a href="~/Home/ViewPotholes">View Reported Potholes</a>
-            <a href="#contact">Contact</a>
+            <a href="#contact" >Contact</a>
             <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="ColorChange()">&#9776;</a>
         </div>
     </div>
     <div class="container-fluid">
         <div class="jumbotron">
+            <h1 class="header">Road Janitor</h1>
         </div>
     </div>
-    <section class="container-fluid">
+    <section class="container">
         @RenderBody()
     </section>
 </body>

@@ -4,6 +4,10 @@
 }
 @model Capstone.Web.Models.Pothole
 
-<h2>DetailHole</h2>
-
-<p>Latitude: @Model.Latitude Longitude: @Model.Longitude</p>
+<h2>Pothole Location</h2>
+<script src="~/Scripts/Detailedmap.js"></script>
+<p>Latitude: <span id="lat">@Model.Latitude</span> Longitude: <span id="lng">@Model.Longitude</span></p>
+<div id="wrapper">
+    <div id="map"></div>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSatSYUL3YwnEgUtqsIpU1Cd-mR9OT148&callback=initMap"></script>

@@ -123,6 +123,7 @@
     <Content Include="Content\Images\ohioshapedpothole.jpg" />
     <Content Include="Content\Images\unsplash.png" />
     <Content Include="GoogleMaps.LocationServices.readme.txt" />
+    <Content Include="Scripts\Detailedmap.js" />
     <Content Include="Scripts\viewpothole.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Global.asax" />
@@ -183,6 +184,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AddressData2.cs" />
+    <Compile Include="Models\ChangePasswordModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\Pothole.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
