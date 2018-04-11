@@ -9,11 +9,11 @@ using GoogleMaps.LocationServices;
 
 namespace Capstone.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : TopController
     {
-        private IPotholeDAL potholeDAL;
+        private readonly IPotholeDAL potholeDAL;
 
-        public HomeController(IPotholeDAL potholeDAL)
+        public HomeController(IUserSQLDAL userDAL, IPotholeDAL potholeDAL) : base(userDAL)
         {
             this.potholeDAL = potholeDAL;
         }

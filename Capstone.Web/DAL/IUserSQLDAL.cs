@@ -11,6 +11,8 @@ namespace Capstone.Web.DAL
 {
     public interface IUserSQLDAL
     {
-         bool CreateUser(Users user);
+        bool CreateUser(Users user);
+        Users GetUser(string username, string password);
+        bool ChangePassword(string username, string newPassword);
     }
 }
