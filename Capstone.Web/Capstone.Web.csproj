@@ -171,6 +171,7 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\IPotholeDAL.cs" />
     <Compile Include="DAL\UserSQLDAL.cs" />
     <Compile Include="DAL\PotholeDAL.cs" />
@@ -202,6 +203,7 @@
     <Content Include="Views\Home\DetailHole.cshtml" />
     <Content Include="Views\Home\ManualPotHoleEntry.cshtml" />
     <Content Include="Views\Home\ViewPotholes.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
