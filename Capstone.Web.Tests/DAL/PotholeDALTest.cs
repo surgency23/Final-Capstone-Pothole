@@ -15,6 +15,7 @@ namespace Capstone.Web.Tests
         private TransactionScope tran;
         private string connectionString = @"Data Source=.\sqlexpress;Initial Catalog = Potholes; Integrated Security = True";
         private int potholeCount = 0;
+        private int updateId = 0;
 
         [TestInitialize]
         public void TestInitialize()
@@ -33,8 +34,8 @@ namespace Capstone.Web.Tests
                 potholeCount = (int)cmd.ExecuteScalar();
 
                 //Insert a Dummy Record for pothole               
-                cmd = new SqlCommand(@"INSERT INTO [dbo].[Pothole] ([Status],[Severity],[Date_Reported],[Picture],[User_ID],[Longitude],[Latitude]) VALUES('reported',3,GETDATE(),NULL,NULL,-83.045653,39.99753999999996)", conn);
-                cmd.ExecuteNonQuery();
+                cmd = new SqlCommand(@"INSERT INTO [dbo].[Pothole] ([Status],[Severity],[Date_Reported],[Picture],[User_ID],[Longitude],[Latitude]) VALUES('reported',3,GETDATE(),NULL,NULL,-83.045653,39.99753999999996); SELECT CAST(SCOPE_IDENTITY() as int);", conn);
+                updateId= (int)cmd.ExecuteScalar();
 
             }
         }
@@ -68,6 +69,25 @@ namespace Capstone.Web.Tests
             };
             Assert.AreEqual(true, sql.InsertPothole(pothole));
         }
+
+        [TestMethod]
+        public void UpdatePotholeTest()
+        {
+            DateTime repair = new DateTime(2018, 5, 30);
+            DateTime inspect = new DateTime(2018, 4, 30);
+
+            PotholeDAL sql = new PotholeDAL(connectionString);
+            Pothole pothole = new Pothole
+            {
+                PotholeID = updateId,
+                Status = "Inspected",
+                Severity = 5,
+                RepairDate = null,
+                InspectDate = inspect,
+            };
+            Assert.AreEqual(true, sql.UpdatePothole(pothole));
+        }
+
 
 
     }

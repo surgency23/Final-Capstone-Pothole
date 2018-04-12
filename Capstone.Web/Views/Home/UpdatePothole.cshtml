@@ -1,0 +1,27 @@
+﻿@using Capstone.Web.Models
+@model Pothole
+
+
+<script src="~/Scripts/Detailedmap.js"></script>
+
+<p>Pothole ID: @Model.PotholeID Latitude:<span id="lat">@Model.Latitude</span> Longitude: <span id="lng">@Model.Longitude</span></p>
+<div id="wrapper">
+    <div id="map"></div>
+</div>
+<table class="table">
+    <tr>
+        <td>@Model.PotholeID</td>
+        <td>@Model.Latitude</td>
+        <td>@Model.Longitude</td>
+        <td>@Model.Severity</td>
+        <td>@Html.DropDownListFor(m => m.Severity, Pothole.SeverityLevels)</td>
+        <td>@Model.Status</td>
+        <td>@Model.DateReported.ToShortDateString()</td>
+        <td>@Html.EditorFor(m => m.RepairDate)</td>
+        <td>@Model.InspectDate</td>
+        <td></td>
+        <td>@Model.RepairDate</td>
+    </tr>
+
+</table>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSatSYUL3YwnEgUtqsIpU1Cd-mR9OT148&callback=initMap"></script>

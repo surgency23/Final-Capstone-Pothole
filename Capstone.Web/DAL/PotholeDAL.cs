@@ -14,6 +14,9 @@ namespace Capstone.Web.DAL
         private const string SQL_GetAllPotholes = @"SELECT * FROM Pothole ORDER BY Date_Reported";
         private const string SQL_InsertPothole = @"INSERT INTO [dbo].[Pothole] ([Status],[Severity],[Date_Reported],[Longitude],[Latitude]) VALUES('Reported', @severity,@dateReported,@longitude,@latitude)";
         private const string SQL_DeletePothole = @"Delete from Pothole where PotHole_ID = @potholeID";
+        private const string SQL_UpdatePothole = @"UPDATE[dbo].[Pothole] SET[Status] = @status,[Severity] = @severity,[Repair_Date] = @repairDate,[Inspect_Date] = @inspectDate WHERE PotHole_ID = @potholeid";
+        private const string SQL_GetSinglePothole = @"SELECT * FROM Pothole WHERE PotHole_ID = @id";
+
 
         string connectionString;
 
@@ -43,6 +46,23 @@ namespace Capstone.Web.DAL
                         pothole.Status = Convert.ToString(reader["Status"]);
                         pothole.Severity = Convert.ToInt32(reader["Severity"]);
                         pothole.DateReported = Convert.ToDateTime(reader["Date_Reported"]);
+                        if (reader["Repair_Date"] is DBNull)
+                        {
+                            pothole.RepairDate = null;
+                        }
+                        else
+                        {
+                            pothole.RepairDate = Convert.ToDateTime(reader["Repair_Date"]);
+                        }  
+                        if (reader["Inspect_Date"] is DBNull)
+                        {
+                            pothole.InspectDate = null;
+                        }
+                        else
+                        {
+                            pothole.InspectDate = Convert.ToDateTime(reader["Inspect_Date"]);
+                        }
+                        
                         pothole.Longitude = Convert.ToDecimal(reader["Longitude"]);
                         pothole.Latitude = Convert.ToDecimal(reader["Latitude"]);
 
@@ -96,6 +116,7 @@ namespace Capstone.Web.DAL
                     int rowsAffected = cmd.ExecuteNonQuery();
 
                     return (rowsAffected > 0);
+
                 }
             }
             catch (Exception e)
@@ -103,6 +124,99 @@ namespace Capstone.Web.DAL
 
                 throw;
             }
+        }
+
+        public bool UpdatePothole(Pothole update)
+        {
+
+            try
+            {
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(SQL_UpdatePothole, conn);
+
+                    cmd.Parameters.AddWithValue("@potholeid", update.PotholeID);
+                    cmd.Parameters.AddWithValue("@status", update.Status);
+                    cmd.Parameters.AddWithValue("@severity", update.Severity);
+                    if (update.RepairDate == null)
+                    {
+                        cmd.Parameters.AddWithValue("@repairDate", DBNull.Value).IsNullable = true;
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@repairDate", update.RepairDate).IsNullable = true;
+                    }
+                    if (update.InspectDate == null)
+                    {
+                        cmd.Parameters.AddWithValue("@inspectDate", DBNull.Value).IsNullable = true;
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@inspectDate", update.InspectDate).IsNullable = true;
+                    }
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+
+                    return (rowsAffected > 0);
+
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+        }
+
+        public Pothole GetOnePotholes(string id)
+        {
+            Pothole pothole = new Pothole();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(SQL_GetSinglePothole, conn);
+                    cmd.Parameters.AddWithValue("@id", id);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        pothole.PotholeID = Convert.ToInt32(reader["PotHole_ID"]);
+                        pothole.Status = Convert.ToString(reader["Status"]);
+                        pothole.Severity = Convert.ToInt32(reader["Severity"]);
+                        pothole.DateReported = Convert.ToDateTime(reader["Date_Reported"]);
+                        if (reader["Repair_Date"] is DBNull)
+                        {
+                            pothole.RepairDate = null;
+                        }
+                        else
+                        {
+                            pothole.RepairDate = Convert.ToDateTime(reader["Repair_Date"]);
+                        }
+                        if (reader["Inspect_Date"] is DBNull)
+                        {
+                            pothole.InspectDate = null;
+                        }
+                        else
+                        {
+                            pothole.InspectDate = Convert.ToDateTime(reader["Inspect_Date"]);
+                        }
+
+                        pothole.Longitude = Convert.ToDecimal(reader["Longitude"]);
+                        pothole.Latitude = Convert.ToDecimal(reader["Latitude"]);
+                      
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            return pothole;
         }
     }
 }
