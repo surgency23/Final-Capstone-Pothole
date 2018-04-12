@@ -10,9 +10,10 @@ namespace Capstone.Web.DAL
     public class PotholeDAL : IPotholeDAL
     {
 
-        
+
         private const string SQL_GetAllPotholes = @"SELECT * FROM Pothole ORDER BY Date_Reported";
         private const string SQL_InsertPothole = @"INSERT INTO [dbo].[Pothole] ([Status],[Severity],[Date_Reported],[Longitude],[Latitude]) VALUES('Reported', @severity,@dateReported,@longitude,@latitude)";
+        private const string SQL_DeletePothole = @"Delete from Pothole where PotHole_ID = @potholeID";
 
         string connectionString;
 
@@ -66,9 +67,29 @@ namespace Capstone.Web.DAL
                     conn.Open();
                     SqlCommand cmd = new SqlCommand(SQL_InsertPothole, conn);
                     cmd.Parameters.AddWithValue("@severity", Convert.ToInt32(newPothole.Severity));
-                    cmd.Parameters.AddWithValue("@dateReported", DateTime.UtcNow.Date);
-                    cmd.Parameters.AddWithValue("@longitude", newPothole.Longitude);
-                    cmd.Parameters.AddWithValue("@latitude", newPothole.Latitude);
+
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    return (rowsAffected > 0);
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+        }
+
+        public bool DeletePothole(string id)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(SQL_DeletePothole, conn);
+                    cmd.Parameters.AddWithValue("@potholeID", id);
 
                     int rowsAffected = cmd.ExecuteNonQuery();
 

@@ -2,9 +2,8 @@
 @model List<Pothole>
 @{ int listCount = Model.Count;}
 
+<script src="~/Scripts/viewpothole.js"></script>
 
-
-    <script src="~/Scripts/viewpothole.js"></script>
     <div class="container">
         <h4 class="headersmall">Reported Potholes</h4>
         <div id="wrapper">
@@ -19,21 +18,17 @@
                 string lat = $"lat{count}";
                 string lng = $"lng{count}";
                 <tr>
-                    <td id="count">@count</td>
+                    <td id="count">@pothole.PotholeID</td>
                     <td><span id="@lat">@pothole.Latitude</span>, <span id="@lng">@pothole.Longitude</span></td>
                     <td><span class="tablespace">Status:</span>@pothole.Status</td>
                     <td><span class="tablespace">Severity:</span>@pothole.Severity</td>
                     <td><span class="tablespace">Date Reported:</span> @pothole.DateReported.ToShortDateString() </td>
+                    <td><a id="@pothole.PotholeID" class="btn btn-danger" href="~/Home/ViewPotholesForEmp2/@pothole.PotholeID">Delete</a></td>
                 </tr>
                 
             }
 
         </table>
     </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSatSYUL3YwnEgUtqsIpU1Cd-mR9OT148&callback=initMap"
-></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSatSYUL3YwnEgUtqsIpU1Cd-mR9OT148&callback=initMap"></script>

@@ -54,5 +54,15 @@ namespace Capstone.Web.Controllers
         {
             return View("ViewPotholes",potholeDAL.GetAllPotholes());
         }
+
+        public ActionResult ViewPotholesForEmp()
+        {
+            return View("ViewPotholesForEmp", potholeDAL.GetAllPotholes());
+        }
+        public ActionResult ViewPotholesForEmp2(string id)
+        {
+            potholeDAL.DeletePothole(id);
+            return View("ViewPotholesForEmp", potholeDAL.GetAllPotholes());
+        }
     }
 }

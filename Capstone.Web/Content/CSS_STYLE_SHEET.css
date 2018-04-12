@@ -1,4 +1,11 @@
-﻿
+﻿@font-face {
+    font-family: 'Schilderwald alt';
+    src: url('Fonts/Schilderwald alt.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Schilderwald';
+    src: url('Fonts/Schilderwald.ttf') format('truetype');
+}
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -44,9 +51,7 @@ font-size: 17px;
 .topnav .icon {
     display: none;
 }
-.jumbotron {
-    background: rgba(0,0,0,0.8);
-}
+
 #map {
     height: 400px;
     width: 600px;
@@ -74,12 +79,18 @@ html, body {
 td {
     text-align: center;
 }
-.header{
+.header {
     color: white;
     font-size: 6em;
-    font-family:sans-serif;
-
+    font-family: 'Schilderwald alt';
+    padding-top:100px;
 }
+.layoutheaderdiv {
+    height: 300px;
+    text-align: center;
+    background: rgba(0,0,0,0.5);
+}
+
 .headersmall {
     padding-top: 10px;
     font-family: sans-serif;
@@ -87,7 +98,6 @@ td {
 section {
     clear: both;
     display: block;
-    width: 80%;
     margin: 20px auto;
     /*vertical-align: top;*/
     text-align: center;
