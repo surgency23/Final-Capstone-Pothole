@@ -48,7 +48,26 @@ namespace Capstone.Web.Controllers
                 return username;
             }
         }
+        
+        protected bool IsEmployee()
+        {
+            bool result = false;
 
+            if(Session["isEmployee"] == null)
+            {
+                result = false;
+            }
+            else if((string)Session["isEmployee"] == "1")
+            {
+                result = true;
+            }
+            else if ((string)Session["isEmployee"] == "0")
+            {
+                result = false;
+            }
+
+            return result;
+        }
         public void LogUserOut()
         {
             Session.Abandon();
