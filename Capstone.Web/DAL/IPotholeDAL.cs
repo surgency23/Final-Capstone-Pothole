@@ -14,6 +14,6 @@ namespace Capstone.Web.DAL
         bool InsertPothole(Pothole newPothole);
         bool DeletePothole(string id);
         bool UpdatePothole(Pothole update);
-        Pothole GetOnePotholes();
+        Pothole GetOnePotholes(string id);
     }
 }

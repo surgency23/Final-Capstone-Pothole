@@ -170,7 +170,7 @@ namespace Capstone.Web.DAL
             }
         }
 
-        public Pothole GetOnePotholes()
+        public Pothole GetOnePotholes(string id)
         {
             Pothole pothole = new Pothole();
             try
@@ -179,6 +179,7 @@ namespace Capstone.Web.DAL
                 {
                     conn.Open();
                     SqlCommand cmd = new SqlCommand(SQL_GetSinglePothole, conn);
+                    cmd.Parameters.AddWithValue("@id", id);
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())

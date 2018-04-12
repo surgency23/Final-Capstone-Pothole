@@ -24,7 +24,7 @@
                 <td><span class="tablespace">Severity:</span>@pothole.Severity</td>
                 <td><span class="tablespace">Date Reported:</span> @pothole.DateReported.ToShortDateString() </td>
                 <td><a id="@pothole.PotholeID" class="btn btn-danger" href="~/Home/ViewPotholesForEmp2/@pothole.PotholeID">Delete</a></td>
-                <td><button class="btn btn-primary">Update</button></td>
+                <td><a class="btn btn-primary" href="~/Home/UpdatePothole/@pothole.PotholeID">Update</a></td>
             </tr>
         }
 

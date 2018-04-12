@@ -84,5 +84,10 @@ namespace Capstone.Web.Controllers
             potholeDAL.DeletePothole(id);
             return View("ViewPotholesForEmp", potholeDAL.GetAllPotholes());
         }
+
+        public ActionResult UpdatePothole(string id)
+        {
+            return View("UpdatePothole", potholeDAL.GetOnePotholes(id));
+        }
     }
 }
