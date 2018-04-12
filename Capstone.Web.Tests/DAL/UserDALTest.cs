@@ -74,6 +74,24 @@ namespace Capstone.Web.Tests.DAL
             };
             Assert.AreEqual(true, userDAL.CreateUser(user));
         }
+
+        [TestMethod]
+        public void TestingChangePassword()
+        {
+            UserSQLDAL userDAL = new UserSQLDAL(connectionString);
+            Users user = new Users
+            {
+                Username = "testUser",
+                Password = "Password123",
+                FirstName = "Test",
+                LastName = "LastName",
+                Is_Employee = 1,
+                Email = "TestEmail@test.com"
+            };
+            userDAL.ChangePassword("testUser", "NewPassword");
+
+            Assert.AreEqual("NewPassword", user.Password);
+        }
     }
 }
 

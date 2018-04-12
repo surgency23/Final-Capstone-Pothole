@@ -5,47 +5,48 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@*<script src="~/Scripts/Registration.Login.Validation.js"></script>*@
+
 <h2>User Login</h2>
 
 
 @using (Html.BeginForm("Register", "User", FormMethod.Post))
 {
     <h4>Help your city!</h4>
-    <div class="formValidationGroup">
-        @Html.Label("First Name")
-        @Html.TextBoxFor(m => m.FirstName)
-        @Html.ValidationMessageFor(m => m.FirstName)
-    </div>
-    <div class="formValidationGroup">
-        @Html.Label("Last Name")
-        @Html.TextBoxFor(m => m.LastName)
-        @Html.ValidationMessageFor(m => m.LastName)
-    </div>
-    <div class="formValidationGroup">
-        @Html.Label("Username")
-        @Html.EditorFor(m => m.Username)
-        @Html.ValidationMessageFor(m => m.Username)
-    </div>
-    <div class="formValidationGroup">
-        @Html.Label("Password")
-        @Html.PasswordFor(m => m.Password)
-        @Html.ValidationMessageFor(m => m.Password)
-    </div>
-    <div class="formValidationGroup">
-        @Html.Label("Confirm Password")
-        @Html.PasswordFor(m => m.ConfirmPassword)
-        @Html.ValidationMessageFor(m => m.ConfirmPassword)
-    </div>
-    <div class="formValidationGroup">
-        @Html.Label("Email")
-        @Html.EditorFor(m => m.Email)
-        @Html.ValidationMessageFor(m => m.Email)
-    </div>
-    <div class="formValidationGroup">
-        @Html.Label("Confirm Email")
-        @Html.EditorFor(m => m.ConfirmEmail)
-        @Html.ValidationMessageFor(m => m.ConfirmEmail)
-    </div>
-
+        <div class="formValidationGroup">
+            @Html.Label("First Name")
+            @Html.TextBoxFor(m => m.FirstName)
+            @Html.ValidationMessageFor(m => m.FirstName)
+        </div>
+        <div class="formValidationGroup">
+            @Html.Label("Last Name")
+            @Html.TextBoxFor(m => m.LastName)
+            @Html.ValidationMessageFor(m => m.LastName)
+        </div>
+        <div class="formValidationGroup">
+            @Html.Label("Username")
+            @Html.EditorFor(m => m.Username)
+            @Html.ValidationMessageFor(m => m.Username)
+        </div>
+        <div class="formValidationGroup" id="password">
+            @Html.Label("Password")
+            @Html.PasswordFor(m => m.Password)
+            @Html.ValidationMessageFor(m => m.Password)
+        </div>
+        <div class="formValidationGroup">
+            @Html.Label("Confirm Password")
+            @Html.PasswordFor(m => m.ConfirmPassword)
+            @Html.ValidationMessageFor(m => m.ConfirmPassword)
+        </div>
+        <div class="formValidationGroup">
+            @Html.Label("Email")
+            @Html.EditorFor(m => m.Email)
+            @Html.ValidationMessageFor(m => m.Email)
+        </div>
+        <div class="formValidationGroup" id="confirmEmail">
+            @Html.Label("Confirm Email")
+            @Html.EditorFor(m => m.ConfirmEmail)
+            @Html.ValidationMessageFor(m => m.ConfirmEmail)
+        </div>
     <button class="formSubmitButton">Submit</button>
 }

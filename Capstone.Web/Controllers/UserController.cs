@@ -95,5 +95,31 @@ namespace Capstone.Web.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult ChangePassword(string username)
+        {
+            if (CurrentUser != username)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            var model = new ChangePasswordModel();
+            return View("ChangePassword", model);
+
+        }
+
+        [HttpPost]
+        public ActionResult ChangePassword(string username, ChangePasswordModel model)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View("ChangePassword", model);
+            }
+
+            userDAL.ChangePassword(username, model.NewPassword);
+
+            return RedirectToAction("Index", "Home");
+                
+        }
     }
 }

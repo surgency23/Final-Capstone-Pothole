@@ -8,28 +8,29 @@ namespace Capstone.Web.Models
 {
     public class Users
     {
-        [Required]
+        [Required(ErrorMessage = "Please enter a Username")]
         public string Username { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please enter a Password")]
         [MinLength(8, ErrorMessage = "Password must be 8 or more characters")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Compare("Password")]
+        
+        [Compare(("Password"),ErrorMessage = "Must match Password")]
         public string ConfirmPassword { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please enter your First Name")]
         public string FirstName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please enter your Last Name")]
         public string LastName { get; set; }
 
         [Required]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        [Compare("Email")]
+        [Compare(("Email"), ErrorMessage = "Must match Email")]
         public string ConfirmEmail { get; set; }
 
         /// <summary>

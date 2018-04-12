@@ -127,6 +127,7 @@
     <Content Include="Content\Images\unsplash.png" />
     <Content Include="GoogleMaps.LocationServices.readme.txt" />
     <Content Include="Scripts\Detailedmap.js" />
+    <Content Include="Scripts\Registration.Login.Validation.js" />
     <Content Include="Scripts\viewpothole.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Global.asax" />
@@ -222,6 +223,7 @@
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\Home\ViewPotholesForEmp.cshtml" />
+    <Content Include="Views\User\ChangePassword.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
