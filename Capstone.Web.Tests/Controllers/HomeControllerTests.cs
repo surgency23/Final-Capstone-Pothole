@@ -19,9 +19,9 @@ namespace Capstone.Web.Controllers.Tests
         public void HomeController_IndexAction_ReturnIndexView()
         {
             PotholeDAL potholeDAL = new PotholeDAL(ConfigurationManager.ConnectionStrings["PotHoles"].ConnectionString);
-
+            UserSQLDAL userDAL = new UserSQLDAL(ConfigurationManager.ConnectionStrings["PotHoles"].ConnectionString);
             //Arrange
-            HomeController controller = new HomeController(potholeDAL);
+            HomeController controller = new HomeController(userDAL, potholeDAL);
 
             //Act
             ViewResult result = controller.Index() as ViewResult;
