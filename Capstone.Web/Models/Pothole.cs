@@ -15,6 +15,8 @@ namespace Capstone.Web.Models
         public DateTime DateReported { get; set; }
         public decimal Longitude { get; set; }
         public decimal Latitude { get; set; }
+        public DateTime? InspectDate { get; set; }
+        public DateTime? RepairDate { get; set; }
 
         public static List<SelectListItem> SeverityLevels
         {
