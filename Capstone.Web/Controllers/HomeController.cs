@@ -9,11 +9,11 @@ using GoogleMaps.LocationServices;
 
 namespace Capstone.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : TopController
     {
         private readonly IPotholeDAL potholeDAL;
 
-        public HomeController(IPotholeDAL potholeDAL) 
+        public HomeController(IUserSQLDAL userDAL, IPotholeDAL potholeDAL) : base(userDAL)
         {
             this.potholeDAL = potholeDAL;
         }
@@ -27,13 +27,27 @@ namespace Capstone.Web.Controllers
         [HttpPost]
         public ActionResult DetailHole(Pothole pothole)
         {
-            potholeDAL.InsertPothole(pothole);
-            return View("DetailHole", pothole);
+            if(CurrentUser == "EmptyUserName" || CurrentUser != "")
+            {
+                potholeDAL.InsertPothole(pothole);
+                return View("DetailHole", pothole);
+            }
+            else
+            {
+                return RedirectToAction("Login", "User");
+            }
         }
 
         public ActionResult ManualPotHoleEntry()
         {
-            return View();
+            if (CurrentUser != "EmptyUserName" || CurrentUser != "")
+            {
+                return View();
+            }
+            else
+            {
+                return View("Login", "User");
+            }
         }
 
         [HttpPost]
@@ -53,6 +67,12 @@ namespace Capstone.Web.Controllers
 
         public ActionResult ViewPotholes()
         {
+            string isEmployee = (string)Session["isEmployee"];
+            
+            if (isEmployee == "1")
+            {
+                return View("ViewPotholesForEmp", potholeDAL.GetAllPotholes());
+            }
             return View("ViewPotholes",potholeDAL.GetAllPotholes());
         }
 
