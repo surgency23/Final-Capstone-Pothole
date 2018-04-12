@@ -67,9 +67,8 @@ namespace Capstone.Web.Controllers
 
         public ActionResult ViewPotholes()
         {
-            string isEmployee = (string)Session["isEmployee"];
-            
-            if (isEmployee == "1")
+         
+            if (IsEmployee())
             {
                 return View("ViewPotholesForEmp", potholeDAL.GetAllPotholes());
             }
