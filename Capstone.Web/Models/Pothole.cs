@@ -32,5 +32,20 @@ namespace Capstone.Web.Models
                 };
             }
         }
+
+        public static List<SelectListItem> StatusUpdate
+        {
+            get
+            {
+                return new List<SelectListItem>()
+                {
+                    new SelectListItem { Text = "Reported", Value = "Reported" },
+                    new SelectListItem { Text = "Inspection Scheduled", Value = "Inspection Scheduled" },
+                    new SelectListItem { Text = "Inspected", Value = "Inspected" },
+                    new SelectListItem { Text = "Repair Scheduled", Value = "Repair Scheduled" },
+                    new SelectListItem { Text = "Repaired", Value = "Repaired" },
+                };
+            }
+        }
     }
 }
