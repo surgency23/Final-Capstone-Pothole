@@ -4,31 +4,31 @@
 
 <script src="~/Scripts/viewpothole.js"></script>
 
-    <div class="container">
-        <h4 class="headersmall">Reported Potholes</h4>
-        <div id="wrapper">
-            <div id="map"></div>
-        </div>
-        <span id="listcount" hidden>@listCount</span>
-        <table class="table">
-            @{int count = 0; }
-            @foreach (var pothole in Model)
-            {
-                count++;
-                string lat = $"lat{count}";
-                string lng = $"lng{count}";
-                <tr>
-                    <td id="count">@pothole.PotholeID</td>
-                    <td><span id="@lat">@pothole.Latitude</span>, <span id="@lng">@pothole.Longitude</span></td>
-                    <td><span class="tablespace">Status:</span>@pothole.Status</td>
-                    <td><span class="tablespace">Severity:</span>@pothole.Severity</td>
-                    <td><span class="tablespace">Date Reported:</span> @pothole.DateReported.ToShortDateString() </td>
-                    <td><a id="@pothole.PotholeID" class="btn btn-danger" href="~/Home/ViewPotholesForEmp2/@pothole.PotholeID">Delete</a></td>
-                </tr>
-                
-            }
-
-        </table>
+<div class="container">
+    <h4 class="headersmall">Reported Potholes</h4>
+    <div id="wrapper">
+        <div id="map"></div>
     </div>
+    <span id="listcount" hidden>@listCount</span>
+    <table class="table">
+        @{int count = 0; }
+        @foreach (var pothole in Model)
+        {
+            count++;
+            string lat = $"lat{count}";
+            string lng = $"lng{count}";
+            <tr>
+                <td id="count">@pothole.PotholeID</td>
+                <td><span id="@lat">@pothole.Latitude</span>, <span id="@lng">@pothole.Longitude</span></td>
+                <td><span class="tablespace">Status:</span>@pothole.Status</td>
+                <td><span class="tablespace">Severity:</span>@pothole.Severity</td>
+                <td><span class="tablespace">Date Reported:</span> @pothole.DateReported.ToShortDateString() </td>
+                <td><a id="@pothole.PotholeID" class="btn btn-danger" href="~/Home/ViewPotholesForEmp2/@pothole.PotholeID">Delete</a></td>
+                <td><button class="btn btn-primary">Update</button></td>
+            </tr>
+        }
+
+    </table>
+</div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSatSYUL3YwnEgUtqsIpU1Cd-mR9OT148&callback=initMap"></script>

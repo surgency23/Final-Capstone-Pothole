@@ -222,6 +222,7 @@
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\Home\ViewPotholesForEmp.cshtml" />
+    <Content Include="Views\Home\UpdatePothole.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
