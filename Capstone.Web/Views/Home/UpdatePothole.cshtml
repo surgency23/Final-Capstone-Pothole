@@ -16,16 +16,16 @@
 <h1>Selected Pothole: ID @Model.PotholeID</h1>
 @using (Html.BeginForm("ViewPotholesForEmp", "Home", FormMethod.Post))
 {
-<p><span class="tablespace">Latitude:</span><span id="lat">@Model.Latitude</span> <span class="tablespace">Longitude: </span><span id="lng">@Model.Longitude</span></p>
+    <p><span class="tablespace">Latitude:</span><span id="lat">@Model.Latitude</span> <span class="tablespace">Longitude: </span><span id="lng">@Model.Longitude</span></p>
     <div id="wrapper">
         <div id="map"></div>
     </div>
     <table class="table">
         <tr>
             <td>Current Severity: @Model.Severity</td>
-            <td>Update Severity: @Html.DropDownListFor(m => m.Severity, Pothole.SeverityLevels)</td>
+            <td>Update Severity: @Html.DropDownListFor(m => m.Severity, Pothole.SeverityLevels, new { @class = "custom-select mr-sm-2" })</td>
             <td>Status: @Model.Status</td>
-            <td>Update Status: @Html.DropDownListFor(m => m.Status, Pothole.StatusUpdate)</td>
+            <td>Update Status: @Html.DropDownListFor(m => m.Status, Pothole.StatusUpdate, new { @class = "custom-select mr-sm-2" })</td>
             <td>Date Reported: @Model.DateReported.ToShortDateString()</td>
 
             @{ if (Model.InspectDate == null)
@@ -33,9 +33,9 @@
                     <td>
                         Inspect Date:
                         <div class="input-group date" data-provide="datepicker">
-                            <input type="text" class="form-control">
+                            @Html.TextBoxFor(m => m.InspectDate, new { @class = "form-control" })
                             <div class="input-group-addon">
-                                <i class="fa fa-calendar-check-o"></i>
+                                <i class="fa fa-calendar-check-o" style="font-size:25px"></i>
                             </div>
                         </div>
                     </td>
@@ -43,6 +43,7 @@
                 else
                 {
                     <td>Inspect Date: @Model.InspectDate.Value.ToShortDateString()</td>
+                    Html.HiddenFor(m => Model.InspectDate);
                 }
             }
 
@@ -62,13 +63,18 @@
                 else
                 {
                     <td>Repair Date: @Model.RepairDate.Value.ToShortDateString()</td>
+                    Html.HiddenFor(m => m.RepairDate);
                 }
             }
 
             <td><button class="btn btn-primary">Update</button></td>
         </tr>
-
     </table>
+    @Html.HiddenFor(m => m.PotholeID);
+    @Html.HiddenFor(m => m.Latitude);
+    @Html.HiddenFor(m => m.Longitude);
+    @Html.HiddenFor(m =>m.DateReported);
+
 
 }
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSatSYUL3YwnEgUtqsIpU1Cd-mR9OT148&callback=initMap"></script>

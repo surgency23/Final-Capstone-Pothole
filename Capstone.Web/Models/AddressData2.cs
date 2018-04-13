@@ -14,7 +14,7 @@ namespace Capstone.Web.Models
         public string State { get; set; }
         public string Zip { get; set; }
         public string Country { get; set; }
-        public int? Severity { get; set; }
+        public int Severity { get; set; }
 
         public static List<SelectListItem> SeverityLevels
         {

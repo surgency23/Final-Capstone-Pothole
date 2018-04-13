@@ -11,7 +11,7 @@ namespace Capstone.Web.Models
     {
         public int PotholeID { get; set; }
         public string Status { get; set; }
-        public int? Severity { get; set; }
+        public int Severity { get; set; }
         public DateTime DateReported { get; set; }
         public decimal Longitude { get; set; }
         public decimal Latitude { get; set; }
@@ -46,6 +46,31 @@ namespace Capstone.Web.Models
                     new SelectListItem { Text = "Repaired", Value = "Repaired" },
                 };
             }
+        }
+
+        public string ReturnSeverity(int severity)
+        {
+            string severityString = "";
+            switch (severity)
+            {
+                case 1:
+                    severityString = "Minor";
+                    break;
+                case 2:
+                    severityString = "Moderate";
+                    break;
+                case 3:
+                    severityString = "Hazard";
+                    break;
+                case 4:
+                    severityString = "Severe";
+                    break;
+                case 5:
+                    severityString = "Extreme Danger";
+                    break;
+
+            }
+            return severityString;
         }
     }
 }
