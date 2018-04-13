@@ -11,6 +11,17 @@
     </div>
     <span id="listcount" hidden>@listCount</span>
     <table class="table">
+        <tr>
+            <th>Pothole ID</th>
+            <th>Latitude, Longitude</th>
+            <th>Pothole Status</th>
+            <th>Pothole Severity</th>
+            <th>Date Reported</th>
+            <th>Inspection Date</th>
+            <th>Repair Date</th>
+            <th></th>
+            <th></th>
+        </tr>
         @{int count = 0; }
         @foreach (var pothole in Model)
         {
@@ -20,12 +31,28 @@
             <tr>
                 <td id="count">@pothole.PotholeID</td>
                 <td><span id="@lat">@pothole.Latitude</span>, <span id="@lng">@pothole.Longitude</span></td>
-                <td><span class="tablespace">Status:</span>@pothole.Status</td>
-                <td><span class="tablespace">Severity:</span>@pothole.Severity</td>
-                <td><span class="tablespace">Date Reported:</span> @pothole.DateReported.ToShortDateString() </td>
-                <td><a id="@pothole.PotholeID" class="btn btn-danger" href="~/Home/ViewPotholesForEmp2/@pothole.PotholeID">Delete</a></td>
-                <td><a class="btn btn-primary" href="~/Home/UpdatePothole/@pothole.PotholeID">Update</a></td>
+                <td>@pothole.Status</td>
+                <td>@pothole.ReturnSeverity(pothole.Severity)</td>
+                <td>@pothole.DateReported.ToShortDateString() </td>
+                @{if (pothole.InspectDate != null && pothole.RepairDate == null)
+                    {
+                        <td>@pothole.InspectDate.Value.ToShortDateString() </td>
+                        <td></td>
+                    }
+                    else if (pothole.InspectDate != null && pothole.RepairDate != null)
+                    {
+                        <td>@pothole.RepairDate.Value.ToShortDateString() </td>
+                    }
+                    else
+                    {
+                        <td></td>
+                        <td></td>
+                    }
+                    <td><a id="@pothole.PotholeID" class="btn btn-danger" href="~/Home/ViewPotholesForEmp2/@pothole.PotholeID">Delete</a></td>
+                    <td><a class="btn btn-primary" href="~/Home/UpdatePothole/@pothole.PotholeID">Update</a></td>
+                }
             </tr>
+
         }
 
     </table>

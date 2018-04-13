@@ -23,8 +23,9 @@ body {
 
 
 .topnav {
-overflow: hidden;
-background-color: #333;
+    overflow: hidden;
+    background-color: #333;
+    position: sticky;
 }
 
 .topnav a {
@@ -54,7 +55,7 @@ font-size: 17px;
 
 #map {
     height: 400px;
-    width: 600px;
+    width: 90%;
     margin: auto;
 }
 /* Optional: Makes the sample page fill the window. */
@@ -83,7 +84,7 @@ td {
     color: white;
     font-size: 6em;
     font-family: 'Schilderwald alt';
-    padding-top:100px;
+    padding-top:5%;
 }
 .layoutheaderdiv {
     height: 300px;
@@ -115,3 +116,4 @@ section {
 .indexp{
     font-size:20px
 }
+
