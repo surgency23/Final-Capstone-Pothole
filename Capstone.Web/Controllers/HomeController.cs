@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Capstone.Web.DAL;
 using Capstone.Web.Models;
 using GoogleMaps.LocationServices;
+using PagedList;
 
 namespace Capstone.Web.Controllers
 {
@@ -65,24 +66,43 @@ namespace Capstone.Web.Controllers
             return View("DetailHole", pothole);
         }
 
-        public ActionResult ViewPotholes()
+        public ActionResult ViewPotholes(int? page)
         {
-         
+            int pageSize = 30;
+            int pageIndex = 1;
+            pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
+            IPagedList<Pothole> pagedPotholes = null;
+            List<Pothole> potholeList = potholeDAL.GetAllPotholes();
+            pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
             if (IsEmployee())
             {
-                return View("ViewPotholesForEmp", potholeDAL.GetAllPotholes());
+                return View("ViewPotholesForEmp",pagedPotholes );
             }
-            return View("ViewPotholes",potholeDAL.GetAllPotholes());
+
+            return View("ViewPotholes", pagedPotholes);
         }
 
-        public ActionResult ViewPotholesForEmp()
+        public ActionResult ViewPotholesForEmp(int? page)
         {
-            return View("ViewPotholesForEmp", potholeDAL.GetAllPotholes());
+            int pageSize = 30;
+            int pageIndex = 1;
+            pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
+            IPagedList<Pothole> pagedPotholes = null;
+            List<Pothole> potholeList = potholeDAL.GetAllPotholes();
+            pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            return View("ViewPotholesForEmp", potholeList);
         }
-        public ActionResult ViewPotholesForEmp2(string id)
+        public ActionResult ViewPotholesForEmp2(string id, int? page)
         {
+            int pageSize = 30;
+            int pageIndex = 1;
+            pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
+            IPagedList<Pothole> pagedPotholes = null;
+            List<Pothole> potholeList = potholeDAL.GetAllPotholes();
+            pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
             potholeDAL.DeletePothole(id);
-            return View("ViewPotholesForEmp", potholeDAL.GetAllPotholes());
+
+            return View("ViewPotholesForEmp", potholeList);
         }
 
         public ActionResult UpdatePothole(string id)

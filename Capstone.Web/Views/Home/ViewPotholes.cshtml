@@ -1,61 +1,62 @@
 ﻿@using Capstone.Web.Models
-@model List<Pothole>
+@using PagedList.Mvc
+@model PagedList.IPagedList<Pothole>
 @{ int listCount = Model.Count;}
 
 
 
 <script src="~/Scripts/viewpothole.js"></script>
 
-    <h4 class="headersmall">Reported Potholes</h4>
-    <div id="wrapper">
-        <div id="map"></div>
-    </div>
-    <span id="listcount" hidden>@listCount</span>
-    <table class="table">
+<h4 class="headersmall">Reported Potholes</h4>
+<div id="wrapper">
+    <div id="map"></div>
+</div>
+<span id="listcount" hidden>@listCount</span>
+<table class="table">
+    <tr>
+        <th>Pothole Number</th>
+        <th>Latitude/Longitude</th>
+        <th>Pothole Status</th>
+        <th>Pothole Severity</th>
+        <th>Date Reported</th>
+        <th>Inspection Date</th>
+        <th>Repair Date</th>
+    </tr>
+    @{int count = 0; }
+    @foreach (var pothole in Model)
+    {
+        count++;
+        string lat = $"lat{count}";
+        string lng = $"lng{count}";
         <tr>
-            <th></th>
-            <th>Latitude/Longitude</th>
-            <th>Pothole Status</th>
-            <th>Pothole Severity</th>
-            <th>Date Reported</th>
-            <th>Inspection Date</th>
-            <th>Repair Date</th>
-        </tr>
-        @{int count = 0; }
-        @foreach (var pothole in Model)
-        {
-            count++;
-            string lat = $"lat{count}";
-            string lng = $"lng{count}";
-            <tr>
-                <td id="count">@count</td>
-                <td><span id="@lat">@pothole.Latitude</span>, <span id="@lng">@pothole.Longitude</span></td>
-                <td>@pothole.Status</td>
-                <td>@pothole.ReturnSeverity(pothole.Severity)</td>
-                <td>@pothole.DateReported.ToShortDateString() </td>
-                @{if (pothole.InspectDate != null && pothole.RepairDate == null)
-                    {
-                        <td>@pothole.InspectDate.Value.ToShortDateString() </td>
-                        <td></td>
-                    }
-                    else if (pothole.InspectDate != null && pothole.RepairDate != null)
-                    {
-                        <td>@pothole.RepairDate.Value.ToShortDateString() </td>
-                    }
-                    else
-                    {
-                        <td></td>
-                        <td></td>
-                    }
+            <td>@pothole.PotholeID</td>
+            <td><span id="@lat">@pothole.Latitude</span>, <span id="@lng">@pothole.Longitude</span></td>
+            <td>@pothole.Status</td>
+            <td>@pothole.ReturnSeverity(pothole.Severity)</td>
+            <td>@pothole.DateReported.ToShortDateString() </td>
+            @{if (pothole.InspectDate != null && pothole.RepairDate == null)
+                {
+                    <td>@pothole.InspectDate.Value.ToShortDateString() </td>
+                    <td></td>
                 }
-            </tr>
-        }
+                else if (pothole.InspectDate != null && pothole.RepairDate != null)
+                {
+                    <td>@pothole.RepairDate.Value.ToShortDateString() </td>
+                }
+                else
+                {
+                    <td></td>
+                    <td></td>
+                }
+            }
+        </tr>
+    }
 
-    </table>
+</table>
 
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div class="pagination" style="margin-left: 400px">
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+    of @Model.PageCount   @Html.PagedListPager(Model, page => Url.Action("ViewPotholes", new { page }))
+</div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSatSYUL3YwnEgUtqsIpU1Cd-mR9OT148&callback=initMap"></script>
