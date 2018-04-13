@@ -92,15 +92,15 @@ namespace Capstone.Web.Controllers
             pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
             return View("ViewPotholesForEmp", pagedPotholes);
         }
-        public ActionResult ViewPotholesForEmp2(string id, int? page)
+        public ActionResult DeletePothole(string id, int? page)
         {
             int pageSize = 15;
             int pageIndex = 1;
+            potholeDAL.DeletePothole(id);
             pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
             IPagedList<Pothole> pagedPotholes = null;
             List<Pothole> potholeList = potholeDAL.GetAllPotholes();
             pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
-            potholeDAL.DeletePothole(id);
 
             return View("ViewPotholesForEmp", pagedPotholes);
         }
@@ -110,12 +110,17 @@ namespace Capstone.Web.Controllers
             return View("UpdatePothole", potholeDAL.GetOnePotholes(id));
         }
         [HttpPost]
-        public ActionResult UpdatePothole(Pothole updatedPothole)
+        public ActionResult UpdatePothole(Pothole updatedPothole,int? page)
         {
             potholeDAL.UpdatePothole(updatedPothole);
             string id = updatedPothole.PotholeID.ToString();
-            
-            return View("UpdatePothole", potholeDAL.GetOnePotholes(id));
+            int pageSize = 15;
+            int pageIndex = 1;
+            pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
+            IPagedList<Pothole> pagedPotholes = null;
+            List<Pothole> potholeList = potholeDAL.GetAllPotholes();
+            pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            return View("ViewPotholesForEmp", pagedPotholes);
         }
     }
 }
