@@ -62,7 +62,7 @@ namespace Capstone.Web.Controllers
 
             base.LogUserOut();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login");
         }
 
         // GET: User
@@ -121,7 +121,7 @@ namespace Capstone.Web.Controllers
 
             userDAL.ChangePassword(username, model.NewPassword);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login");
                 
         }
     }
