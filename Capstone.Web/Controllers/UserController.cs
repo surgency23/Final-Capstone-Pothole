@@ -19,6 +19,8 @@ namespace Capstone.Web.Controllers
         {
             this.userDAL = userDAL;
         }
+
+        [HttpGet]
         public ActionResult Login()
         {
             var model = new LoginModel();
@@ -57,6 +59,7 @@ namespace Capstone.Web.Controllers
         [HttpGet]
         public ActionResult LogOut()
         {
+
             base.LogUserOut();
 
             return RedirectToAction("Index", "Home");
