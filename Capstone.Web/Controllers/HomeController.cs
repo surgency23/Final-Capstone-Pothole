@@ -90,7 +90,14 @@ namespace Capstone.Web.Controllers
             IPagedList<Pothole> pagedPotholes = null;
             List<Pothole> potholeList = potholeDAL.GetAllPotholes();
             pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
-            return View("ViewPotholesForEmp", pagedPotholes);
+            if (IsEmployee())
+            {
+                return View("ViewPotholesForEmp", pagedPotholes);
+            }
+            else
+            {
+                return View("ViewPotholes", pagedPotholes);
+            }
         }
         public ActionResult DeletePothole(string id, int? page)
         {
@@ -101,13 +108,26 @@ namespace Capstone.Web.Controllers
             IPagedList<Pothole> pagedPotholes = null;
             List<Pothole> potholeList = potholeDAL.GetAllPotholes();
             pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
-
-            return View("ViewPotholesForEmp", pagedPotholes);
+            if (IsEmployee())
+            {
+                return View("ViewPotholesForEmp", pagedPotholes);
+            }
+            else
+            {
+                return View("ViewPotholes", pagedPotholes);
+            }
         }
 
         public ActionResult UpdatePothole(string id)
         {
-            return View("UpdatePothole", potholeDAL.GetOnePotholes(id));
+            if (IsEmployee())
+            {
+                return View("UpdatePothole", potholeDAL.GetOnePotholes(id));
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
         [HttpPost]
         public ActionResult UpdatePothole(Pothole updatedPothole,int? page)
@@ -120,7 +140,14 @@ namespace Capstone.Web.Controllers
             IPagedList<Pothole> pagedPotholes = null;
             List<Pothole> potholeList = potholeDAL.GetAllPotholes();
             pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
-            return View("ViewPotholesForEmp", pagedPotholes);
+            if (IsEmployee())
+            {
+                return View("ViewPotholesForEmp", pagedPotholes);
+            }
+            else
+            {
+                return View("ViewPotholes", pagedPotholes);
+            }
         }
     }
 }

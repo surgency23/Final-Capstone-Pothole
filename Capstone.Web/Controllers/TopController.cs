@@ -11,7 +11,6 @@ namespace Capstone.Web.Controllers
 {
     public class TopController : Controller
     {
-        private const string UsernameKey = "EmptyUserName";
         private IUserSQLDAL userDAL;
 
         public TopController(IUserSQLDAL userDAL)
@@ -19,19 +18,10 @@ namespace Capstone.Web.Controllers
             this.userDAL = userDAL;
         }
 
-        // GET: Top
-        public bool IsAuthenticated
-        {
-            get
-            {
-                return Session[UsernameKey] != null;
-            }
-        }
-
         //Instantiates logged in session for user
         public void LogUserIn(string username)
         {
-            Session[UsernameKey] = username;
+            Session["UsernameKey"] = username;
         }
 
         public string CurrentUser
@@ -41,9 +31,9 @@ namespace Capstone.Web.Controllers
                 string username = string.Empty;
 
                 //Check to see if user cookie exists, if not create it
-                if (Session[UsernameKey] != null)
+                if (Session["UsernameKey"] != null)
                 {
-                    username = (string)Session[UsernameKey];
+                    username = (string)Session["UsernameKey"];
                 }
                 return username;
             }
