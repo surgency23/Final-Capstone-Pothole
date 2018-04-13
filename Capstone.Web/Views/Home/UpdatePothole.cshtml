@@ -49,9 +49,9 @@
             @{ if (Model.InspectDate != null && Model.RepairDate != null)
                 {
                     <td>@Model.InspectDate.Value.ToShortDateString()</td>
-                    Html.HiddenFor(m => Model.InspectDate);
+                    @Html.HiddenFor(m => Model.InspectDate);
                     <td>@Model.RepairDate.Value.ToShortDateString()</td>
-                    Html.HiddenFor(m => m.RepairDate);
+                    @Html.HiddenFor(m => m.RepairDate);
                 }
                 else if (Model.InspectDate == null)
                 {
@@ -66,7 +66,7 @@
                 }
                 else if (Model.InspectDate != null && Model.RepairDate == null)
                 {
-                    Html.HiddenFor(m => Model.InspectDate);
+                    
                     <td>@Model.InspectDate.Value.ToShortDateString()</td>
                     <td>
                         <div class="input-group date" data-provide="datepicker">
@@ -76,7 +76,9 @@
                             </div>
                         </div>
                     </td>
+                    @Html.HiddenFor(m => Model.InspectDate);
                 }
+
 
             }
 
