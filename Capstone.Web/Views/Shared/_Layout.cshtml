@@ -30,15 +30,17 @@
             <a href="~/Home/ViewPotholes">View Reported Potholes</a>
             @if (Session["UsernameKey"] != null)
             {
-                <a href="~/User/LogOut">Log Out @username</a>
+                <a href="~/User/LogOut">Log Out  |  <b>@username</b></a>
             }
             else
             {
                 <a href="~/User/Login">Login</a>
             }
 
-
+            @if (Session["UsernameKey"] == null)
+            {
             <a href="~/User/Register">Register</a>
+            }
             <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="ColorChange()">&#9776;</a>
         </div>
     </div>
