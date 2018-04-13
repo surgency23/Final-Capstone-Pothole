@@ -29,19 +29,15 @@
             <th>Date Reported</th>
             <th>Inspection Date</th>
             @{if (Model.InspectDate == null)
-              {
+                {
                     <th></th>
-
-              }
+                }
               else
-              {
+                {
                     <th>Repair Date</th>
                     <th></th>
-
-              }
+                }
             }
-
-
         </tr>
         <tr>
             <td>@Model.ReturnSeverity(Model.Severity)</td>
@@ -50,41 +46,38 @@
             <td>@Html.DropDownListFor(m => m.Status, Pothole.StatusUpdate, new { @class = "custom-select mr-sm-2" })</td>
             <td>@Model.DateReported.ToShortDateString()</td>
 
-            @{ if (Model.InspectDate == null)
+            @{ if (Model.InspectDate != null && Model.RepairDate != null)
+                {
+                    <td>@Model.InspectDate.Value.ToShortDateString()</td>
+                    Html.HiddenFor(m => Model.InspectDate);
+                    <td>@Model.RepairDate.Value.ToShortDateString()</td>
+                    Html.HiddenFor(m => m.RepairDate);
+                }
+                else if (Model.InspectDate == null)
                 {
                     <td>
                         <div class="input-group date" data-provide="datepicker">
                             @Html.TextBoxFor(m => m.InspectDate, new { @class = "form-control" })
-                            <div class="input-group-addon">
-                                <i class="fa fa-calendar-check-o" style="font-size:25px"></i>
-                            </div>
-                        </div>
-                    </td>
-                }
-                else
-                {
-                    <td>Inspect Date: @Model.InspectDate.Value.ToShortDateString()</td>
-                    Html.HiddenFor(m => Model.InspectDate);
-                }
-            }
-
-            @{ if (Model.RepairDate == null && Model.InspectDate != null)
-                {
-                    <td>
-                        <div class="input-group date" data-provide="datepicker">
-                            <input type="text" class="form-control">
                             <div class="input-group-addon">
                                 <i class="fa fa-calendar-check-o"></i>
                             </div>
                         </div>
                     </td>
                 }
-                else if (Model.RepairDate == null && Model.InspectDate == null) { }
-                else
+                else if (Model.InspectDate != null && Model.RepairDate == null)
                 {
-                    <td>Repair Date: @Model.RepairDate.Value.ToShortDateString()</td>
-                    Html.HiddenFor(m => m.RepairDate);
+                    Html.HiddenFor(m => Model.InspectDate);
+                    <td>@Model.InspectDate.Value.ToShortDateString()</td>
+                    <td>
+                        <div class="input-group date" data-provide="datepicker">
+                            @Html.TextBoxFor(m => m.RepairDate, new { @class = "form-control" })
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar-check-o"></i>
+                            </div>
+                        </div>
+                    </td>
                 }
+
             }
 
             <td><button class="btn btn-primary">Update</button></td>

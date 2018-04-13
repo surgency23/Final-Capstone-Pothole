@@ -68,7 +68,7 @@ namespace Capstone.Web.Controllers
 
         public ActionResult ViewPotholes(int? page)
         {
-            int pageSize = 30;
+            int pageSize = 15;
             int pageIndex = 1;
             pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
             IPagedList<Pothole> pagedPotholes = null;
@@ -84,17 +84,17 @@ namespace Capstone.Web.Controllers
 
         public ActionResult ViewPotholesForEmp(int? page)
         {
-            int pageSize = 30;
+            int pageSize = 15;
             int pageIndex = 1;
             pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
             IPagedList<Pothole> pagedPotholes = null;
             List<Pothole> potholeList = potholeDAL.GetAllPotholes();
             pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
-            return View("ViewPotholesForEmp", potholeList);
+            return View("ViewPotholesForEmp", pagedPotholes);
         }
         public ActionResult ViewPotholesForEmp2(string id, int? page)
         {
-            int pageSize = 30;
+            int pageSize = 15;
             int pageIndex = 1;
             pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
             IPagedList<Pothole> pagedPotholes = null;
@@ -102,7 +102,7 @@ namespace Capstone.Web.Controllers
             pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
             potholeDAL.DeletePothole(id);
 
-            return View("ViewPotholesForEmp", potholeList);
+            return View("ViewPotholesForEmp", pagedPotholes);
         }
 
         public ActionResult UpdatePothole(string id)
@@ -112,7 +112,10 @@ namespace Capstone.Web.Controllers
         [HttpPost]
         public ActionResult UpdatePothole(Pothole updatedPothole)
         {
-            return View("UpdatePothole", potholeDAL.UpdatePothole(updatedPothole));
+            potholeDAL.UpdatePothole(updatedPothole);
+            string id = updatedPothole.PotholeID.ToString();
+            
+            return View("UpdatePothole", potholeDAL.GetOnePotholes(id));
         }
     }
 }

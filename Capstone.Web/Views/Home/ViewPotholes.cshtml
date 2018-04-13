@@ -41,6 +41,7 @@
                 }
                 else if (pothole.InspectDate != null && pothole.RepairDate != null)
                 {
+                    <td>@pothole.InspectDate.Value.ToShortDateString() </td>
                     <td>@pothole.RepairDate.Value.ToShortDateString() </td>
                 }
                 else
