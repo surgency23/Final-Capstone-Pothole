@@ -14,7 +14,7 @@
     });
 </script>
 <h1>Selected Pothole: ID @Model.PotholeID</h1>
-@using (Html.BeginForm("ViewPotholesForEmp", "Home", FormMethod.Post))
+@using (Html.BeginForm("UpdatePothole", "Home", FormMethod.Post))
 {
     <p><span class="tablespace">Latitude:</span><span id="lat">@Model.Latitude</span> <span class="tablespace">Longitude: </span><span id="lng">@Model.Longitude</span></p>
     <div id="wrapper">
@@ -22,16 +22,37 @@
     </div>
     <table class="table">
         <tr>
-            <td>Current Severity: @Model.Severity</td>
-            <td>Update Severity: @Html.DropDownListFor(m => m.Severity, Pothole.SeverityLevels, new { @class = "custom-select mr-sm-2" })</td>
-            <td>Status: @Model.Status</td>
-            <td>Update Status: @Html.DropDownListFor(m => m.Status, Pothole.StatusUpdate, new { @class = "custom-select mr-sm-2" })</td>
-            <td>Date Reported: @Model.DateReported.ToShortDateString()</td>
+            <th>Current Severity</th>
+            <th>Update Severity</th>
+            <th>Current Status</th>
+            <th>Update Status</th>
+            <th>Date Reported</th>
+            <th>Inspection Date</th>
+            @{if (Model.InspectDate == null)
+              {
+                    <th></th>
+
+              }
+              else
+              {
+                    <th>Repair Date</th>
+                    <th></th>
+
+              }
+            }
+
+
+        </tr>
+        <tr>
+            <td>@Model.ReturnSeverity(Model.Severity)</td>
+            <td>@Html.DropDownListFor(m => m.Severity, Pothole.SeverityLevels, new { @class = "custom-select mr-sm-2" })</td>
+            <td>@Model.Status</td>
+            <td>@Html.DropDownListFor(m => m.Status, Pothole.StatusUpdate, new { @class = "custom-select mr-sm-2" })</td>
+            <td>@Model.DateReported.ToShortDateString()</td>
 
             @{ if (Model.InspectDate == null)
                 {
                     <td>
-                        Inspect Date:
                         <div class="input-group date" data-provide="datepicker">
                             @Html.TextBoxFor(m => m.InspectDate, new { @class = "form-control" })
                             <div class="input-group-addon">
@@ -50,7 +71,6 @@
             @{ if (Model.RepairDate == null && Model.InspectDate != null)
                 {
                     <td>
-                        Repair Date:
                         <div class="input-group date" data-provide="datepicker">
                             <input type="text" class="form-control">
                             <div class="input-group-addon">
@@ -73,7 +93,7 @@
     @Html.HiddenFor(m => m.PotholeID);
     @Html.HiddenFor(m => m.Latitude);
     @Html.HiddenFor(m => m.Longitude);
-    @Html.HiddenFor(m =>m.DateReported);
+    @Html.HiddenFor(m => m.DateReported);
 
 
 }

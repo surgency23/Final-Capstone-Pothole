@@ -89,5 +89,10 @@ namespace Capstone.Web.Controllers
         {
             return View("UpdatePothole", potholeDAL.GetOnePotholes(id));
         }
+        [HttpPost]
+        public ActionResult UpdatePothole(Pothole updatedPothole)
+        {
+            return View("UpdatePothole", potholeDAL.UpdatePothole(updatedPothole));
+        }
     }
 }
