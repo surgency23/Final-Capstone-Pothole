@@ -84,7 +84,7 @@ namespace Capstone.Web.DAL
                         user = new Users
                         {
                             Username = Convert.ToString(reader["Username"]),
-                            Password = Convert.ToString(reader["Password"])
+                            Password = Convert.ToString(reader["Password"]),
                         };
                     }
 
@@ -140,7 +140,8 @@ namespace Capstone.Web.DAL
                         user = new Users
                         {
                             Username = Convert.ToString(reader["Username"]),
-                            Password = Convert.ToString(reader["password"])
+                            Password = Convert.ToString(reader["password"]),
+                            Is_Employee = Convert.ToInt32(reader["Is_Employee"])
                         };
                     }
 

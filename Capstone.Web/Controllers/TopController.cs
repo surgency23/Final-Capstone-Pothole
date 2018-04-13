@@ -57,11 +57,11 @@ namespace Capstone.Web.Controllers
             {
                 result = false;
             }
-            else if((string)Session["isEmployee"] == "1")
+            else if((int)Session["isEmployee"] == 1)
             {
                 result = true;
             }
-            else if ((string)Session["isEmployee"] == "0")
+            else if ((int)Session["isEmployee"] == 0)
             {
                 result = false;
             }
