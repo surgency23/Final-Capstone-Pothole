@@ -232,6 +232,7 @@
     <Content Include="Views\Home\ViewPotholesForEmp.cshtml" />
     <Content Include="Views\User\ChangePassword.cshtml" />
     <Content Include="Views\Home\UpdatePothole.cshtml" />
+    <Content Include="Views\Home\ManualPotHoleEntry2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
