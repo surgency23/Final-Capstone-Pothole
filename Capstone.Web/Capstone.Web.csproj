@@ -193,6 +193,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TopController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="DAL\ClaimsDAL.cs" />
     <Compile Include="DAL\IPotholeDAL.cs" />
     <Compile Include="DAL\IUserSQLDAL.cs" />
     <Compile Include="DAL\UserSQLDAL.cs" />
@@ -202,6 +203,7 @@
     </Compile>
     <Compile Include="Models\AddressData2.cs" />
     <Compile Include="Models\ChangePasswordModel.cs" />
+    <Compile Include="Models\DamageClaimModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\Pothole.cs" />
     <Compile Include="Models\Users.cs" />
@@ -232,6 +234,7 @@
     <Content Include="Views\Home\ViewPotholesForEmp.cshtml" />
     <Content Include="Views\User\ChangePassword.cshtml" />
     <Content Include="Views\Home\UpdatePothole.cshtml" />
+    <Content Include="Views\Home\ManualPotHoleEntry2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
