@@ -8,7 +8,7 @@
 
 @model Pothole
 <h2 class="headersmall">Report a Pothole</h2>
-<div class="divcenter">
+<div class="row">
     @using (Html.BeginForm("DetailHole", "Home", FormMethod.Post))
     {
     <p class="indexp">
@@ -18,10 +18,10 @@
         @Html.HiddenFor(m => m.Latitude)
         @Html.HiddenFor(m => m.Longitude)
         @Html.HiddenFor(m => m.DateReported, DateTime.UtcNow.Date);
-        @Html.DropDownListFor(m => m.Severity, Pothole.SeverityLevels)
+        @Html.DropDownListFor(m => m.Severity, Pothole.SeverityLevels, new { @class = "selectpicker" })
         <button id="reportBtn" class="btn btn-danger">Report PotHole Using Current Coordinates</button>
     }
-    <p>Click <a href="/Home/ManualPotHoleEntry"> here</a> to report a pothole at a specific address</p>
+        <a class="btn btn-danger" href="/Home/ManualPotHoleEntry"> to report a pothole at a specific address</a>
 
 </div>
 <script src="~/Scripts/main.js"></script>
