@@ -134,6 +134,7 @@
     <Content Include="Content\PagedList.css" />
     <Content Include="GoogleMaps.LocationServices.readme.txt" />
     <Content Include="Scripts\Detailedmap.js" />
+    <Content Include="Scripts\Login.js" />
     <Content Include="Scripts\Registration.Login.Validation.js" />
     <Content Include="Scripts\viewpothole.js" />
     <Content Include="Scripts\main.js" />
