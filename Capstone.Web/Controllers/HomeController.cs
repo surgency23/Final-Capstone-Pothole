@@ -149,5 +149,12 @@ namespace Capstone.Web.Controllers
                 return View("ViewPotholes", pagedPotholes);
             }
         }
+
+        public ActionResult SelectedPothole(string id)
+        {
+            
+                return View("SinglePothole", potholeDAL.GetOnePotholes(id));
+           
+        }
     }
 }

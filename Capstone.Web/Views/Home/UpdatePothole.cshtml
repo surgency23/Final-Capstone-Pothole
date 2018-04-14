@@ -1,5 +1,8 @@
 ﻿@using Capstone.Web.Models
 @model Pothole
+@{
+    ViewBag.Title = "Road Janitor|Update Pothole";
+}
 
 
 <script src="~/Scripts/Detailedmap.js"></script>
@@ -32,7 +35,7 @@
                 {
                     <th></th>
                 }
-              else
+                else
                 {
                     <th>Repair Date</th>
                     <th></th>
@@ -66,7 +69,7 @@
                 }
                 else if (Model.InspectDate != null && Model.RepairDate == null)
                 {
-                    
+
                     <td>@Model.InspectDate.Value.ToShortDateString()</td>
                     <td>
                         <div class="input-group date" data-provide="datepicker">

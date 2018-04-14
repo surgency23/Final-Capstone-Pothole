@@ -1,0 +1,12 @@
+﻿@model Capstone.Web.Models.Pothole
+
+
+<h1>Selected Pothole: ID @Model.PotholeID</h1>
+<script src="~/Scripts/Detailedmap.js"></script>
+<p>Status:  @Model.ReturnSeverity(Model.Severity)</p>
+<p>Latitude: <span id="lat">@Model.Latitude</span> Longitude: <span id="lng">@Model.Longitude</span></p>
+<div id="wrapper">
+    <div id="map"></div>
+</div>
+<a class="btn btn-primary viewbutton" href="~/Home/ViewPotholes/">Return to Submitted Potholes</a>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSatSYUL3YwnEgUtqsIpU1Cd-mR9OT148&callback=initMap"></script>

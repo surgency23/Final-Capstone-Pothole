@@ -28,9 +28,9 @@
         count++;
         string lat = $"lat{count}";
         string lng = $"lng{count}";
-        <tr>
+        <tr >
             <td>@pothole.PotholeID</td>
-            <td><span id="@lat">@pothole.Latitude</span>, <span id="@lng">@pothole.Longitude</span></td>
+            <td><a href="~/Home/SelectedPothole/@pothole.PotholeID"><span id="@lat">@pothole.Latitude</span>, <span id="@lng">@pothole.Longitude</span></a></td>
             <td>@pothole.Status</td>
             <td>@pothole.ReturnSeverity(pothole.Severity)</td>
             <td>@pothole.DateReported.ToShortDateString() </td>
@@ -55,7 +55,7 @@
 
 </table>
 
-<div class="pagination" style="margin-left: 400px">
+<div class="pagination">
     Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
     of @Model.PageCount   @Html.PagedListPager(Model, page => Url.Action("ViewPotholes", new { page }))
 </div>
