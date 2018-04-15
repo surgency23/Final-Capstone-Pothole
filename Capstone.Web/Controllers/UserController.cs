@@ -47,8 +47,16 @@ namespace Capstone.Web.Controllers
 
                 base.LogUserIn(currentUser.Username);
                 Session["isEmployee"] = currentUser.Is_Employee;
+                if (currentUser.Is_Employee==1)
+                {
+                    return RedirectToAction("ViewPotholesForEmp", "Home");
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home");
+                }
 
-                return RedirectToAction("Index", "Home"); 
+               
             }
             else
             {

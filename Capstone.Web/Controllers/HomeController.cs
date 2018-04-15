@@ -51,14 +51,46 @@ namespace Capstone.Web.Controllers
             }
         }
 
-        public ActionResult ViewPotholes(int? page)
+        public ActionResult ViewPotholes(int? page,string id)
         {
             int pageSize = 15;
             int pageIndex = 1;
             pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
             IPagedList<Pothole> pagedPotholes = null;
-            List<Pothole> potholeList = potholeDAL.GetAllPotholes();
-            pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            List<Pothole> potholeList;
+            if (id ==null)
+            {
+                potholeList=potholeDAL.GetAllPotholes();
+                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            }
+            else if (id=="Status")
+            {
+                potholeList = potholeDAL.GetAllPotholes().OrderBy(m => m.Status).ToList();
+                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            }
+            else if (id=="RepairDate")
+            {
+                potholeList = potholeDAL.GetAllPotholes().OrderBy(m => m.RepairDate).ToList();
+                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            }
+            else if (id == "InspectionDate")
+            {
+                potholeList = potholeDAL.GetAllPotholes().OrderBy(m => m.InspectDate).ToList();
+                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            }
+            else if (id == "Severity")
+            {
+                potholeList = potholeDAL.GetAllPotholes().OrderByDescending(m => m.Severity).ToList();
+                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            }
+            else if (id == "Date")
+            {
+                potholeList = potholeDAL.GetAllPotholes().OrderByDescending(m => m.DateReported).ToList();
+                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            }
+
+
+
             if (IsEmployee())
             {
                 return View("ViewPotholesForEmp",pagedPotholes );
@@ -67,14 +99,43 @@ namespace Capstone.Web.Controllers
             return View("ViewPotholes", pagedPotholes);
         }
 
-        public ActionResult ViewPotholesForEmp(int? page)
+        public ActionResult ViewPotholesForEmp(int? page,string id)
         {
             int pageSize = 15;
             int pageIndex = 1;
             pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
             IPagedList<Pothole> pagedPotholes = null;
             List<Pothole> potholeList = potholeDAL.GetAllPotholes();
-            pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            if (id == null)
+            {
+                potholeList = potholeDAL.GetAllPotholes();
+                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            }
+            else if (id == "Status")
+            {
+                potholeList = potholeDAL.GetAllPotholes().OrderBy(m => m.Status).ToList();
+                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            }
+            else if (id == "RepairDate")
+            {
+                potholeList = potholeDAL.GetAllPotholes().OrderBy(m => m.RepairDate).ToList();
+                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            }
+            else if (id == "InspectionDate")
+            {
+                potholeList = potholeDAL.GetAllPotholes().OrderBy(m => m.InspectDate).ToList();
+                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            }
+            else if (id == "Severity")
+            {
+                potholeList = potholeDAL.GetAllPotholes().OrderByDescending(m => m.Severity).ToList();
+                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            }
+            else if (id == "Date")
+            {
+                potholeList = potholeDAL.GetAllPotholes().OrderByDescending(m => m.DateReported).ToList();
+                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            }
             if (IsEmployee())
             {
                 return View("ViewPotholesForEmp", pagedPotholes);

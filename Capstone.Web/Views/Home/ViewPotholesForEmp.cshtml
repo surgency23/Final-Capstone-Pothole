@@ -1,7 +1,7 @@
 ﻿@using Capstone.Web.Models
 @using PagedList.Mvc
 @model PagedList.IPagedList<Pothole>
-@{ int listCount =Model.Count;}
+@{ int listCount = Model.Count;}
 
 <script src="~/Scripts/viewpothole.js"></script>
 
@@ -11,6 +11,14 @@
     <div id="map"></div>
 </div>
 <span id="listcount" hidden>@listCount</span>
+
+<div>
+    <a href="~/Home/ViewPotholes/Date">Date</a>
+    <a href="~/Home/ViewPotholes/Status">Status</a>
+    <a href="~/Home/ViewPotholes/Severity">Severity</a>
+    <a href="~/Home/ViewPotholes/RepairDate">Repair Date</a>
+    <a href="~/Home/ViewPotholes/InspectionDate">Inspection Date</a>
+</div>
 <table class="table">
     <tr>
         <th>Pothole ID</th>
