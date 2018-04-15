@@ -51,21 +51,6 @@ namespace Capstone.Web.Controllers
             }
         }
 
-        [HttpPost]
-        public ActionResult ManualPotHoleEntry(AddressData2 location)
-        {
-            Pothole pothole = new Pothole();
-            GoogleLocationService gls = new GoogleLocationService();
-            //"AIzaSyDYwiD - MW959R9rMr0_if1ULhHvYs03Q38" -- Google Key
-            MapPoint latlong = gls.GetLatLongFromAddress(location.ToString());
-            pothole.Latitude = (decimal)latlong.Latitude;
-            pothole.Longitude = (decimal)latlong.Longitude;
-            pothole.Severity = location.Severity;
-            potholeDAL.InsertPothole(pothole);
-
-            return View("DetailHole", pothole);
-        }
-
         public ActionResult ViewPotholes(int? page)
         {
             int pageSize = 15;
