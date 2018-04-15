@@ -27,7 +27,12 @@ body {
     background-color: #333;
     position: sticky;
 }
-
+.imgsize {
+    width:200px !important;
+    height: 200px;
+    margin-left:50px;
+    float: left;
+}
 .topnav a {
 float: left;
 margin-left: 10%;
@@ -82,7 +87,7 @@ td {
 }
 .header {
     color: white;
-    font-size: 6em;
+    font-size:90px;
     font-family: 'Schilderwald alt';
     padding-top:5%;
 }
@@ -90,6 +95,7 @@ td {
     height: 300px;
     text-align: center;
     background: rgba(0,0,0,0.5);
+    position:relative;
 }
 
 .headersmall {
