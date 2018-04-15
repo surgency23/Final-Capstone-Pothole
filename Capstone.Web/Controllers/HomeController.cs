@@ -150,9 +150,11 @@ namespace Capstone.Web.Controllers
             }
         }
 
-        public ActionResult ManualPotHoleEntry2()
+        public ActionResult SelectedPothole(string id)
         {
-            return View();
+            
+                return View("SinglePothole", potholeDAL.GetOnePotholes(id));
+           
         }
     }
 }
