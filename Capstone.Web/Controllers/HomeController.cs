@@ -149,5 +149,10 @@ namespace Capstone.Web.Controllers
                 return View("ViewPotholes", pagedPotholes);
             }
         }
+
+        public ActionResult ManualPotHoleEntry2()
+        {
+            return View();
+        }
     }
 }
