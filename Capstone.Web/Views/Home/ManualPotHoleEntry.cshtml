@@ -3,21 +3,22 @@
     ViewBag.Title = "ManualPotHoleEntry";
 }
 @using Capstone.Web.Models
-@model AddressData2
-
-<h2>ManualPotHoleEntry</h2>
-
-<div>
-    @using (Html.BeginForm("ManualPotHoleEntry", "Home", FormMethod.Post))
-    {
-        @Html.Label("Address")
-        @Html.EditorFor(m => m.Address)
-        @Html.Label("City")
-        @Html.TextBoxFor(m => m.City)
-        @Html.Label("State")
-        @Html.TextBoxFor(m => m.State)
-        @Html.Label("Severity")
-        @Html.DropDownListFor(m => m.Severity, AddressData2.SeverityLevels)
-        <button class="btn btn-danger">Submit</button>
-    }
+@model Pothole
+<script src="~/Scripts/manualEntry.js"></script>
+    <input id="search-box" class="controls" type="text" placeholder="Search" />
+<div id="wrapper">
+ <div id="map"></div>
+ <div id="lat"></div>
 </div>
+@using (Html.BeginForm("DetailHole", "Home", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.Latitude)
+    @Html.HiddenFor(m => m.Longitude)
+    @Html.LabelFor(m => m.Severity, "Severity")
+    @Html.DropDownListFor(m => m.Severity, Pothole.SeverityLevels)
+    <button class="btn btn-danger">Submit</button>
+}
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBugEcO0-7dk62GbFYyVE2tNfTgmPjUpGs&libraries=places&callback=initMap">
+</script>
