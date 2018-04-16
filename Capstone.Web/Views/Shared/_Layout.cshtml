@@ -35,7 +35,45 @@
             }
             else
             {
-                @Html.ActionLink("Login", "Login", "User")
+                <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+
+                <div id="id01" class="modal">
+
+                    <form class="modal-content animate" action="@Url.Action("Login", "User")" method="post" id="LoginForm">
+                        <div class="imgcontainer">
+                            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                            <img src="img_avatar2.png" alt="Avatar" class="avatar">
+                        </div>
+
+                        <div class="container">
+                            <label for="uname"><b>Username</b></label>
+                            <input id="Username" name="Username" type="text" placeholder="Enter Username" required>
+
+                            <label for="psw"><b>Password</b></label>
+                            <input id="Password" name="Password" type="password" placeholder="Enter Password" required>
+
+                            <button id="loginsubmit" type="submit">Login</button>
+                   
+                        </div>
+
+                        <div class="container" style="background-color:#f1f1f1">
+                            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                            <span class="psw">Forgot <a href="#">password?</a></span>
+                        </div>
+                    </form>
+                </div>
+
+                <script>
+                    // Get the modal
+                    var modal = document.getElementById('id01');
+
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function (event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+                </script>
                 <a href="~/User/Register">Register</a>
             }
 
@@ -46,13 +84,13 @@
     </div>
     <div class="container-fluid">
         <div class="layoutheaderdiv">
-            <div class="row" style="height: 300px;padding-top:35px;">
+            
 
-                <img class="imgsize" src="~/Content/Images/officialogo.png" />
+                @*<img class="imgsize" src="~/Content/Images/officialogo.png" />*@
 
-                <div class="col-sm-9"><h1 class="header">ROAD JANITOR</h1></div>
+               <h1 class="header">ROAD JANITOR</h1></div>
 
-            </div>
+           
         </div>
     </div>
     <section class="container">

@@ -28,26 +28,31 @@ namespace Capstone.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(LoginModel model)
+        public ActionResult Login(string username, string password)
         {
+            string pw = Request.Form.Get("Password");
+            string user = Request.Form.Get("Username");
+            LoginModel model = new LoginModel();
+            model.Username = user;
+            model.Password = pw;
             if (ModelState.IsValid)
             {
                 var currentUser = userDAL.GetUser(model.Username);
 
-                if(currentUser == null)
+                if (currentUser == null)
                 {
                     ModelState.AddModelError("invalid-user", "The username provided does not match an existing user");
-                    return View("Login", model);
+                    return RedirectToAction("ViewPotholes", "Home", model);
                 }
-                else if(currentUser.Password != model.Password)
+                else if (currentUser.Password != model.Password)
                 {
                     ModelState.AddModelError("invalid-password", "The password provided is not correct");
-                    return View("Login", model);
+                    return RedirectToAction("ViewPotholes","Home", model);
                 }
 
                 base.LogUserIn(currentUser.Username);
                 Session["isEmployee"] = currentUser.Is_Employee;
-                if (currentUser.Is_Employee==1)
+                if (currentUser.Is_Employee == 1)
                 {
                     return RedirectToAction("ViewPotholesForEmp", "Home");
                 }
@@ -56,11 +61,11 @@ namespace Capstone.Web.Controllers
                     return RedirectToAction("Index", "Home");
                 }
 
-               
+
             }
             else
             {
-                return View("Login", model);
+                return RedirectToAction("ViewPotholes");
             }
         }
 
@@ -70,7 +75,7 @@ namespace Capstone.Web.Controllers
 
             base.LogUserOut();
 
-            return RedirectToAction("Login");
+            return RedirectToAction("ViewPotholes");
         }
 
         // GET: User
