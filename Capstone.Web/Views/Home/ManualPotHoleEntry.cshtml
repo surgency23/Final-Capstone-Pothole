@@ -11,15 +11,18 @@
         <div id="map"></div>
         <div id="lat"></div>
     </div>
-    @using (Html.BeginForm("DetailHole", "Home", FormMethod.Post))
-    {
-        @Html.HiddenFor(m => m.Latitude)
-        @Html.HiddenFor(m => m.Longitude)
-        @Html.LabelFor(m => m.Severity, "Severity")
-        @Html.DropDownListFor(m => m.Severity, Pothole.SeverityLevels)
-        <button class="btn btn-danger">Submit</button>
-    }
+    <form action="@Url.Action("DetailManualHole", "Home")" method="post" id="manualPotHole">
+        <div class="form-group">
+            @Html.LabelFor(m => m.Latitude)
+            @Html.HiddenFor(m => m.Latitude, new { @class = "form-control", name = "Latitude" })
+            @Html.LabelFor(m => m.Longitude)
+            @Html.HiddenFor(m => m.Longitude, new { @class = "form-contol", name = "Longitude" })
+            @Html.LabelFor(m => m.Severity, "Severity")
+            @Html.DropDownListFor(m => m.Severity, Pothole.SeverityLevels)
+        </div>
+        <button id="manualSubmit" type="submit" class="btn btn-danger">Submit</button>
 
+    </form>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBugEcO0-7dk62GbFYyVE2tNfTgmPjUpGs&libraries=places&callback=initMap">
     </script>

@@ -1,4 +1,5 @@
 ﻿
+
 var map, infoWindow;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -65,26 +66,19 @@ function initMap() {
         map.fitBounds(bounds);
     });
 
-    //var geocoder = new google.maps.Geocoder();
-    //document.getElementById('submit').addEventListener('click', function () {
-    //    geocodeAddress(geocoder, map);
-    //});
+    $("#manualSubmit").click(function () {
+        SubmitPothole("#manualPothole");
+    });
 
-    //function geocodeAddress(geocoder, resultsMap) {
-    //    var address = document.getElementById('search-box').value;
-    //    geocoder.geocode({ 'address': address }, function (results, status) {
-    //        if (status === 'OK') {
-    //            resultsMap.setCenter(results[0].geometry.location);
-    //            var marker = new google.maps.Marker({
-    //                map: resultsMap,
-    //                position: results[0].geometry.location
-    //            });
-    //        }
-    //        else {
-    //            alert('Geocode not successful' + status);
-    //        }
-    //    });
-    //}
+    function SubmitPothole(formContainer) {
+        $.ajax({
+            url: "Home/DetailManualHole",
+            type: 'post',
+            data: formContainer.serialize()
+        });
+    }
+
+
 
 //    infoWindow = new google.maps.InfoWindow;
 
