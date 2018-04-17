@@ -250,6 +250,7 @@
     <Content Include="Views\Home\UpdatePothole.cshtml" />
     <Content Include="Views\Home\ManualPotHoleEntry.cshtml" />
     <Content Include="Views\Home\SinglePothole.cshtml" />
+    <Content Include="Views\Home\ClaimSubmit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
