@@ -1,9 +1,8 @@
 ﻿
-@{
     @using Capstone.Web.Models
     @using PagedList.Mvc
     @model PagedList.IPagedList<DamageClaimModel>
-}
+
 
 <table class="table">
     <tr>
@@ -13,23 +12,19 @@
         <th>Pothole Severity</th>
         <th>Date Reported</th>
 
-        <th></th>
-        <th></th>
     </tr>
-    @{int count = 0; }
+
     @foreach (var claim in Model)
     {
-        count++;
-        string lat = $"lat{count}";
-        string lng = $"lng{count}";
+
         <tr>
-            <td id="count">@claim.Pothole_ID</td>
+            <td>@claim.Pothole_ID</td>
             <td>@claim.Claim_ID</td>
             <td>@claim.Status</td>
             <td>@claim.Estimated_cost</td>
             <td>@claim.SubmissionDate.ToShortDateString() </td>
 
-            }
+            
         </tr>
 
     }
