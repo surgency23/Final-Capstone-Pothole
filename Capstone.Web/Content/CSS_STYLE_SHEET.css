@@ -20,14 +20,21 @@ body {
     -o-background-size: cover;
     font-family: sans-serif;
 }
-
+/*.form-control{
+    height:15px;
+}*/
 
 .topnav {
     overflow: hidden;
     background-color: #333;
     position: sticky;
 }
-
+.imgsize {
+    width:200px !important;
+    height: 200px;
+    margin-left:50px;
+    float: left;
+}
 .topnav a {
 float: left;
 margin-left: 10%;
@@ -82,7 +89,7 @@ td {
 }
 .header {
     color: white;
-    font-size: 6em;
+    font-size:90px;
     font-family: 'Schilderwald alt';
     padding-top:5%;
 }
@@ -90,6 +97,7 @@ td {
     height: 300px;
     text-align: center;
     background: rgba(0,0,0,0.5);
+
 }
 
 .headersmall {
@@ -125,14 +133,14 @@ section {
 
 
 /* Full-width input fields */
-input[type=text], input[type=password] {
+/*input[type=text], input[type=password] {
     width: auto;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-}
+}*/
 
 /* Set a style for all buttons */
 button {

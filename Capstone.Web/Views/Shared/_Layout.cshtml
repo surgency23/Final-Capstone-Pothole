@@ -13,15 +13,15 @@
     <script src="~/Scripts/jquery-3.1.1.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css" />
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/PagedList.css" rel="stylesheet" />
 </head>
 <body>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <div class="container-fluid">
         <div class="topnav" id="myTopnav">
 
@@ -29,15 +29,53 @@
             <a href="~/Home/Index">Pothole Report Form</a>
             <a href="~/Home/ViewPotholes">View Reported Potholes</a>
             @if (Session["UsernameKey"] != null)
-    {
-        <a href="#userpage">Welcome @username!</a>
-        <a href="~/User/LogOut">Log Out | @username</a>
-}
-else
-{
-        @Html.ActionLink("Login", "Login", "User")
-        <a href="~/User/Register">Register</a>
-}
+            {
+                <a href="#userpage">Welcome @username!</a>
+                <a href="~/User/LogOut">Log Out | @username</a>
+            }
+            else
+            {
+                <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+
+                <div id="id01" class="modal">
+
+                    <form class="modal-content animate" action="@Url.Action("Login", "User")" method="post" id="LoginForm">
+                        <div class="imgcontainer">
+                            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                            <img src="img_avatar2.png" alt="Avatar" class="avatar">
+                        </div>
+
+                        <div class="container">
+                            <label for="uname"><b>Username</b></label>
+                            <input id="Username" name="Username" type="text" placeholder="Enter Username" required>
+
+                            <label for="psw"><b>Password</b></label>
+                            <input id="Password" name="Password" type="password" placeholder="Enter Password" required>
+
+                            <button id="loginsubmit" type="submit">Login</button>
+                   
+                        </div>
+
+                        <div class="container" style="background-color:#f1f1f1">
+                            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                            <span class="psw">Forgot <a href="#">password?</a></span>
+                        </div>
+                    </form>
+                </div>
+
+                <script>
+                    // Get the modal
+                    var modal = document.getElementById('id01');
+
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function (event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+                </script>
+                <a href="~/User/Register">Register</a>
+            }
 
 
 
@@ -46,7 +84,13 @@ else
     </div>
     <div class="container-fluid">
         <div class="layoutheaderdiv">
-            <h1 class="header">o ROAD JANITOR</h1>
+            
+
+                @*<img class="imgsize" src="~/Content/Images/officialogo.png" />*@
+
+               <h1 class="header">ROAD JANITOR</h1></div>
+
+           
         </div>
     </div>
     <section class="container">

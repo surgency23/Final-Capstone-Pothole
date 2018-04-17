@@ -140,6 +140,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Images\marc-olivier-jodoin-502572-unsplash.jpg" />
+    <Content Include="Content\Images\officialogo.png" />
     <Content Include="Content\Images\ohioshapedpothole.jpg" />
     <Content Include="Content\Images\unsplash.png" />
     <Content Include="Content\PagedList.css" />

@@ -72,5 +72,7 @@ namespace Capstone.Web.Models
             }
             return severityString;
         }
+
+        
     }
 }
