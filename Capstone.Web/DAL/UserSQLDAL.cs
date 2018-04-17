@@ -141,7 +141,8 @@ namespace Capstone.Web.DAL
                         {
                             Username = Convert.ToString(reader["Username"]),
                             Password = Convert.ToString(reader["password"]),
-                            Is_Employee = Convert.ToInt32(reader["Is_Employee"])
+                            Is_Employee = Convert.ToInt32(reader["Is_Employee"]),
+                            UserID = Convert.ToInt32(reader["User_ID"])
                         };
                     }
 

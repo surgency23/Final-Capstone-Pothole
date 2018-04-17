@@ -39,5 +39,6 @@ namespace Capstone.Web.Models
         /// </summary>
         public int Is_Employee { get; set; } //bit identifier
 
+        public int UserID { get; set; }
     }
 }

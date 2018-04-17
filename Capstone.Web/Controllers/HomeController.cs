@@ -14,11 +14,13 @@ namespace Capstone.Web.Controllers
     {
         private readonly IPotholeDAL potholeDAL;
         private readonly IClaimsDAL claimsDAL;
+        private readonly IUserSQLDAL userDAL;
 
         public HomeController(IUserSQLDAL userDAL, IPotholeDAL potholeDAL, IClaimsDAL claimsDAL) : base(userDAL)
         {
             this.potholeDAL = potholeDAL;
             this.claimsDAL = claimsDAL;
+            this.userDAL = userDAL;
         }
 
         // GET: Home
@@ -289,11 +291,14 @@ namespace Capstone.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult ClaimSubmit(DamageClaimModel pothole_ID)
+        public ActionResult ClaimSubmit(DamageClaimModel claim)
         {
             if(CurrentUser == "EmptyUserName" || CurrentUser != "")
             {
-                claimsDAL.NewClaim(pothole_ID);
+                claim.Pothole_ID = (int)Session["Pothole_id"];
+                Users user = userDAL.GetUser(CurrentUser);
+                claim.UserID = user.UserID;
+                claimsDAL.NewClaim(claim);
                 return View("ClaimConfirmation");
             }
             else
