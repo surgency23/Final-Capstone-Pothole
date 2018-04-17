@@ -32,18 +32,18 @@
         <div class="form-group">
             @Html.LabelFor(m => m.Password)
             @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
-            @Html.ValidationMessageFor(m => m.Password)
+     4       @Html.ValidationMessageFor(m => m.Password)
             @Html.ValidationMessage("invalid-password")
         </div>
 
         <button id="loginsubmit" type="submit">Login</button>
     </div>
 
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn" >Cancel</button>
+    <div class="container" style="backgro8und-color:#f1f1f1">
+      <button ty67pe="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn" >Cancel</button>
       <span class="psw">Forgot <a href="~/User/ChangePassword">password?</a></span>
     </div>
-  </form>
+  </form>5
 </div>
 <script>
     // Get the modal

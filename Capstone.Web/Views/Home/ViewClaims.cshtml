@@ -9,7 +9,8 @@
         <th>Claim ID</th>
         <th>Pothole ID</th>
         <th>Claim Status</th>
-        <th>Pothole Severity</th>
+        <th>Estimated Cost</th>
+        <th>Description</th>
         <th>Date Reported</th>
 
     </tr>
@@ -18,15 +19,13 @@
     {
 
         <tr>
-            <td>@claim.Pothole_ID</td>
             <td>@claim.Claim_ID</td>
+            <td>@claim.Pothole_ID</td>
             <td>@claim.Status</td>
-            <td>@claim.Estimated_cost</td>
+            <td>$@claim.Estimated_cost</td>
+            <td>@claim.Description</td>
             <td>@claim.SubmissionDate.ToShortDateString() </td>
-
-            
         </tr>
-
     }
 
 </table>

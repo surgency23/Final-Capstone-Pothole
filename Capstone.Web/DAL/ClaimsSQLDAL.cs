@@ -52,12 +52,12 @@ namespace Capstone.Web.DAL
 
                         DamageClaimModel newClaim = new DamageClaimModel();
 
-                        newClaim.UserID = Convert.ToInt32(reader["claims.User_ID"]);
-                        newClaim.SubmissionDate = Convert.ToDateTime(reader["claims.Submission_Date"]);
-                        newClaim.Status = Convert.ToString(reader["claims.Status"]);
-                        newClaim.Pothole_ID = Convert.ToInt32(reader["claims.PotHole_ID"]);
-                        newClaim.Estimated_cost = Convert.ToDecimal(reader["claims.Estimated_Cost"]);
-                        newClaim.Description = Convert.ToString(reader["claims.Description"]);
+                        newClaim.UserID = Convert.ToInt32(reader["User_ID"]);
+                        newClaim.SubmissionDate = Convert.ToDateTime(reader["Submission_Date"]);
+                        newClaim.Status = Convert.ToString(reader["Status"]);
+                        newClaim.Pothole_ID = Convert.ToInt32(reader["PotHole_ID"]);
+                        newClaim.Estimated_cost = Convert.ToDecimal(reader["Estimated_Cost"]);
+                        newClaim.Description = Convert.ToString(reader["Description"]);
 
                         claimList.Add(newClaim);
                     }
