@@ -18,14 +18,13 @@ namespace Capstone.Web.DAL
                                 WHERE @pothole_ID = Claims.PotHole_ID";
 
         private const string SQL_Create_New_Damage_Claim = @"INSERT INTO [dbo].[Claims]
-                             ([User_ID]
-                            ,[Description]
+                             ([Description]
                             ,[Estimated_Cost]
                             ,[Submission_Date]
                             ,[Status]
                             ,[PotHole_ID])
                             VALUES
-                         (@User_ID @Description, @Submission_Date, @Status, @PotHole_ID)";
+                         (@Description, @Submission_Date, @Status, @PotHole_ID)";
 
 
         string connectionString;
@@ -117,7 +116,7 @@ namespace Capstone.Web.DAL
                 {
                     conn.Open();
                     SqlCommand cmd = new SqlCommand(SQL_Create_New_Damage_Claim, conn);
-                    cmd.Parameters.AddWithValue("@User_ID", Convert.ToInt32(newClaim.UserID));
+                   // cmd.Parameters.AddWithValue("@User_ID", Convert.ToInt32(newClaim.UserID));
                     cmd.Parameters.AddWithValue("@Description", Convert.ToString(newClaim.Description));
                     cmd.Parameters.AddWithValue("@Submission_Date", Convert.ToDateTime(newClaim.SubmissionDate));
                     cmd.Parameters.AddWithValue("@Status", Convert.ToString(newClaim.Status));

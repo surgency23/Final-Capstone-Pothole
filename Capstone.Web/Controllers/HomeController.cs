@@ -32,7 +32,8 @@ namespace Capstone.Web.Controllers
         {
             if(CurrentUser == "EmptyUserName" || CurrentUser != "")
             {
-                potholeDAL.InsertPothole(pothole);
+                int potHoleID = potholeDAL.InsertPothole(pothole);
+                Session["Pothole_id"] = potHoleID;
                 return View("DetailHole", pothole);
             }
             else
@@ -273,6 +274,21 @@ namespace Capstone.Web.Controllers
             }
         }
 
+        public ActionResult ClaimSubmit()
+        {
+            if (CurrentUser == "EmptyUserName" || CurrentUser != "")
+            {
+                return View("ClaimSubmit");
+            }
+            else
+            {
+                return RedirectToAction("Login", "User");
+            }
+
+
+        }
+
+        [HttpPost]
         public ActionResult ClaimSubmit(DamageClaimModel pothole_ID)
         {
             if(CurrentUser == "EmptyUserName" || CurrentUser != "")

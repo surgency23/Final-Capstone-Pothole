@@ -12,7 +12,7 @@ namespace Capstone.Web.DAL
 
 
         private const string SQL_GetAllPotholes = @"SELECT * FROM Pothole ORDER BY Date_Reported";
-        private const string SQL_InsertPothole = @"INSERT INTO [dbo].[Pothole] ([Status],[Severity],[Date_Reported],[Longitude],[Latitude]) VALUES('Reported', @severity,@dateReported,@longitude,@latitude)";
+        private const string SQL_InsertPothole = @"INSERT INTO [dbo].[Pothole] ([Status],[Severity],[Date_Reported],[Longitude],[Latitude]) VALUES('Reported', @severity,@dateReported,@longitude,@latitude); SELECT CAST(SCOPE_IDENTITY() as int);";
         private const string SQL_DeletePothole = @"Delete from Pothole where PotHole_ID = @potholeID";
         private const string SQL_UpdatePothole = @"UPDATE[dbo].[Pothole] SET[Status] = @status,[Severity] = @severity,[Repair_Date] = @repairDate,[Inspect_Date] = @inspectDate WHERE PotHole_ID = @potholeid";
         private const string SQL_GetSinglePothole = @"SELECT * FROM Pothole WHERE PotHole_ID = @id";
@@ -78,7 +78,7 @@ namespace Capstone.Web.DAL
             return potholeList;
         }
 
-        public bool InsertPothole(Pothole newPothole)
+        public int InsertPothole(Pothole newPothole)
         {
             try
             {
@@ -91,9 +91,9 @@ namespace Capstone.Web.DAL
                     cmd.Parameters.AddWithValue("@longitude", newPothole.Longitude);
                     cmd.Parameters.AddWithValue("@latitude", newPothole.Latitude);
 
-                    int rowsAffected = cmd.ExecuteNonQuery();
+                    int rowAffected = (int)cmd.ExecuteScalar();
 
-                    return (rowsAffected > 0);
+                    return (rowAffected);
                 }
             }
             catch (Exception e)
