@@ -1,12 +1,12 @@
 ﻿
 @{
     ViewBag.Title = "Road Janitor - Confirmation";
-
+    int claimId = (int)Session["claimID"];
 }
 @using Capstone.Web.Models
 @model DamageClaimModel
 
 <h1>Your claim has been submitted!</h1>
-<p style="font-size: 24px;">Your claim number is @Model.Claim_ID</p><p>We will review your claim and contact you with the next steps. If you have any questions please call 1-800-563-8352</p>
+<p style="font-size: 24px;">Your claim number is @claimId</p><p>We will review your claim and contact you with the next steps. If you have any questions please call 1-800-POT-HOLE</p>
 <a class="btn btn-danger viewbutton" href="~Home/Index">Report another pothole</a>
 

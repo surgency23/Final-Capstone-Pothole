@@ -11,7 +11,7 @@ namespace Capstone.Web.DAL
     {
         List<DamageClaimModel> AllClaims();
         List<DamageClaimModel> AllClaimsByPothole(string Pothole_ID);
-        bool NewClaim(DamageClaimModel newClaim);
+        int NewClaim(DamageClaimModel newClaim);
 
     }
 }

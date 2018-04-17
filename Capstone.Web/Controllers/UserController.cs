@@ -28,13 +28,9 @@ namespace Capstone.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(string username, string password)
+        public ActionResult Login(LoginModel model)
         {
-            string pw = Request.Form.Get("Password");
-            string user = Request.Form.Get("Username");
-            LoginModel model = new LoginModel();
-            model.Username = user;
-            model.Password = pw;
+
             if (ModelState.IsValid)
             {
                 var currentUser = userDAL.GetUser(model.Username);
@@ -88,23 +84,8 @@ namespace Capstone.Web.Controllers
 
         // POST: User/Register
         [HttpPost]
-        public ActionResult Register(string fname,string lname, string uname, string Pw,string cpw,string Email, string cemail)
+        public ActionResult Register(Users model)
         {
-            var model = new Users();
-            string fName = Request.Form.Get("Firstname");
-            string lName = Request.Form.Get("Lastname");
-            string uName = Request.Form.Get("RegUsername");
-            string pw = Request.Form.Get("RegPassword");
-            string confirmPw = Request.Form.Get("RegPasswordConfirm");
-            string email = Request.Form.Get("Email");
-            string confirmEmail = Request.Form.Get("ConfirmEmail");
-            model.FirstName = fName;
-            model.LastName = lName;
-            model.Username = uName;
-            model.Password = pw;
-            model.Email = email;
-            model.ConfirmPassword = confirmPw;
-            model.ConfirmEmail = confirmEmail;
             if (ModelState.IsValid)
             {
                 var currentUser = userDAL.GetUser(model.Username);

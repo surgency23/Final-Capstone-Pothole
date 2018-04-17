@@ -25,7 +25,7 @@ namespace Capstone.Web.DAL
                             ,[Status]
                             ,[PotHole_ID])
                             VALUES
-                         (@User_ID, @Description, @Estimated_Cost, @Submission_Date, @Status, @PotHole_ID)";
+                         (@User_ID, @Description, @Estimated_Cost, @Submission_Date, @Status, @PotHole_ID); SELECT CAST(SCOPE_IDENTITY() as int);";
 
 
         string connectionString;
@@ -110,7 +110,7 @@ namespace Capstone.Web.DAL
             return claimList;
         }
 
-        public bool NewClaim(DamageClaimModel newClaim)
+        public int NewClaim(DamageClaimModel newClaim)
         {
             try
             {
@@ -125,9 +125,9 @@ namespace Capstone.Web.DAL
                     cmd.Parameters.AddWithValue("@Status","Reported");
                     cmd.Parameters.AddWithValue("@PotHole_ID", Convert.ToInt32(newClaim.Pothole_ID));
 
-                    int rowsAffected = cmd.ExecuteNonQuery();
+                    int rowAffected = (int)cmd.ExecuteScalar();
 
-                    return (rowsAffected > 0);
+                    return rowAffected;
 
                 }
             }catch(Exception e)
