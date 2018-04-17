@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace Capstone.Web.DAL
 {
-    public class ClaimsDAL
+    public class ClaimsSQLDAL : IClaimsDAL
     {
         private const string SQL_FIND_ALL_CLAIMS = @"SELECT claims.User_ID, claims.Claims_ID, claims.Description, claims.Estimated_Cost, claims.PotHole_ID, claims.Status, claims.Submission_Date, Pothole.Picture  
                                 FROM Claims 
@@ -30,7 +30,7 @@ namespace Capstone.Web.DAL
 
         string connectionString;
 
-        public ClaimsDAL(string connectionString)
+        public ClaimsSQLDAL(string connectionString)
         {
             this.connectionString = connectionString;
         }
@@ -120,8 +120,8 @@ namespace Capstone.Web.DAL
                     cmd.Parameters.AddWithValue("@User_ID", Convert.ToInt32(newClaim.UserID));
                     cmd.Parameters.AddWithValue("@Description", Convert.ToString(newClaim.Description));
                     cmd.Parameters.AddWithValue("@Submission_Date", Convert.ToDateTime(newClaim.SubmissionDate));
-                    cmd.Parameters.AddWithValue("Status", Convert.ToString(newClaim.Status));
-                    cmd.Parameters.AddWithValue("PotHole_ID", Convert.ToInt32(newClaim.Pothole_ID));
+                    cmd.Parameters.AddWithValue("@Status", Convert.ToString(newClaim.Status));
+                    cmd.Parameters.AddWithValue("@PotHole_ID", Convert.ToInt32(newClaim.Pothole_ID));
 
                     int rowsAffected = cmd.ExecuteNonQuery();
 

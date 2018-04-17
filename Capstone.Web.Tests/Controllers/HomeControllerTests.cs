@@ -20,8 +20,9 @@ namespace Capstone.Web.Controllers.Tests
         {
             PotholeDAL potholeDAL = new PotholeDAL(ConfigurationManager.ConnectionStrings["PotHoles"].ConnectionString);
             UserSQLDAL userDAL = new UserSQLDAL(ConfigurationManager.ConnectionStrings["PotHoles"].ConnectionString);
+            ClaimsSQLDAL claimsDAL = new ClaimsSQLDAL(ConfigurationManager.ConnectionStrings["PotHoles"].ConnectionString);
             //Arrange
-            HomeController controller = new HomeController(userDAL, potholeDAL);
+            HomeController controller = new HomeController(userDAL, potholeDAL, claimsDAL);
 
             //Act
             ViewResult result = controller.Index() as ViewResult;

@@ -208,7 +208,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TopController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="DAL\ClaimsDAL.cs" />
+    <Compile Include="DAL\ClaimsSQLDAL.cs" />
     <Compile Include="DAL\IClaimsDAL.cs" />
     <Compile Include="DAL\IPotholeDAL.cs" />
     <Compile Include="DAL\IUserSQLDAL.cs" />
@@ -252,6 +252,7 @@
     <Content Include="Views\Home\ManualPotHoleEntry.cshtml" />
     <Content Include="Views\Home\SinglePothole.cshtml" />
     <Content Include="Views\Home\ViewClaims.cshtml" />
+    <Content Include="Views\Home\ClaimSubmit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

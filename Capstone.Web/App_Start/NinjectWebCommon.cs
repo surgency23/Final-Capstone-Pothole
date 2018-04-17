@@ -66,6 +66,7 @@ namespace Capstone.Web.App_Start
         {
             kernel.Bind<IPotholeDAL>().To<PotholeDAL>().WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings["PotHoles"].ConnectionString);
             kernel.Bind<IUserSQLDAL>().To<UserSQLDAL>().WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings["PotHoles"].ConnectionString);
+            kernel.Bind<IClaimsDAL>().To<ClaimsSQLDAL>().WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings["PotHoles"].ConnectionString);
 
         }
     }
