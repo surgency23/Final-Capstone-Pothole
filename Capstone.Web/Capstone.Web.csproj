@@ -208,7 +208,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TopController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="DAL\ClaimsDAL.cs" />
+    <Compile Include="DAL\ClaimsSQLDAL.cs" />
     <Compile Include="DAL\IClaimsDAL.cs" />
     <Compile Include="DAL\IPotholeDAL.cs" />
     <Compile Include="DAL\IUserSQLDAL.cs" />

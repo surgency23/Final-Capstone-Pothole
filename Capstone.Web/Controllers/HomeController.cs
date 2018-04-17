@@ -13,10 +13,12 @@ namespace Capstone.Web.Controllers
     public class HomeController : TopController
     {
         private readonly IPotholeDAL potholeDAL;
+        private readonly IClaimsDAL claimsDAL;
 
-        public HomeController(IUserSQLDAL userDAL, IPotholeDAL potholeDAL) : base(userDAL)
+        public HomeController(IUserSQLDAL userDAL, IPotholeDAL potholeDAL, IClaimsDAL claimsDAL) : base(userDAL)
         {
             this.potholeDAL = potholeDAL;
+            this.claimsDAL = claimsDAL;
         }
 
         // GET: Home
@@ -165,6 +167,7 @@ namespace Capstone.Web.Controllers
                 return View("ViewPotholes", pagedPotholes);
             }
         }
+
         public ActionResult DeletePothole(string id, int? page)
         {
             int pageSize = 15;
@@ -222,5 +225,69 @@ namespace Capstone.Web.Controllers
                 return View("SinglePothole", potholeDAL.GetOnePotholes(id));
            
         }
+
+        public ActionResult ViewAllClaims(int? page, string id)
+        {
+            int pageSize = 15;
+            int pageIndex = 1;
+            pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
+            IPagedList<DamageClaimModel> pagedClaims = null;
+            List<DamageClaimModel> claimList;
+            if (id == null)
+            {
+                claimList = claimsDAL.AllClaims();
+                pagedClaims = claimList.ToPagedList(pageIndex, pageSize);
+            }
+            //else if (id=="Status")
+            //{
+            //    claimList = claimsDAL.AllClaims().OrderBy(m => m.Status).ToList();
+            //    pagedClaims = claimList.ToPagedList(pageIndex, pageSize);
+            //}
+            //else if (id=="RepairDate")
+            //{
+            //    potholeList = potholeDAL.GetAllPotholes().OrderBy(m => m.RepairDate).ToList();
+            //    pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            //}
+            //else if (id == "InspectionDate")
+            //{
+            //    potholeList = potholeDAL.GetAllPotholes().OrderBy(m => m.InspectDate).ToList();
+            //    pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            //}
+            //else if (id == "Severity")
+            //{
+            //    potholeList = potholeDAL.GetAllPotholes().OrderByDescending(m => m.Severity).ToList();
+            //    pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            //}
+            //else if (id == "Date")
+            //{
+            //    potholeList = potholeDAL.GetAllPotholes().OrderByDescending(m => m.DateReported).ToList();
+            //    pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            //}
+            if (IsEmployee())
+            {
+                return View("ViewClaims", pagedClaims);
+            }
+            else
+            {
+                return View("Index");
+            }
+        }
+
+        public ActionResult ClaimSubmit(DamageClaimModel pothole_ID)
+        {
+            if(CurrentUser == "EmptyUserName" || CurrentUser != "")
+            {
+                claimsDAL.NewClaim(pothole_ID);
+                return View("ClaimConfirmation");
+            }
+            else
+            {
+                return RedirectToAction("Login", "User");
+            }
+
+
+        }
+
+
     }
 }
