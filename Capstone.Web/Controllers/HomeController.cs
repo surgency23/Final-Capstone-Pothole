@@ -304,6 +304,11 @@ namespace Capstone.Web.Controllers
 
         }
 
+        public ActionResult ClaimConfirmation()
+        {
+            return View("ClaimConfirmation");
+        }
+
 
     }
 }
