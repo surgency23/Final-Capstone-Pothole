@@ -10,9 +10,13 @@ $(document).ready(function () {
     }
     function showPosition(position) {
         $("#Latitude").val(position.coords.latitude);
-
         $("#Longitude").val(position.coords.longitude);
     }
+
+    $("#manualButton").click(function () {
+        $("#content").load("/Home/ManualPotHoleEntry").$("body");
+    });
+
 ﻿function ColorChange() {/*method for navbar color change*/
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav") 
@@ -22,4 +26,5 @@ $(document).ready(function () {
         x.className = "topnav";
     }
 }
-    });
+});
+

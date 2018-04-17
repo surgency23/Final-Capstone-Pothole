@@ -1,4 +1,5 @@
 ﻿
+
 var map, infoWindow;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -47,7 +48,7 @@ function initMap() {
                 scaledSize: new google.maps.Size(25, 25)
             };
             $("#Latitude").val(place.geometry.location.lat);
-            $("#Longitude").val(place.geometry.location.lat);
+            $("#Longitude").val(place.geometry.location.lng);
             // Create a marker for each place.
             markers.push(new google.maps.Marker({
                 map: map,
@@ -65,26 +66,19 @@ function initMap() {
         map.fitBounds(bounds);
     });
 
-    //var geocoder = new google.maps.Geocoder();
-    //document.getElementById('submit').addEventListener('click', function () {
-    //    geocodeAddress(geocoder, map);
-    //});
+    $("#manualSubmit").click(function () {
+        SubmitPothole("#manualPothole");
+    });
 
-    //function geocodeAddress(geocoder, resultsMap) {
-    //    var address = document.getElementById('search-box').value;
-    //    geocoder.geocode({ 'address': address }, function (results, status) {
-    //        if (status === 'OK') {
-    //            resultsMap.setCenter(results[0].geometry.location);
-    //            var marker = new google.maps.Marker({
-    //                map: resultsMap,
-    //                position: results[0].geometry.location
-    //            });
-    //        }
-    //        else {
-    //            alert('Geocode not successful' + status);
-    //        }
-    //    });
-    //}
+    function SubmitPothole(formContainer) {
+        $.ajax({
+            url: "Home/DetailManualHole",
+            type: 'post',
+            data: formContainer.serialize()
+        });
+    }
+
+
 
 //    infoWindow = new google.maps.InfoWindow;
 
@@ -109,12 +103,6 @@ function initMap() {
 
 //}
 
-//function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-//    infoWindow.setPosition(pos);
-//    infoWindow.setContent(browserHasGeolocation ?
-//        'Error: The Geolocation service failed.' :
-//        'Error: Your browser doesn\'t support geolocation.');
-//    infoWindow.open(map);
 }
 
 

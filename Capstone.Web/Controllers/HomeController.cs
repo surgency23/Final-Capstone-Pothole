@@ -39,6 +39,26 @@ namespace Capstone.Web.Controllers
             }
         }
 
+        [HttpPost]
+        public ActionResult DetailManualHole(decimal? latitude, decimal? longitude)
+        {
+            string lat = Request.Form.Get("Latitude");
+            string lng = Request.Form.Get("Longitude");
+            Pothole pothole = new Pothole();
+            pothole.Latitude = Int32.Parse(lat);
+            pothole.Longitude = Int32.Parse(lng);
+
+            if (CurrentUser == "EmptyUserName" || CurrentUser != "")
+            {
+                potholeDAL.InsertPothole(pothole);
+                return View("DetailHole", pothole);
+            }
+            else
+            {
+                return RedirectToAction("Login", "User");
+            }
+        }
+
         public ActionResult ManualPotHoleEntry()
         {
             if (CurrentUser != "EmptyUserName" || CurrentUser != "")
