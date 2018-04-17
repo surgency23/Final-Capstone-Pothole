@@ -1,6 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "ClaimSubmit";
+    int pothole_id = (int)Session["Pothole_id"];
 }
 @using Capstone.Web.Models
 @model DamageClaimModel
@@ -8,21 +9,36 @@
 <h2>Submit a Damage Claim</h2>
 
 <div>
-    @using (Html.BeginForm("ClaimSubmit", "Home", FormMethod.Post)) {
-        @Html.LabelFor(m => m.Pothole_ID)
-        @Html.HiddenFor(m => m.Pothole_ID)
-        @Html.LabelFor(m => m.Estimated_cost, "Estimated Cost Of Damages Accrued:")
-        @Html.TextBoxFor(m => m.Estimated_cost, new { placeholder = "$" })
-        @Html.LabelFor(m => m.Description, "Description Of Incident")
-        @Html.TextAreaFor(m => m.Description)
-        @Html.LabelFor(m => m.SubmissionDate, "Date Of Incident")
-        <div class="input-group date" data-provide="datepicker">
-            @Html.TextBoxFor(m => m.SubmissionDate, new { @class = "form-control" })
-            <div class="input-group-addon">
 
-            </div>
-        </div>
-
-        <button class="btn btn-light">Submit Claim</button>
+    @using (Html.BeginForm("ClaimSubmit", "Home", FormMethod.Post))
+    {
+        <table class="table">
+            <tr>
+                <th>Pothole ID</th>
+                <th>Estimated Cost</th>
+                <th>Submission Date</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>
+                    @Html.TextBoxFor(m => m.Pothole_ID, new { value = pothole_id})
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Estimated_cost, new { placeholder = "$" })
+                </td>
+                <td>
+                    <div class="input-group date" data-provide="datepicker">
+                        @Html.TextBoxFor(m => m.SubmissionDate, new { @class = "form-control" })
+                        <div class="input-group-addon">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    @Html.TextAreaFor(m => m.Description)
+                </td>
+            </tr>
+        </table>
+        <button class="btn btn-primary">Submit Claim</button>
     }
+
 </div>
