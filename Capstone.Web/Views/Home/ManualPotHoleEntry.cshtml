@@ -4,21 +4,22 @@
 }
 @using Capstone.Web.Models
 @model Pothole
-<script src="~/Scripts/manualEntry.js"></script>
-    <input id="search-box" class="controls" type="text" placeholder="Search" />
-<div id="wrapper">
- <div id="map"></div>
- <div id="lat"></div>
-</div>
-@using (Html.BeginForm("DetailHole", "Home", FormMethod.Post))
-{
-    @Html.HiddenFor(m => m.Latitude)
-    @Html.HiddenFor(m => m.Longitude)
-    @Html.LabelFor(m => m.Severity, "Severity")
-    @Html.DropDownListFor(m => m.Severity, Pothole.SeverityLevels)
-    <button class="btn btn-danger">Submit</button>
-}
 
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBugEcO0-7dk62GbFYyVE2tNfTgmPjUpGs&libraries=places&callback=initMap">
-</script>
+    <script src="~/Scripts/manualEntry.js"></script>
+    <input id="search-box" class="controls" type="text" placeholder="Search" />
+    <div id="wrapper">
+        <div id="map"></div>
+        <div id="lat"></div>
+    </div>
+    @using (Html.BeginForm("DetailHole", "Home", FormMethod.Post))
+    {
+        @Html.HiddenFor(m => m.Latitude)
+        @Html.HiddenFor(m => m.Longitude)
+        @Html.LabelFor(m => m.Severity, "Severity")
+        @Html.DropDownListFor(m => m.Severity, Pothole.SeverityLevels)
+        <button class="btn btn-danger">Submit</button>
+    }
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBugEcO0-7dk62GbFYyVE2tNfTgmPjUpGs&libraries=places&callback=initMap">
+    </script>
