@@ -52,6 +52,7 @@ namespace Capstone.Web.DAL
 
                         DamageClaimModel newClaim = new DamageClaimModel();
 
+                        newClaim.Claim_ID = Convert.ToInt32(reader["Claims_ID"]);
                         newClaim.UserID = Convert.ToInt32(reader["User_ID"]);
                         newClaim.SubmissionDate = Convert.ToDateTime(reader["Submission_Date"]);
                         newClaim.Status = Convert.ToString(reader["Status"]);
