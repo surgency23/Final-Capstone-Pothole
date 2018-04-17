@@ -1,11 +1,12 @@
 ﻿
 @{
-    ViewBag.Title = "DetailHole";
+    ViewBag.Title = "Road Janitor - Pothole Submitted!";
 }
 @model Capstone.Web.Models.Pothole
 
 <h2>Pothole Submitted!</h2>
 <script src="~/Scripts/Detailedmap.js"></script>
+<p>Status:  @Model.ReturnSeverity(Model.Severity)</p>
 <p>Latitude: <span id="lat">@Model.Latitude</span> Longitude: <span id="lng">@Model.Longitude</span></p>
 <div id="wrapper">
     <div id="map"></div>

@@ -39,6 +39,26 @@ namespace Capstone.Web.Controllers
             }
         }
 
+        [HttpPost]
+        public ActionResult DetailManualHole(decimal? latitude, decimal? longitude)
+        {
+            string lat = Request.Form.Get("Latitude");
+            string lng = Request.Form.Get("Longitude");
+            Pothole pothole = new Pothole();
+            pothole.Latitude = Int32.Parse(lat);
+            pothole.Longitude = Int32.Parse(lng);
+
+            if (CurrentUser == "EmptyUserName" || CurrentUser != "")
+            {
+                potholeDAL.InsertPothole(pothole);
+                return View("DetailHole", pothole);
+            }
+            else
+            {
+                return RedirectToAction("Login", "User");
+            }
+        }
+
         public ActionResult ManualPotHoleEntry()
         {
             if (CurrentUser != "EmptyUserName" || CurrentUser != "")
@@ -51,29 +71,46 @@ namespace Capstone.Web.Controllers
             }
         }
 
-        [HttpPost]
-        public ActionResult ManualPotHoleEntry(AddressData2 location)
-        {
-            Pothole pothole = new Pothole();
-            GoogleLocationService gls = new GoogleLocationService();
-            //"AIzaSyDYwiD - MW959R9rMr0_if1ULhHvYs03Q38" -- Google Key
-            MapPoint latlong = gls.GetLatLongFromAddress(location.ToString());
-            pothole.Latitude = (decimal)latlong.Latitude;
-            pothole.Longitude = (decimal)latlong.Longitude;
-            pothole.Severity = location.Severity;
-            potholeDAL.InsertPothole(pothole);
-
-            return View("DetailHole", pothole);
-        }
-
-        public ActionResult ViewPotholes(int? page)
+        public ActionResult ViewPotholes(int? page,string id)
         {
             int pageSize = 15;
             int pageIndex = 1;
             pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
             IPagedList<Pothole> pagedPotholes = null;
-            List<Pothole> potholeList = potholeDAL.GetAllPotholes();
-            pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            List<Pothole> potholeList;
+            if (id ==null)
+            {
+                potholeList=potholeDAL.GetAllPotholes();
+                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            }
+            else if (id=="Status")
+            {
+                potholeList = potholeDAL.GetAllPotholes().OrderBy(m => m.Status).ToList();
+                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            }
+            else if (id=="RepairDate")
+            {
+                potholeList = potholeDAL.GetAllPotholes().OrderBy(m => m.RepairDate).ToList();
+                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            }
+            else if (id == "InspectionDate")
+            {
+                potholeList = potholeDAL.GetAllPotholes().OrderBy(m => m.InspectDate).ToList();
+                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            }
+            else if (id == "Severity")
+            {
+                potholeList = potholeDAL.GetAllPotholes().OrderByDescending(m => m.Severity).ToList();
+                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            }
+            else if (id == "Date")
+            {
+                potholeList = potholeDAL.GetAllPotholes().OrderByDescending(m => m.DateReported).ToList();
+                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            }
+
+
+
             if (IsEmployee())
             {
                 return View("ViewPotholesForEmp",pagedPotholes );
@@ -82,14 +119,43 @@ namespace Capstone.Web.Controllers
             return View("ViewPotholes", pagedPotholes);
         }
 
-        public ActionResult ViewPotholesForEmp(int? page)
+        public ActionResult ViewPotholesForEmp(int? page,string id)
         {
             int pageSize = 15;
             int pageIndex = 1;
             pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
             IPagedList<Pothole> pagedPotholes = null;
             List<Pothole> potholeList = potholeDAL.GetAllPotholes();
-            pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            if (id == null)
+            {
+                potholeList = potholeDAL.GetAllPotholes();
+                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            }
+            else if (id == "Status")
+            {
+                potholeList = potholeDAL.GetAllPotholes().OrderBy(m => m.Status).ToList();
+                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            }
+            else if (id == "RepairDate")
+            {
+                potholeList = potholeDAL.GetAllPotholes().OrderBy(m => m.RepairDate).ToList();
+                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            }
+            else if (id == "InspectionDate")
+            {
+                potholeList = potholeDAL.GetAllPotholes().OrderBy(m => m.InspectDate).ToList();
+                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            }
+            else if (id == "Severity")
+            {
+                potholeList = potholeDAL.GetAllPotholes().OrderByDescending(m => m.Severity).ToList();
+                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            }
+            else if (id == "Date")
+            {
+                potholeList = potholeDAL.GetAllPotholes().OrderByDescending(m => m.DateReported).ToList();
+                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+            }
             if (IsEmployee())
             {
                 return View("ViewPotholesForEmp", pagedPotholes);
@@ -148,6 +214,13 @@ namespace Capstone.Web.Controllers
             {
                 return View("ViewPotholes", pagedPotholes);
             }
+        }
+
+        public ActionResult SelectedPothole(string id)
+        {
+            
+                return View("SinglePothole", potholeDAL.GetOnePotholes(id));
+           
         }
     }
 }

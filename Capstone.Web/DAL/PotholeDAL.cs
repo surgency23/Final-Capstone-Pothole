@@ -53,7 +53,7 @@ namespace Capstone.Web.DAL
                         else
                         {
                             pothole.RepairDate = Convert.ToDateTime(reader["Repair_Date"]);
-                        }  
+                        }
                         if (reader["Inspect_Date"] is DBNull)
                         {
                             pothole.InspectDate = null;
@@ -62,7 +62,7 @@ namespace Capstone.Web.DAL
                         {
                             pothole.InspectDate = Convert.ToDateTime(reader["Inspect_Date"]);
                         }
-                        
+
                         pothole.Longitude = Convert.ToDecimal(reader["Longitude"]);
                         pothole.Latitude = Convert.ToDecimal(reader["Latitude"]);
 
@@ -207,7 +207,7 @@ namespace Capstone.Web.DAL
 
                         pothole.Longitude = Convert.ToDecimal(reader["Longitude"]);
                         pothole.Latitude = Convert.ToDecimal(reader["Latitude"]);
-                      
+
                     }
                 }
             }
@@ -218,5 +218,33 @@ namespace Capstone.Web.DAL
             }
             return pothole;
         }
+
+        
+
+        public string Filter(string filter)
+        {
+            string filterString = "";
+            switch (filter)
+            {
+                case "Date":
+                    filterString = "Date_Reported";
+                    break;
+                case "Status":
+                    filterString = "Status";
+                    break;
+                case "Severity":
+                    filterString = "Severity";
+                    break;
+                case "RepairDate":
+                    filterString = "Repair_Date";
+                    break;
+                case "InspectionDate":
+                    filterString = "Inspect_Date";
+                    break;
+
+            }
+            return filterString;
+        }
     }
+    
 }

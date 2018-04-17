@@ -1,27 +1,41 @@
 ﻿
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Index";
-
+    ViewBag.Title = "Road Janitor - Report a Pothole!";
 }
 @using Capstone.Web.Models;
 
 @model Pothole
 <h2 class="headersmall">Report a Pothole</h2>
-<div class="row">
+<div>
     @using (Html.BeginForm("DetailHole", "Home", FormMethod.Post))
     {
-    <p class="indexp">
-        Heavy traffic flow and seasonal changes can brutalize roads and cause dangerous pothole hazards. Help protect drivers and expedite road repairs by reporting any road damage you encounter.
-    </p>
-    <span hidden>@DateTime.Now.Date</span>
+        <p class="indexp">
+            Heavy traffic flow and seasonal changes can brutalize roads and cause dangerous pothole hazards. Help protect drivers and expedite road repairs by reporting any road damage you encounter.
+        </p>
+
         @Html.HiddenFor(m => m.Latitude)
         @Html.HiddenFor(m => m.Longitude)
         @Html.HiddenFor(m => m.DateReported, DateTime.UtcNow.Date);
-        @Html.DropDownListFor(m => m.Severity, Pothole.SeverityLevels, new { @class = "selectpicker" })
-        <button id="reportBtn" class="btn btn-danger">Report PotHole Using Current Coordinates</button>
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-2">
+                @Html.DropDownListFor(m => m.Severity, Pothole.SeverityLevels, new { @class = "custom-select" })
+            </div>
+
+            <div class="col-4">
+                <button id="reportBtn" class="btn btn-danger" style="white-space: normal;">Report PotHole Using Current Coordinates</button>
+            </div>
+            <div class="col-3"></div>
+        </div>
     }
-        <a class="btn btn-danger" href="/Home/ManualPotHoleEntry"> to report a pothole at a specific address</a>
+
+    <div class="row" style="margin: 5px">
+        <div class=""></div>
+        <div class="col-4 offset-5">
+            <a id="manualButton" class="btn btn-danger" @*href="/Home/ManualPotHoleEntry"*@ style="white-space: normal; margin:5px">Report a pothole at a specific address</a>
+        </div>
+        <div id="content"></div>
+    </div>
 
 </div>
 <script src="~/Scripts/main.js"></script>

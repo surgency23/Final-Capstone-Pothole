@@ -3,21 +3,26 @@
     ViewBag.Title = "ManualPotHoleEntry";
 }
 @using Capstone.Web.Models
-@model AddressData2
+@model Pothole
 
-<h2>ManualPotHoleEntry</h2>
+    <script src="~/Scripts/manualEntry.js"></script>
+    <input id="search-box" class="controls" type="text" placeholder="Search" />
+    <div id="wrapper">
+        <div id="map"></div>
+        <div id="lat"></div>
+    </div>
+    <form action="@Url.Action("DetailManualHole", "Home")" method="post" id="manualPotHole">
+        <div class="form-group">
+            @Html.LabelFor(m => m.Latitude)
+            @Html.HiddenFor(m => m.Latitude, new { @class = "form-control", name = "Latitude" })
+            @Html.LabelFor(m => m.Longitude)
+            @Html.HiddenFor(m => m.Longitude, new { @class = "form-contol", name = "Longitude" })
+            @Html.LabelFor(m => m.Severity, "Severity")
+            @Html.DropDownListFor(m => m.Severity, Pothole.SeverityLevels)
+        </div>
+        <button id="manualSubmit" type="submit" class="btn btn-danger">Submit</button>
 
-<div>
-    @using (Html.BeginForm("ManualPotHoleEntry", "Home", FormMethod.Post))
-    {
-        @Html.Label("Address")
-        @Html.EditorFor(m => m.Address)
-        @Html.Label("City")
-        @Html.TextBoxFor(m => m.City)
-        @Html.Label("State")
-        @Html.TextBoxFor(m => m.State)
-        @Html.Label("Severity")
-        @Html.DropDownListFor(m => m.Severity, AddressData2.SeverityLevels)
-        <button class="btn btn-danger">Submit</button>
-    }
-</div>
+    </form>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBugEcO0-7dk62GbFYyVE2tNfTgmPjUpGs&libraries=places&callback=initMap">
+    </script>

@@ -7,11 +7,25 @@
 
 <script src="~/Scripts/viewpothole.js"></script>
 
+
+
 <h4 class="headersmall">Reported Potholes</h4>
 <div id="wrapper">
     <div id="map"></div>
 </div>
 <span id="listcount" hidden>@listCount</span>
+
+    <div>
+        <a class="btn-link" href="~/Home/ViewPotholes/Date">Date</a>
+        <a  href="~/Home/ViewPotholes/Status">Status</a>
+        <a  href="~/Home/ViewPotholes/Severity">Severity</a>
+        <a  href="~/Home/ViewPotholes/RepairDate">Repair Date</a>
+        <a  href="~/Home/ViewPotholes/InspectionDate">Inspection Date</a>
+    </div>
+
+
+
+
 <table class="table">
     <tr>
         <th>Pothole Number</th>
@@ -30,7 +44,7 @@
         string lng = $"lng{count}";
         <tr>
             <td>@pothole.PotholeID</td>
-            <td><span id="@lat">@pothole.Latitude</span>, <span id="@lng">@pothole.Longitude</span></td>
+            <td><a href="~/Home/SelectedPothole/@pothole.PotholeID"><span id="@lat">@pothole.Latitude</span>, <span id="@lng">@pothole.Longitude</span></a></td>
             <td>@pothole.Status</td>
             <td>@pothole.ReturnSeverity(pothole.Severity)</td>
             <td>@pothole.DateReported.ToShortDateString() </td>
@@ -55,7 +69,7 @@
 
 </table>
 
-<div class="pagination" style="margin-left: 400px">
+<div class="pagination">
     Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
     of @Model.PageCount   @Html.PagedListPager(Model, page => Url.Action("ViewPotholes", new { page }))
 </div>
