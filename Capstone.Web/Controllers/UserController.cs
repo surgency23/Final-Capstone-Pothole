@@ -75,7 +75,7 @@ namespace Capstone.Web.Controllers
 
             base.LogUserOut();
 
-            return RedirectToAction("ViewPotholes");
+            return RedirectToAction("ViewPotholes", "Home");
         }
 
         // GET: User
@@ -88,8 +88,23 @@ namespace Capstone.Web.Controllers
 
         // POST: User/Register
         [HttpPost]
-        public ActionResult Register(Users model)
+        public ActionResult Register(string fname,string lname, string uname, string Pw,string cpw,string Email, string cemail)
         {
+            var model = new Users();
+            string fName = Request.Form.Get("Firstname");
+            string lName = Request.Form.Get("Lastname");
+            string uName = Request.Form.Get("RegUsername");
+            string pw = Request.Form.Get("RegPassword");
+            string confirmPw = Request.Form.Get("RegPasswordConfirm");
+            string email = Request.Form.Get("Email");
+            string confirmEmail = Request.Form.Get("ConfirmEmail");
+            model.FirstName = fName;
+            model.LastName = lName;
+            model.Username = uName;
+            model.Password = pw;
+            model.Email = email;
+            model.ConfirmPassword = confirmPw;
+            model.ConfirmEmail = confirmEmail;
             if (ModelState.IsValid)
             {
                 var currentUser = userDAL.GetUser(model.Username);
