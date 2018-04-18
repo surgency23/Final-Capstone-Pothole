@@ -10,7 +10,7 @@ namespace Capstone.Web.DAL
     public interface IClaimsDAL
     {
         List<DamageClaimModel> AllClaims();
-        List<DamageClaimModel> AllClaimsByPothole(string Pothole_ID);
+        List<DamageClaimModel> AllClaimsByPothole(int Pothole_ID);
         int NewClaim(DamageClaimModel newClaim);
 
     }

@@ -15,20 +15,20 @@ namespace Capstone.Web.Controllers.Tests
     [TestClass()]
     public class HomeControllerTests
     {
-        [TestMethod()]
-        public void HomeController_IndexAction_ReturnIndexView()
-        {
-            PotholeDAL potholeDAL = new PotholeDAL(ConfigurationManager.ConnectionStrings["PotHoles"].ConnectionString);
-            UserSQLDAL userDAL = new UserSQLDAL(ConfigurationManager.ConnectionStrings["PotHoles"].ConnectionString);
-            ClaimsSQLDAL claimsDAL = new ClaimsSQLDAL(ConfigurationManager.ConnectionStrings["PotHoles"].ConnectionString);
-            //Arrange
-            HomeController controller = new HomeController(userDAL, potholeDAL, claimsDAL);
+        //[TestMethod()]
+        //public void HomeController_IndexAction_ReturnIndexView()
+        //{
+        //    PotholeDAL potholeDAL = new PotholeDAL(ConfigurationManager.ConnectionStrings["PotHoles"].ConnectionString);
+        //    UserSQLDAL userDAL = new UserSQLDAL(ConfigurationManager.ConnectionStrings["PotHoles"].ConnectionString);
+        //    ClaimsSQLDAL claimsDAL = new ClaimsSQLDAL(ConfigurationManager.ConnectionStrings["PotHoles"].ConnectionString);
+        //    //Arrange
+        //    HomeController controller = new HomeController(userDAL, potholeDAL, claimsDAL);
 
-            //Act
-            ViewResult result = controller.Index() as ViewResult;
+        //    //Act
+        //    ViewResult result = controller.Index() as ViewResult;
 
-            //Assert
-            Assert.AreEqual("Index", result.ViewName);
-        }
+        //    //Assert
+        //    Assert.AreEqual("Index", result.ViewName);
+        //}
     }
 }
