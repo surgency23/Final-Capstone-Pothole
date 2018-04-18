@@ -1,7 +1,9 @@
 ﻿@using Capstone.Web.Models
 @using PagedList.Mvc
 @model PagedList.IPagedList<Pothole>
-@{ int listCount = Model.Count;}
+@{ int listCount = Model.Count;
+    string sort = ViewBag.Sorting;
+}
 
 
 
@@ -15,30 +17,49 @@
 </div>
 <span id="listcount" hidden>@listCount</span>
 
-    <div>
-        <a class="btn-link" href="~/Home/ViewPotholes/Date">Date</a>
-        <a  href="~/Home/ViewPotholes/Status">Status</a>
-        <a  href="~/Home/ViewPotholes/Severity">Severity</a>
-        <a  href="~/Home/ViewPotholes/RepairDate">Repair Date</a>
-        <a  href="~/Home/ViewPotholes/InspectionDate">Inspection Date</a>
+<div class="dropdown show">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Filter by:
+    </a>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        @if (sort == "DateAsc" || sort == null)
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholes/DateDsc">Date▼</a>
+        }
+        else if (sort == "DateDsc")
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholes/DateAsc">Date▲</a>
+        }
+        else if(sort == "StatusAsc" || sort == null)
+        {
+
+        }
+        <a class="dropdown-item" href="~/Home/ViewPotholes/Status">Status</a>
+        <a class="dropdown-item" href="~/Home/ViewPotholes/Severity">Severity</a>
+        <a class="dropdown-item" href="~/Home/ViewPotholes/RepairDate">Repair Date</a>
+        <a class="dropdown-item" href="~/Home/ViewPotholes/InspectionDate">Inspection Date</a>
     </div>
+</div>
 
 
 
 
 <table class="table">
     <tr>
+
         <th>Pothole Number</th>
         <th>Latitude/Longitude</th>
         <th>Pothole Status</th>
         <th>Pothole Severity</th>
-        <th>Date Reported</th>
-        <th>Inspection Date</th>
-        <th>Repair Date</th>
+
+        <th>Date Reported <a href="~/Home/ViewPotholes/DateAsc">▲</a><a href="~/Home/ViewPotholes/DateDsc">▼</a></th>
+        <th>Inspection Date <a href="~/Home/ViewPotholes/InspectionDate">▲</a><a href="~/Home/ViewPotholes/InspectionDateDsc">▼</a></th>
+        <th>Repair Date <a href="~/Home/ViewPotholes/RepairDate">▲</a><a href="~/Home/ViewPotholes/RepairDateDsc">▼</a></th>
     </tr>
     @{int count = 0; }
     @foreach (var pothole in Model)
     {
+        <span id="hiddenSeverity" hidden>@pothole.Severity</span>
         count++;
         string lat = $"lat{count}";
         string lng = $"lng{count}";

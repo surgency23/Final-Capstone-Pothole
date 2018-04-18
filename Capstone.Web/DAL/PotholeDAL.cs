@@ -219,32 +219,57 @@ namespace Capstone.Web.DAL
             return pothole;
         }
 
-        
-
-        public string Filter(string filter)
+        public List<Pothole> SortedPotholeList(string id)
         {
-            string filterString = "";
-            switch (filter)
+            List<Pothole> sortedList = new List<Pothole>();
+            if (id == null)
             {
-                case "Date":
-                    filterString = "Date_Reported";
-                    break;
-                case "Status":
-                    filterString = "Status";
-                    break;
-                case "Severity":
-                    filterString = "Severity";
-                    break;
-                case "RepairDate":
-                    filterString = "Repair_Date";
-                    break;
-                case "InspectionDate":
-                    filterString = "Inspect_Date";
-                    break;
+                sortedList=GetAllPotholes();
+                
+            }
+            else if (id == "Status")
+            {
+                sortedList= GetAllPotholes().OrderBy(m => m.Status).ToList();
+               
+            }
+            else if (id == "RepairDate")
+            {
+                sortedList = GetAllPotholes().OrderBy(m => m.RepairDate).ToList();
+               
+            }
+            else if (id == "RepairDateDsc")
+            {
+                sortedList = GetAllPotholes().OrderByDescending(m => m.RepairDate).ToList();
 
             }
-            return filterString;
-        }
-    }
+            else if (id == "InspectionDate")
+            {
+                sortedList = GetAllPotholes().OrderBy(m => m.InspectDate).ToList();
+            
+            }
+            else if (id == "InspectionDateDsc")
+            {
+                sortedList = GetAllPotholes().OrderByDescending(m => m.InspectDate).ToList();
+
+            }
+            else if (id == "Severity")
+            {
+                sortedList=GetAllPotholes().OrderByDescending(m => m.Severity).ToList();
+               
+            }
+            else if (id == "DateAsc")
+            {
+                sortedList=GetAllPotholes().OrderBy(m => m.DateReported).ToList();
     
+            }
+            else if (id == "DateDsc")
+            {
+                sortedList = GetAllPotholes().OrderByDescending(m => m.DateReported).ToList();
+
+            }
+            return sortedList;
+        }
+
+    }
+
 }

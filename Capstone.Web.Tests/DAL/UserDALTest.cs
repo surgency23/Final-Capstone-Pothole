@@ -1,5 +1,5 @@
 
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Capstone.Web.DAL;
 using System;
 using System.Collections.Generic;
@@ -59,7 +59,7 @@ namespace Capstone.Web.Tests.DAL
         }
 
         [TestMethod]
-        public void FindingTestUser()
+        public void FindingANDCreatingTestUser()
         {
             UserSQLDAL userDAL = new UserSQLDAL(connectionString);
             Users user = new Users
@@ -88,9 +88,41 @@ namespace Capstone.Web.Tests.DAL
                 Is_Employee = 1,
                 Email = "TestEmail@test.com"
             };
-            userDAL.ChangePassword("testUser", "NewPassword");
+            
 
-            Assert.AreEqual("NewPassword", user.Password);
+            Assert.AreEqual(true, userDAL.ChangePassword("testUser", "NewPassword"));
+        }
+
+        [TestMethod]
+        public void IsRegisteredUser()
+        {
+            UserSQLDAL userDAL = new UserSQLDAL(connectionString);
+            Users user = new Users
+            {
+                Username = "testUser",
+                Password = "Password123",
+                FirstName = "Test",
+                LastName = "LastName",
+                Is_Employee = 1,
+                Email = "TestEmail@test.com"
+            };
+            Assert.ReferenceEquals(user, userDAL.GetUser(user.Username, user.Password));
+        }
+
+        [TestMethod]
+        public void IsRegisteredUserByUsername()
+        {
+            UserSQLDAL userDAL = new UserSQLDAL(connectionString);
+            Users user = new Users
+            {
+                Username = "testUser",
+                Password = "Password123",
+                FirstName = "Test",
+                LastName = "LastName",
+                Is_Employee = 1,
+                Email = "TestEmail@test.com"
+            };
+            Assert.ReferenceEquals(user, userDAL.GetUser(user.Username));
         }
     }
 }

@@ -1,7 +1,9 @@
 ﻿
 
 @using Capstone.Web.Controllers;
-@{string username = (string)Session["UsernameKey"];}
+@{string username = (string)Session["UsernameKey"];
+
+}
 
 <!DOCTYPE html>
 <html>
@@ -21,42 +23,54 @@
     <link href="~/Content/PagedList.css" rel="stylesheet" />
 </head>
 <body>
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.bundle.min.js" integrity="sha384-lZmvU/TzxoIQIOD9yQDEpvxp6wEU32Fy0ckUgOH4EIlMOCdR823rg4+3gWRwnX1M" crossorigin="anonymous"></script>
     <div class="container-fluid">
-        <div class="topnav" id="myTopnav">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+            <a class="navbar-brand" href="#">Road Janitor</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav mr-auto">
 
-            @*a href="#home">PotHole Manager</a>*@@*not sure how to make this unhighlightable. what element would would rather than A*@
-            <a href="~/Home/Index">Pothole Report Form</a>
-            <a href="~/Home/ViewPotholes">View Reported Potholes</a>
-            <a href="~/Home/AboutUs">About Us</a>
-            @if (Session["UsernameKey"] != null)
-            {
-                <a href="#userpage">Welcome @username!</a>
-                <a href="~/User/LogOut">Log Out | @username</a>
+                    <a class="nav-item nav-link active" href="~/Home/Index">Report Pothole <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="~/Home/ViewPotholes">View Reported Potholes</a>
+                    @if (Session["isEmployee"] == null)
+                    {
 
-            }
-            else
-            {
-                <a href="~/User/Login">Login</a>
-                <a href="~/User/Register">Register</a>
-
-            }
+                    }
+                    else if ((int)Session["isEmployee"] == 1)
+                    {
+                        <a class="nav-item nav-link" href="~/Home/ViewAllClaims">View Damage Claims</a>
+                    }
 
 
-            <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="ColorChange()">&#9776;</a>
-        </div>
-    </div>
+                </div>
+                <div class="navbar-nav ml-auto">
+                    @if (Session["UsernameKey"] != null)
+                    {
+                        <a class="nav-item nav-link" href="~/Home/AboutUs">About Us</a>
+                        <a class="nav-item nav-link" href="#userpage">Welcome @username!</a>
+                        <a class="nav-item nav-link" href="~/User/LogOut">Log Out | @username</a>
+
+                    }
+                    else
+                    {
+                        <a class="nav-item nav-link" href="~/Home/AboutUs">About Us</a>
+                        <a class="nav-item nav-link" href="~/User/Login">Login</a>
+                        <a class="nav-item nav-link" href="~/User/Register">Register</a>
+
+                    }
+                </div>
+            </div>
+        </nav>
+    </div><!-- /.container-fluid -->
+
     <div class="container-fluid">
         <div class="layoutheaderdiv">
-
-
             @*<img class="imgsize" src="~/Content/Images/officialogo.png" />*@
-
             <h1 class="header">ROAD JANITOR</h1>
         </div>
-
-
     </div>
     <section class="container">
         @RenderBody()

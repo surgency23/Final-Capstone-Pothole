@@ -24,41 +24,19 @@ body {
     height:15px;
 }*/
 
-.topnav {
-    overflow: hidden;
-    background-color: #333;
-    position: sticky;
-}
 .imgsize {
     width:200px !important;
     height: 200px;
     margin-left:50px;
     float: left;
 }
-.topnav a {
-float: left;
-margin-left: 10%;
-display: block;
-color: #f2f2f2;
-text-align: center;
-padding: 14px 16px;
-text-decoration: none;
-font-size: 17px;
-    }
 
-.topnav a:hover {
-    background-color: #ddd;
+.navbar a:hover {
+    background-color: #000000;
     color: black;
         }
 
-.active {
-    background-color: #4CAF50;
-    color: white;
-}
 
-.topnav .icon {
-    display: none;
-}
 
 #map {
     height: 400px;
@@ -147,6 +125,14 @@ section {
 .viewbutton{
     margin:10px;
 
+}
+.image-blurred-edge {
+    background-image: url('Images/mission3.png');
+    width: 450px;
+    height: 233px;
+    /* you need to match the shadow color to your background or image border for the desired effect*/
+
+    float: left;
 }
 
 

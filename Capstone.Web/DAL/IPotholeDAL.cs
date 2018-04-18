@@ -15,6 +15,6 @@ namespace Capstone.Web.DAL
         bool DeletePothole(string id);
         bool UpdatePothole(Pothole update);
         Pothole GetOnePotholes(string id);
-        string Filter(string filter);
+        List<Pothole> SortedPotholeList(string id);
     }
 }
