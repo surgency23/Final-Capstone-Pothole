@@ -72,7 +72,7 @@ namespace Capstone.Web.DAL
             return claimList;
         }
         
-        public List<DamageClaimModel> AllClaimsByPothole (string Pothole_ID)
+        public List<DamageClaimModel> AllClaimsByPothole (int Pothole_ID)
         {
 
             List<DamageClaimModel> claimList = new List<DamageClaimModel>();

@@ -35,7 +35,10 @@ namespace Capstone.Web.Tests
 
                 //Insert a Dummy Record for pothole               
                 cmd = new SqlCommand(@"INSERT INTO [dbo].[Pothole] ([Status],[Severity],[Date_Reported],[Picture],[User_ID],[Longitude],[Latitude]) VALUES('reported',3,GETDATE(),NULL,NULL,-83.045653,39.99753999999996); SELECT CAST(SCOPE_IDENTITY() as int);", conn);
-                updateId= (int)cmd.ExecuteScalar();
+                updateId = (int)cmd.ExecuteScalar();
+
+                //cmd = new SqlCommand($@"Delete from Pothole where PotHole_ID = {updateId}", conn);
+
 
             }
         }
@@ -67,7 +70,7 @@ namespace Capstone.Web.Tests
                 Longitude = -83.045653M,
                 Latitude= 39.99753999999996M,
             };
-            Assert.AreEqual(true, sql.InsertPothole(pothole));
+            Assert.AreEqual(updateId + 1, sql.InsertPothole(pothole));
         }
 
         [TestMethod]
