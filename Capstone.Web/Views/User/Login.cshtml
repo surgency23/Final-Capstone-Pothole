@@ -22,7 +22,11 @@
             <td>@Html.LabelFor(m => m.Password)</td>
             <td>@Html.PasswordFor(m => m.Password, new { @class = "form-control", style = "width:auto; margin:auto", placeholder = "Password" })   @Html.ValidationMessageFor(m => m.Password)  @Html.ValidationMessage("invalid-password")</td>
         </tr>
+        <tr>
+            <td></td>
+            <td><button type="submit" style="padding-right:90px;padding-left:90px;" class="btn btn-primary">Login</button></td>
+        </tr>
         </table>
-        <button type="submit" class="btn btn-primary">Login</button>
+        
        
     }

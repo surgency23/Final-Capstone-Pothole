@@ -14,7 +14,7 @@
 {
     <h4></h4>
 
-    <table class="table registertable" >
+    <table class="table registertable" style="margin:auto; width:auto" >
 
         <tr>
             <td class="tableTdregisterpage">@Html.Label("First Name")</td>
@@ -52,11 +52,15 @@
             <td>@Html.TextBoxFor(m => m.ConfirmEmail, new { @class = "form-control" }) @Html.ValidationMessageFor(m => m.ConfirmEmail)</td>
             
         </tr>
+        <tr>
+            <td></td>
+            <td><button type="submit" style="padding-left:80px;padding-right:80px; margin-bottom:15px;" class="btn btn-primary">Register</button></td>
+        </tr>
 
 
 
     </table>
-    <button type="submit" style="padding-left:80px;padding-right:80px; margin-bottom:15px;margin-left:152px"class="btn btn-primary">Register</button>
+   
 
 
 }
