@@ -23,18 +23,18 @@
     </a>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
         @if (sort == "DateAsc" || sort == null)
-        {
-            <a class="dropdown-item" href="~/Home/ViewPotholes/DateDsc">Date▼</a>
-        }
-        else if (sort == "DateDsc")
-        {
-            <a class="dropdown-item" href="~/Home/ViewPotholes/DateAsc">Date▲</a>
-        }
-        else if(sort == "StatusAsc" || sort == null)
-        {
+    {
+        <a class="dropdown-item" href="~/Home/ViewPotholes/DateDsc">Date▼</a>
+}
+else if (sort == "DateDsc")
+{
+    <a class="dropdown-item" href="~/Home/ViewPotholes/DateAsc">Date▲</a>
+}
+else if (sort == "StatusAsc" || sort == null)
+{
+    <a class="dropdown-item" href="~/Home/ViewPotholes/Status">Status</a>
+}
 
-        }
-        <a class="dropdown-item" href="~/Home/ViewPotholes/Status">Status</a>
         <a class="dropdown-item" href="~/Home/ViewPotholes/Severity">Severity</a>
         <a class="dropdown-item" href="~/Home/ViewPotholes/RepairDate">Repair Date</a>
         <a class="dropdown-item" href="~/Home/ViewPotholes/InspectionDate">Inspection Date</a>
@@ -51,18 +51,19 @@
         <th>Latitude/Longitude</th>
         <th>Pothole Status</th>
         <th>Pothole Severity</th>
-
-        <th>Date Reported <a href="~/Home/ViewPotholes/DateAsc">▲</a><a href="~/Home/ViewPotholes/DateDsc">▼</a></th>
-        <th>Inspection Date <a href="~/Home/ViewPotholes/InspectionDate">▲</a><a href="~/Home/ViewPotholes/InspectionDateDsc">▼</a></th>
-        <th>Repair Date <a href="~/Home/ViewPotholes/RepairDate">▲</a><a href="~/Home/ViewPotholes/RepairDateDsc">▼</a></th>
+        <th>Date Reported</th>
+        <th>Inspection Date</th>
+        <th>Repair Date</th>
     </tr>
     @{int count = 0; }
     @foreach (var pothole in Model)
     {
-        <span id="hiddenSeverity" hidden>@pothole.Severity</span>
+
         count++;
         string lat = $"lat{count}";
         string lng = $"lng{count}";
+        string severity = $"Severity{count}";
+        <span id="@severity" hidden>@pothole.Severity</span>
         <tr>
             <td>@pothole.PotholeID</td>
             <td><a href="~/Home/SelectedPothole/@pothole.PotholeID"><span id="@lat">@pothole.Latitude</span>, <span id="@lng">@pothole.Longitude</span></a></td>
