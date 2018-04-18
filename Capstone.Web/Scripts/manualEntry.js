@@ -9,6 +9,43 @@ function initMap() {
     });
 
 
+
+
+
+
+    var geocoder = new google.maps.Geocoder();
+
+    google.maps.event.addListener(map, 'click', function (event) {
+        geocoder.geocode({
+            'latLng': event.latLng
+        }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                if (results[0]) {
+                    var address = results[0].formatted_address;
+                   $("#search-box").val(results[0].formatted_address);
+                    geocoder.geocode({ 'address': address }, function (results, status) {
+                        if (status == 'OK') {
+                            $("#Latitude").val(results[0].geometry.location.lat);
+                            $("#Longitude").val(results[0].geometry.location.lng);
+                            map.setCenter(results[0].geometry.location);
+                            var marker = new google.maps.Marker({
+                                map: map,
+                                position: results[0].geometry.location
+                            });
+                        } else {
+                            alert('Geocode was not successful for the following reason: ' + status);
+                        }
+                    });
+                
+                }
+            }
+        });
+    });
+
+
+
+
+
     var input = document.getElementById('search-box');
     var searchBox = new google.maps.places.SearchBox(input);
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
@@ -66,17 +103,6 @@ function initMap() {
         map.fitBounds(bounds);
     });
 
-    $("#manualSubmit").click(function () {
-        SubmitPothole("#manualPothole");
-    });
-
-    function SubmitPothole(formContainer) {
-        $.ajax({
-            url: "Home/DetailManualHole",
-            type: 'post',
-            data: formContainer.serialize()
-        });
-    }
 
 
 

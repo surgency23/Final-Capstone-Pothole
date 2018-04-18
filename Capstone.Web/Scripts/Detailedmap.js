@@ -26,8 +26,7 @@ function initMap() {
     directionsDisplay = new google.maps.DirectionsRenderer();
     map = new google.maps.Map(document.getElementById('map'), {
         center: columbusCenterPos,
-        zoom: 10,
-        zIndex: 0
+        zoom: 10
     });
     directionsDisplay.setMap(map);
 }

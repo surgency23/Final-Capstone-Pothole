@@ -5,6 +5,9 @@
 @using Capstone.Web.Models;
 
 @model Pothole
+
+<script src="~/Scripts/manualEntry.js"></script>
+
 <h2 class="headersmall">Report a Pothole</h2>
 <div>
     @using (Html.BeginForm("DetailHole", "Home", FormMethod.Post))
@@ -23,7 +26,7 @@
             </div>
 
             <div class="col-4">
-                <button id="reportBtn" class="btn btn-danger" style="white-space: normal;">Report PotHole Using Current Coordinates</button>
+                <button id="reportBtn" class="btn btn-danger" style="white-space: normal;">Report PotHole</button>
             </div>
             <div class="col-3"></div>
         </div>
@@ -32,12 +35,21 @@
     <div class="row" style="margin: 5px">
         <div class=""></div>
         <div class="col-4 offset-5">
-            <a id="manualButton" class="btn btn-danger" @*href="/Home/ManualPotHoleEntry"*@ style="white-space: normal; margin:5px">Report a pothole at a specific address</a>
+          @*  <a id="manualButton" class="btn btn-danger" @*href="/Home/ManualPotHoleEntry" style="white-space: normal; margin:5px">Report a pothole at a specific address</a>*@
         </div>
         <div id="content"></div>
     </div>
 
 </div>
+
+<input id="search-box" class="controls" type="text" placeholder="Search" />
+<div id="wrapper">
+    <div id="map"></div>
+    <div id="lat"></div>
+</div>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBugEcO0-7dk62GbFYyVE2tNfTgmPjUpGs&libraries=places&callback=initMap">
+</script>
 
 <script src="~/Scripts/main.js"></script>
 <br />
