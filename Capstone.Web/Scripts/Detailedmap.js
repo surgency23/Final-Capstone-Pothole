@@ -16,7 +16,7 @@ $(document).ready(function () {
             position: markerpos,
             map: map
         });
-
+        map.panTo(markerpos);
 });
 
 

@@ -7,7 +7,12 @@ function initMap() {
         zoom: 8,
         mapTypeId: 'roadmap'
     });
-
+    // orange: https://ibb.co/gJg3NS
+    //purple pink https://ibb.co/iT58p7
+    // gren https://ibb.co/e83HhS
+    //blue https://ibb.co/mZ7A2S
+    //yellow https://ibb.co/m05V2S
+    //red https://ibb.co/eOiuU7
     var geocoder = new google.maps.Geocoder();
     var image = {
         url: 'https://image.ibb.co/m5wBRn/mild_pothole.png',
