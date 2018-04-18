@@ -17,27 +17,84 @@
 </div>
 <span id="listcount" hidden>@listCount</span>
 
-<div class="dropdown show">
-    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Filter by:
+<div class="dropdown show" style="text-align:left;margin: 5px">
+    <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Order by:
     </a>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        @if (sort == "DateAsc" || sort == null)
-    {
-        <a class="dropdown-item" href="~/Home/ViewPotholes/DateDsc">Date▼</a>
-}
-else if (sort == "DateDsc")
-{
-    <a class="dropdown-item" href="~/Home/ViewPotholes/DateAsc">Date▲</a>
-}
-else if (sort == "StatusAsc" || sort == null)
-{
-    <a class="dropdown-item" href="~/Home/ViewPotholes/Status">Status</a>
-}
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" >
+        @if (sort == "PotholeNo")
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholes/PotholeNoDsc">Pothole No.▼</a>
+        }
+        else if (sort == "PotholeNoDsc")
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholes/PotholeNo">Pothole No.▲</a>
+        }
+        else
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholes/PotholeNo">Pothole No.▲</a>
+        }
+        @if (sort == "Date" || sort == null)
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholes/DateDsc">Date▼</a>
+        }
+        else if (sort == "DateDsc")
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholes/DateAsc">Date▲</a>
+        }
+        else
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholes/DateAsc">Date▲</a>
+        }
+        @if (sort == "Status")
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholes/StatusDsc">Status▼</a>
+        }
+        else if (sort == "StatusDsc")
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholes/Status">Status▲</a>
+        }
+        else
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholes/Status">Status▲</a>
+        }
+        @if (sort == "Severity")
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholes/SeverityDsc">Severity▼</a>
+        }
+        else if (sort == "SeverityDsc")
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholes/Severity">Severity▲</a>
+        }
+        else
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholes/Severity">Severity▲</a>
+        }
+        @if (sort == "RepairDate")
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholes/RepairDateDsc">Repair Date▼</a>
+        }
+        else if (sort == "RepairDateDsc")
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholes/RepairDate">Repair Date▲</a>
+        }
+        else
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholes/RepairDate">Repair Date▲</a>
+        }
+        @if (sort == "InspectionDate")
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholes/InspectionDateDsc">Inspection Date▼</a>
+        }
+        else if (sort == "InspectionDateDsc")
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholes/InspectionDate">Inspection Date▲</a>
+        }
+        else
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholes/InspectionDate">Inspection Date▲</a>
+        }
 
-        <a class="dropdown-item" href="~/Home/ViewPotholes/Severity">Severity</a>
-        <a class="dropdown-item" href="~/Home/ViewPotholes/RepairDate">Repair Date</a>
-        <a class="dropdown-item" href="~/Home/ViewPotholes/InspectionDate">Inspection Date</a>
     </div>
 </div>
 
@@ -46,7 +103,6 @@ else if (sort == "StatusAsc" || sort == null)
 
 <table class="table">
     <tr>
-
         <th>Pothole Number</th>
         <th>Latitude/Longitude</th>
         <th>Pothole Status</th>

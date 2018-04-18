@@ -43,8 +43,6 @@
                     {
                         <a class="nav-item nav-link" href="~/Home/ViewAllClaims">View Damage Claims</a>
                     }
-
-
                 </div>
                 <div class="navbar-nav ml-auto">
                     @if (Session["UsernameKey"] != null)
@@ -52,20 +50,17 @@
                         <a class="nav-item nav-link" href="~/Home/AboutUs">About Us</a>
                         <a class="nav-item nav-link" href="#userpage">Welcome @username!</a>
                         <a class="nav-item nav-link" href="~/User/LogOut">Log Out | @username</a>
-
                     }
                     else
                     {
                         <a class="nav-item nav-link" href="~/Home/AboutUs">About Us</a>
                         <a class="nav-item nav-link" href="~/User/Login">Login</a>
                         <a class="nav-item nav-link" href="~/User/Register">Register</a>
-
                     }
                 </div>
             </div>
         </nav>
     </div><!-- /.container-fluid -->
-
     <div class="container-fluid">
         <div class="layoutheaderdiv">
             @*<img class="imgsize" src="~/Content/Images/officialogo.png" />*@

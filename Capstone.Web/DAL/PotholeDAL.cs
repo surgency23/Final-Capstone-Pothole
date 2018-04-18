@@ -227,7 +227,7 @@ namespace Capstone.Web.DAL
                 sortedList=GetAllPotholes();
                 
             }
-            else if (id == "DateAsc")
+            else if (id == "Date")
             {
                 sortedList = GetAllPotholes().OrderBy(m => m.DateReported).ToList();
 
@@ -275,6 +275,16 @@ namespace Capstone.Web.DAL
             else if (id == "Severity")
             {
                 sortedList = GetAllPotholes().OrderBy(m => m.Severity).ToList();
+
+            }
+            else if (id == "PotholeNo")
+            {
+                sortedList = GetAllPotholes().OrderBy(m => m.PotholeID).ToList();
+
+            }
+            else if (id == "PotholeNoDsc")
+            {
+                sortedList = GetAllPotholes().OrderByDescending(m => m.PotholeID).ToList();
 
             }
 
