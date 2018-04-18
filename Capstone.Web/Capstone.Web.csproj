@@ -254,6 +254,7 @@
     <Content Include="Views\Home\ViewClaims.cshtml" />
     <Content Include="Views\Home\ClaimSubmit.cshtml" />
     <Content Include="Views\Home\ClaimConfirmation.cshtml" />
+    <Content Include="Views\Home\AboutUs.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

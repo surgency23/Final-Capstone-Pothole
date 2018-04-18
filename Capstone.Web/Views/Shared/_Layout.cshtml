@@ -29,16 +29,20 @@
             @*a href="#home">PotHole Manager</a>*@@*not sure how to make this unhighlightable. what element would would rather than A*@
             <a href="~/Home/Index">Pothole Report Form</a>
             <a href="~/Home/ViewPotholes">View Reported Potholes</a>
+            <a href="~/Home/AboutUs">About Us</a>
             @if (Session["UsernameKey"] != null)
             {
                 <a href="#userpage">Welcome @username!</a>
                 <a href="~/User/LogOut">Log Out | @username</a>
+
             }
             else
             {
                 <a href="~/User/Login">Login</a>
                 <a href="~/User/Register">Register</a>
+
             }
+
 
             <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="ColorChange()">&#9776;</a>
         </div>
