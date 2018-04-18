@@ -299,7 +299,9 @@ namespace Capstone.Web.Controllers
                 Users user = userDAL.GetUser(CurrentUser);
                 claim.UserID = user.UserID;
                 claimsDAL.NewClaim(claim);
-                return View("ClaimConfirmation");
+                int claimID = claimsDAL.NewClaim(claim);
+                Session["claimID"] = claimID;
+                return View("ClaimConfirmation", claim);
             }
             else
             {
@@ -309,9 +311,9 @@ namespace Capstone.Web.Controllers
 
         }
 
-        public ActionResult ClaimConfirmation()
+        public ActionResult ClaimConfirmation(DamageClaimModel claim)
         {
-            return View("ClaimConfirmation");
+            return View("ClaimConfirmation",claim);
         }
 
 

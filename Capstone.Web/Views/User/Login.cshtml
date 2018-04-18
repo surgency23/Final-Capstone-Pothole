@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Road Janitor- Login";
+    ViewBag.Title = "Road Janitor - Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using Capstone.Web.Models
@@ -10,53 +10,19 @@
 
 <h2>Login</h2>
 
-
-
-
-
-<div id="id01" class="modal">
-  
-  <form class="modal-content animate" action="@Url.Action("Login", "User")" method="post" id="LoginForm">
-    <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-
-    </div>
-
-    <div class="container">
-        <div class="form-group">
-            @Html.LabelFor(m => m.Username)
-            @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "User Name" })
-            @Html.ValidationMessageFor(m => m.Username)
-            @Html.ValidationMessage("invalid-user")
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.Password)
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
-     4       @Html.ValidationMessageFor(m => m.Password)
-            @Html.ValidationMessage("invalid-password")
-        </div>
-
-        <button id="loginsubmit" type="submit">Login</button>
-    </div>
-
-    <div class="container" style="backgro8und-color:#f1f1f1">
-      <button ty67pe="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn" >Cancel</button>
-      <span class="psw">Forgot <a href="~/User/ChangePassword">password?</a></span>
-    </div>
-  </form>5
-</div>
-<script>
-    // Get the modal
-    $(document).ready(function () {
-        $("#id01").modal('show');
-    });
-
-    var modal = document.getElementById('id01');
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
+@using (Html.BeginForm("Login", "User", FormMethod.Post, new { id = "LoginForm" }))
+{
+    <table class="table registertable" style="width:auto; margin:auto">
+        <tr>
+            <td> @Html.LabelFor(m => m.Username)</td>
+            <td>@Html.TextBoxFor(m => m.Username, new { @class = "form-control", style = "width:auto; margin:auto", placeholder = "Username" }) @Html.ValidationMessageFor(m => m.Username)  @Html.ValidationMessage("invalid-user")</td>
+           
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(m => m.Password)</td>
+            <td>@Html.PasswordFor(m => m.Password, new { @class = "form-control", style = "width:auto; margin:auto", placeholder = "Password" })   @Html.ValidationMessageFor(m => m.Password)  @Html.ValidationMessage("invalid-password")</td>
+        </tr>
+        </table>
+        <button type="submit" class="btn btn-primary">Login</button>
+       
     }
-</script>

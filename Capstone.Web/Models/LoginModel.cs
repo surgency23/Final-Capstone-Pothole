@@ -10,7 +10,7 @@ namespace Capstone.Web.Models
     {
 
         [Required(ErrorMessage = "This field is required.")]
-        [Display(Name = "User Name:")]
+        [Display(Name = "Username:")]
         public string Username { get; set; }
 
         [Required(ErrorMessage = "This field is required.")]

@@ -1,10 +1,12 @@
 ﻿
 @{
-    ViewBag.Title = "ClaimConfirmation";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Road Janitor - Confirmation";
+    int claimId = (int)Session["claimID"];
 }
+@using Capstone.Web.Models
+@model DamageClaimModel
 
-<h2>Your claim has been confirmed</h2>
-
-<a class="btn btn-primary viewbutton" href="#">View Your Claims</a>
+<h1>Your claim has been submitted!</h1>
+<p style="font-size: 24px;">Your claim number is @claimId</p><p>We will review your claim and contact you with the next steps. If you have any questions please call 1-800-POT-HOLE</p>
+<a class="btn btn-danger viewbutton" href="~Home/Index">Report another pothole</a>
 
