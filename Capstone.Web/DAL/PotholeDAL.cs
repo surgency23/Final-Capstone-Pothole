@@ -227,10 +227,25 @@ namespace Capstone.Web.DAL
                 sortedList=GetAllPotholes();
                 
             }
+            else if (id == "DateAsc")
+            {
+                sortedList = GetAllPotholes().OrderBy(m => m.DateReported).ToList();
+
+            }
+            else if (id == "DateDsc")
+            {
+                sortedList = GetAllPotholes().OrderByDescending(m => m.DateReported).ToList();
+
+            }
             else if (id == "Status")
             {
                 sortedList= GetAllPotholes().OrderBy(m => m.Status).ToList();
                
+            }
+            else if (id == "StatusDsc")
+            {
+                sortedList = GetAllPotholes().OrderByDescending(m => m.Status).ToList();
+
             }
             else if (id == "RepairDate")
             {
@@ -252,21 +267,17 @@ namespace Capstone.Web.DAL
                 sortedList = GetAllPotholes().OrderByDescending(m => m.InspectDate).ToList();
 
             }
-            else if (id == "Severity")
+            else if (id == "SeverityDsc")
             {
                 sortedList=GetAllPotholes().OrderByDescending(m => m.Severity).ToList();
                
             }
-            else if (id == "DateAsc")
+            else if (id == "Severity")
             {
-                sortedList=GetAllPotholes().OrderBy(m => m.DateReported).ToList();
-    
-            }
-            else if (id == "DateDsc")
-            {
-                sortedList = GetAllPotholes().OrderByDescending(m => m.DateReported).ToList();
+                sortedList = GetAllPotholes().OrderBy(m => m.Severity).ToList();
 
             }
+
             return sortedList;
         }
 
