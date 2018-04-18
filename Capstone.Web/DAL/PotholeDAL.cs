@@ -219,6 +219,57 @@ namespace Capstone.Web.DAL
             return pothole;
         }
 
-    }
+        public List<Pothole> SortedPotholeList(string id)
+        {
+            List<Pothole> sortedList = new List<Pothole>();
+            if (id == null)
+            {
+                sortedList=GetAllPotholes();
+                
+            }
+            else if (id == "Status")
+            {
+                sortedList= GetAllPotholes().OrderBy(m => m.Status).ToList();
+               
+            }
+            else if (id == "RepairDate")
+            {
+                sortedList = GetAllPotholes().OrderBy(m => m.RepairDate).ToList();
+               
+            }
+            else if (id == "RepairDateDsc")
+            {
+                sortedList = GetAllPotholes().OrderByDescending(m => m.RepairDate).ToList();
+
+            }
+            else if (id == "InspectionDate")
+            {
+                sortedList = GetAllPotholes().OrderBy(m => m.InspectDate).ToList();
+            
+            }
+            else if (id == "InspectionDateDsc")
+            {
+                sortedList = GetAllPotholes().OrderByDescending(m => m.InspectDate).ToList();
+
+            }
+            else if (id == "Severity")
+            {
+                sortedList=GetAllPotholes().OrderByDescending(m => m.Severity).ToList();
+               
+            }
+            else if (id == "DateAsc")
+            {
+                sortedList=GetAllPotholes().OrderBy(m => m.DateReported).ToList();
     
+            }
+            else if (id == "DateDsc")
+            {
+                sortedList = GetAllPotholes().OrderByDescending(m => m.DateReported).ToList();
+
+            }
+            return sortedList;
+        }
+
+    }
+
 }

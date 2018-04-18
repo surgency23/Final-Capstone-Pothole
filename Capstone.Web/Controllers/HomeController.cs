@@ -32,7 +32,7 @@ namespace Capstone.Web.Controllers
         [HttpPost]
         public ActionResult DetailHole(Pothole pothole)
         {
-            if(CurrentUser == "EmptyUserName" || CurrentUser != "")
+            if (CurrentUser == "EmptyUserName" || CurrentUser != "")
             {
                 int potHoleID = potholeDAL.InsertPothole(pothole);
                 Session["Pothole_id"] = potHoleID;
@@ -76,91 +76,32 @@ namespace Capstone.Web.Controllers
             }
         }
 
-        public ActionResult ViewPotholes(int? page,string id)
+        public ActionResult ViewPotholes(int? page, string id)
         {
+            ViewBag.Sorting = id;
             int pageSize = 15;
             int pageIndex = 1;
             pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
             IPagedList<Pothole> pagedPotholes = null;
-            List<Pothole> potholeList;
-            if (id ==null)
-            {
-                potholeList=potholeDAL.GetAllPotholes();
-                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
-            }
-            else if (id=="Status")
-            {
-                potholeList = potholeDAL.GetAllPotholes().OrderBy(m => m.Status).ToList();
-                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
-            }
-            else if (id=="RepairDate")
-            {
-                potholeList = potholeDAL.GetAllPotholes().OrderBy(m => m.RepairDate).ToList();
-                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
-            }
-            else if (id == "InspectionDate")
-            {
-                potholeList = potholeDAL.GetAllPotholes().OrderBy(m => m.InspectDate).ToList();
-                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
-            }
-            else if (id == "Severity")
-            {
-                potholeList = potholeDAL.GetAllPotholes().OrderByDescending(m => m.Severity).ToList();
-                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
-            }
-            else if (id == "Date")
-            {
-                potholeList = potholeDAL.GetAllPotholes().OrderByDescending(m => m.DateReported).ToList();
-                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
-            }
-
-
-
+            List<Pothole> potholeList = potholeDAL.SortedPotholeList(id);
+            pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
             if (IsEmployee())
             {
-                return View("ViewPotholesForEmp",pagedPotholes );
+                return View("ViewPotholesForEmp", pagedPotholes);
             }
 
             return View("ViewPotholes", pagedPotholes);
         }
 
-        public ActionResult ViewPotholesForEmp(int? page,string id)
+        public ActionResult ViewPotholesForEmp(int? page, string id)
         {
             int pageSize = 15;
             int pageIndex = 1;
             pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
             IPagedList<Pothole> pagedPotholes = null;
-            List<Pothole> potholeList = potholeDAL.GetAllPotholes();
-            if (id == null)
-            {
-                potholeList = potholeDAL.GetAllPotholes();
-                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
-            }
-            else if (id == "Status")
-            {
-                potholeList = potholeDAL.GetAllPotholes().OrderBy(m => m.Status).ToList();
-                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
-            }
-            else if (id == "RepairDate")
-            {
-                potholeList = potholeDAL.GetAllPotholes().OrderBy(m => m.RepairDate).ToList();
-                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
-            }
-            else if (id == "InspectionDate")
-            {
-                potholeList = potholeDAL.GetAllPotholes().OrderBy(m => m.InspectDate).ToList();
-                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
-            }
-            else if (id == "Severity")
-            {
-                potholeList = potholeDAL.GetAllPotholes().OrderByDescending(m => m.Severity).ToList();
-                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
-            }
-            else if (id == "Date")
-            {
-                potholeList = potholeDAL.GetAllPotholes().OrderByDescending(m => m.DateReported).ToList();
-                pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
-            }
+            List<Pothole> potholeList = potholeDAL.SortedPotholeList(id);
+            pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+
             if (IsEmployee())
             {
                 return View("ViewPotholesForEmp", pagedPotholes);
@@ -202,7 +143,7 @@ namespace Capstone.Web.Controllers
             }
         }
         [HttpPost]
-        public ActionResult UpdatePothole(Pothole updatedPothole,int? page)
+        public ActionResult UpdatePothole(Pothole updatedPothole, int? page)
         {
             potholeDAL.UpdatePothole(updatedPothole);
             string id = updatedPothole.PotholeID.ToString();
@@ -224,9 +165,9 @@ namespace Capstone.Web.Controllers
 
         public ActionResult SelectedPothole(string id)
         {
-            
-                return View("SinglePothole", potholeDAL.GetOnePotholes(id));
-           
+
+            return View("SinglePothole", potholeDAL.GetOnePotholes(id));
+
         }
 
         public ActionResult ViewAllClaims(int? page, string id)
@@ -293,7 +234,7 @@ namespace Capstone.Web.Controllers
         [HttpPost]
         public ActionResult ClaimSubmit(DamageClaimModel claim)
         {
-            if(CurrentUser == "EmptyUserName" || CurrentUser != "")
+            if (CurrentUser == "EmptyUserName" || CurrentUser != "")
             {
                 claim.Pothole_ID = (int)Session["Pothole_id"];
                 Users user = userDAL.GetUser(CurrentUser);
@@ -313,7 +254,7 @@ namespace Capstone.Web.Controllers
 
         public ActionResult ClaimConfirmation(DamageClaimModel claim)
         {
-            return View("ClaimConfirmation",claim);
+            return View("ClaimConfirmation", claim);
         }
 
         public ActionResult AboutUs()
@@ -321,6 +262,6 @@ namespace Capstone.Web.Controllers
             return View();
         }
 
-      
+
     }
 }
