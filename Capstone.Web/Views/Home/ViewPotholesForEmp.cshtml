@@ -1,7 +1,9 @@
 ﻿@using Capstone.Web.Models
 @using PagedList.Mvc
 @model PagedList.IPagedList<Pothole>
-@{ int listCount = Model.Count;}
+@{ int listCount = Model.Count;
+    string sort = ViewBag.Sorting;
+}
 
 <script src="~/Scripts/viewpothole.js"></script>
 
@@ -12,12 +14,85 @@
 </div>
 <span id="listcount" hidden>@listCount</span>
 
-<div>
-    <a href="~/Home/ViewPotholes/Date">Date</a>
-    <a href="~/Home/ViewPotholes/Status">Status</a>
-    <a href="~/Home/ViewPotholes/Severity">Severity</a>
-    <a href="~/Home/ViewPotholes/RepairDate">Repair Date</a>
-    <a href="~/Home/ViewPotholes/InspectionDate">Inspection Date</a>
+<div class="dropdown show" style="text-align:left;margin: 5px">
+    <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Order by:
+    </a>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        @if (sort == "PotholeNo")
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholesForEmp/PotholeNoDsc">Pothole No.▼</a>
+        }
+        else if (sort == "PotholeNoDsc")
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholesForEmp/PotholeNo">Pothole No.▲</a>
+        }
+        else
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholesForEmp/PotholeNoDsc">Pothole No.▼</a>
+        }
+        @if (sort == "Date" || sort == null)
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholesForEmp/DateDsc">Date▼</a>
+        }
+        else if (sort == "DateDsc")
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholesForEmp/DateAsc">Date▲</a>
+        }
+        else
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholesForEmp/DateAsc">Date▲</a>
+        }
+        @if (sort == "Status")
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholesForEmp/StatusDsc">Status▼</a>
+        }
+        else if (sort == "StatusDsc")
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholesForEmp/Status">Status▲</a>
+        }
+        else
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholesForEmp/Status">Status▲</a>
+        }
+        @if (sort == "Severity")
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholesForEmp/SeverityDsc">Severity▼</a>
+        }
+        else if (sort == "SeverityDsc")
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholesForEmp/Severity">Severity▲</a>
+        }
+        else
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholesForEmp/Severity">Severity▲</a>
+        }
+        @if (sort == "RepairDate")
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholesForEmp/RepairDateDsc">Repair Date▼</a>
+        }
+        else if (sort == "RepairDateDsc")
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholesForEmp/RepairDate">Repair Date▲</a>
+        }
+        else
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholesForEmp/RepairDate">Repair Date▲</a>
+        }
+        @if (sort == "InspectionDate")
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholesForEmp/InspectionDateDsc">Inspection Date▼</a>
+        }
+        else if (sort == "InspectionDateDsc")
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholesForEmp/InspectionDate">Inspection Date▲</a>
+        }
+        else
+        {
+            <a class="dropdown-item" href="~/Home/ViewPotholesForEmp/InspectionDate">Inspection Date▲</a>
+        }
+
+    </div>
 </div>
 <table class="table">
     <tr>
