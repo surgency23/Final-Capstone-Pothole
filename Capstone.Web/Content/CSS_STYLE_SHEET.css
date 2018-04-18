@@ -148,5 +148,13 @@ section {
     margin:10px;
 
 }
+.image-blurred-edge {
+    background-image: url('Images/N2-Blog-12-5-10.jpg');
+    width: 450px;
+    height: 233px;
+    /* you need to match the shadow color to your background or image border for the desired effect*/
+    box-shadow: 0 0 4px 4px black inset;
+    float:left;
+}
 
 
