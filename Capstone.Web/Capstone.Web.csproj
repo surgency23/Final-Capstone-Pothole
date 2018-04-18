@@ -143,6 +143,7 @@
     <Content Include="Content\Images\N2-Blog-12-5-10.jpg" />
     <Content Include="Content\Images\officialogo.png" />
     <Content Include="Content\Images\ohioshapedpothole.jpg" />
+    <Content Include="Content\Images\pothole.png" />
     <Content Include="Content\Images\unsplash.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="GoogleMaps.LocationServices.readme.txt" />

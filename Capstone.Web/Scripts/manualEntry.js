@@ -8,12 +8,17 @@ function initMap() {
         mapTypeId: 'roadmap'
     });
 
-
-
-
-
-
     var geocoder = new google.maps.Geocoder();
+    var image = {
+        url: 'https://image.ibb.co/m5wBRn/mild_pothole.png',
+        scaledSize: new google.maps.Size(74, 74),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(37, 37)
+    };
+    var shape = {
+        coords: [1, 1, 1, 20, 18, 20, 18, 1],
+        type: 'poly'
+    };
 
     google.maps.event.addListener(map, 'click', function (event) {
         geocoder.geocode({
@@ -30,6 +35,9 @@ function initMap() {
                             map.setCenter(results[0].geometry.location);
                             var marker = new google.maps.Marker({
                                 map: map,
+                                icon: image,
+                                shape: shape,
+                                animation: google.maps.Animation.DROP,
                                 position: results[0].geometry.location
                             });
                         } else {
@@ -41,10 +49,6 @@ function initMap() {
             }
         });
     });
-
-
-
-
 
     var input = document.getElementById('search-box');
     var searchBox = new google.maps.places.SearchBox(input);
