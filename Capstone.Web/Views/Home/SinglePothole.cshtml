@@ -2,7 +2,7 @@
 @{
     string id = $"pothole{Model.PotholeID}.jpg";
 }
-
+<span hidden id="Severity">@Model.Severity</span>
 <h1>Selected Pothole: ID @Model.PotholeID</h1>
 <script src="~/Scripts/Detailedmap.js"></script>
 <p>Status: 
@@ -41,3 +41,4 @@
 
 <a class="btn btn-primary viewbutton" href="~/Home/ViewPotholes/">Return to Submitted Potholes</a>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSatSYUL3YwnEgUtqsIpU1Cd-mR9OT148&callback=initMap"></script>
+

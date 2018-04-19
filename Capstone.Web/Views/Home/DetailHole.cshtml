@@ -4,7 +4,7 @@
     int id = (int)Session["Pothole_id"];
 }
 @model Capstone.Web.Models.Pothole
-
+<span hidden id="Severity">@Model.Severity</span>
 <h2 class="headersmall">Pothole No. @id  Submitted! </h2>
 <script src="~/Scripts/Detailedmap.js"></script>
 <p>
