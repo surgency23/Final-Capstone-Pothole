@@ -31,7 +31,7 @@ $(document).ready(function () {
         anchor: new google.maps.Point(37, 37)
     };
     var green = {
-        url: 'https://image.ibb.co/m5wBRn/mild_pothole.png',
+        url: 'https://image.ibb.co/iVP197/pothole_marker_green.png',
         scaledSize: new google.maps.Size(74, 74),
         origin: new google.maps.Point(0, 0),
         anchor: new google.maps.Point(37, 37)
