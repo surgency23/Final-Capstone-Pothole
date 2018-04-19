@@ -1,16 +1,31 @@
 ﻿
 @{
     ViewBag.Title = "Road Janitor - Pothole Submitted!";
+    int id = (int)Session["Pothole_id"];
 }
 @model Capstone.Web.Models.Pothole
 
-<h2 class="headersmall">Pothole Submitted! </h2>
+<h2 class="headersmall">Pothole No. @id  Submitted! </h2>
 <script src="~/Scripts/Detailedmap.js"></script>
 <p>Status:  @Model.ReturnSeverity(Model.Severity)</p>
 <p>Latitude: <span id="lat">@Model.Latitude</span> Longitude: <span id="lng">@Model.Longitude</span></p>
 <div id="wrapper">
     <div id="map"></div>
-    </div>
+</div>
 <a class="btn btn-primary viewbutton" href="~/Home/ViewPotholes/">View Submitted Potholes</a>
 <a class="btn btn-primary viewbutton" href="~/Home/ClaimSubmit/">Submit A Damage Claim</a>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSatSYUL3YwnEgUtqsIpU1Cd-mR9OT148&callback=initMap"></script>
+@using (Html.BeginForm("FileUpload", "Home", FormMethod.Post,
+                            new { enctype = "multipart/form-data" }))
+{
+
+    <div class="custom-file" style="margin:auto;width:200px;">
+        <input id="logo" type="file" class="custom-file-input" name="file">
+        <label for="logo" class="custom-file-label" style="width:200px;height:37px; margin:auto; text-align:left">Choose Photo</label>
+
+    </div>
+    <input class="btn btn-success submit" type="submit" value="Upload" style="padding-right:75px;padding-left:75px;margin-left:20px;" />
+    @*<label for="file">Upload Pothole Image:</label>
+        <input class="btn custom-file-input "type="file" name="file" id="file" style="width: auto;margin:auto;" />
+    *@
+}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSatSYUL3YwnEgUtqsIpU1Cd-mR9OT148&callback=initMap"></script>

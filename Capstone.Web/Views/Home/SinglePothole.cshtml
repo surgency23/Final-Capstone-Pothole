@@ -1,5 +1,7 @@
 ﻿@model Capstone.Web.Models.Pothole
-
+@{ 
+    string id = $"pothole{Model.PotholeID}.jpg";
+}
 
 <h1>Selected Pothole: ID @Model.PotholeID</h1>
 <script src="~/Scripts/Detailedmap.js"></script>
@@ -8,5 +10,7 @@
 <div id="wrapper">
     <div id="map"></div>
 </div>
+<div><img style="height:auto;width:auto" onerror="this.style.opacity='0'" src="~/Images/@id" /></div>
+
 <a class="btn btn-primary viewbutton" href="~/Home/ViewPotholes/">Return to Submitted Potholes</a>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSatSYUL3YwnEgUtqsIpU1Cd-mR9OT148&callback=initMap"></script>

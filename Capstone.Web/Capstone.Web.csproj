@@ -148,6 +148,9 @@
     <Content Include="Content\Images\unsplash.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="GoogleMaps.LocationServices.readme.txt" />
+    <Content Include="Images\pothole148.jpg" />
+    <Content Include="Images\pothole230.jpg" />
+    <Content Include="Images\pothole231.jpg" />
     <Content Include="Scripts\Detailedmap.js" />
     <Content Include="Scripts\Login.js" />
     <Content Include="Scripts\manualEntry.js" />
@@ -267,6 +270,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Images\Potholes\" />
     <Folder Include="Views\Top\" />
   </ItemGroup>
   <ItemGroup>

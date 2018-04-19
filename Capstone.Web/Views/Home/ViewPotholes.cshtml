@@ -21,7 +21,7 @@
     <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Order by:
     </a>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" >
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
         @if (sort == "PotholeNo")
         {
             <a class="dropdown-item" href="~/Home/ViewPotholes/PotholeNoDsc">Pothole No.▼</a>
@@ -32,7 +32,7 @@
         }
         else
         {
-            <a class="dropdown-item" href="~/Home/ViewPotholes/PotholeNo">Pothole No.▲</a>
+            <a class="dropdown-item" href="~/Home/ViewPotholes/PotholeNoDsc">Pothole No.▼</a>
         }
         @if (sort == "Date" || sort == null)
         {

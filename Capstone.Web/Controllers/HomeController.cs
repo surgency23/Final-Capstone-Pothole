@@ -7,6 +7,7 @@ using Capstone.Web.DAL;
 using Capstone.Web.Models;
 using GoogleMaps.LocationServices;
 using PagedList;
+using System.IO;
 
 namespace Capstone.Web.Controllers
 {
@@ -95,6 +96,7 @@ namespace Capstone.Web.Controllers
 
         public ActionResult ViewPotholesForEmp(int? page, string id)
         {
+            ViewBag.SortingEmp = id;
             int pageSize = 15;
             int pageIndex = 1;
             pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
@@ -182,31 +184,7 @@ namespace Capstone.Web.Controllers
                 claimList = claimsDAL.AllClaims();
                 pagedClaims = claimList.ToPagedList(pageIndex, pageSize);
             }
-            //else if (id=="Status")
-            //{
-            //    claimList = claimsDAL.AllClaims().OrderBy(m => m.Status).ToList();
-            //    pagedClaims = claimList.ToPagedList(pageIndex, pageSize);
-            //}
-            //else if (id=="RepairDate")
-            //{
-            //    potholeList = potholeDAL.GetAllPotholes().OrderBy(m => m.RepairDate).ToList();
-            //    pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
-            //}
-            //else if (id == "InspectionDate")
-            //{
-            //    potholeList = potholeDAL.GetAllPotholes().OrderBy(m => m.InspectDate).ToList();
-            //    pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
-            //}
-            //else if (id == "Severity")
-            //{
-            //    potholeList = potholeDAL.GetAllPotholes().OrderByDescending(m => m.Severity).ToList();
-            //    pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
-            //}
-            //else if (id == "Date")
-            //{
-            //    potholeList = potholeDAL.GetAllPotholes().OrderByDescending(m => m.DateReported).ToList();
-            //    pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
-            //}
+           
             if (IsEmployee())
             {
                 return View("ViewClaims", pagedClaims);
@@ -260,6 +238,31 @@ namespace Capstone.Web.Controllers
         public ActionResult AboutUs()
         {
             return View();
+        }
+        public ActionResult FileUpload(HttpPostedFileBase file)
+        {
+            int potholeId = (int)Session["Pothole_id"];
+            if (file != null)
+            {
+                string pic = System.IO.Path.GetFileName(file.FileName);
+               
+                string path = System.IO.Path.Combine(
+                                       Server.MapPath("~/Images"), $"pothole{potholeId}.jpg");
+                // file is uploaded
+                file.SaveAs(path);
+
+                // save the image path path to the database or you can send image 
+                // directly to database
+                // in-case if you want to store byte[] ie. for DB
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    file.InputStream.CopyTo(ms);
+                    byte[] array = ms.GetBuffer();
+                }
+
+            }
+            // after successfully uploading redirect the user
+            return RedirectToAction("ViewPotholes");
         }
 
 

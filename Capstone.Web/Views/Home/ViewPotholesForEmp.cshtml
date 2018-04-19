@@ -2,7 +2,7 @@
 @using PagedList.Mvc
 @model PagedList.IPagedList<Pothole>
 @{ int listCount = Model.Count;
-    string sort = ViewBag.Sorting;
+    string sort = ViewBag.SortingEmp;
 }
 
 <script src="~/Scripts/viewpothole.js"></script>
@@ -112,6 +112,8 @@
         count++;
         string lat = $"lat{count}";
         string lng = $"lng{count}";
+        string severity = $"Severity{count}";
+        <span id="@severity" hidden>@pothole.Severity</span>
         <tr>
             <td id="count">@pothole.PotholeID</td>
             <td><span id="@lat">@pothole.Latitude</span>, <span id="@lng">@pothole.Longitude</span></td>
