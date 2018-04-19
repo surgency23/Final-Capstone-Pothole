@@ -24,7 +24,7 @@
                 </td>
                 @Html.HiddenFor(m => m.Pothole_ID, pothole_id)
                 <td>
-                    @Html.TextBoxFor(m => m.Estimated_cost, new { placeholder = "$" })
+                    @Html.TextBoxFor(m => m.Estimated_cost,"$", new { placeholder = "$" })
                 </td>
                 <td>
                     <div class="input-group date" data-provide="datepicker">
@@ -40,10 +40,10 @@
             <tr class="registertable">
                 <td></td>
                 <td>
-                    @Html.ValidationMessage("invalid-amount")
+                    @Html.ValidationMessageFor(m=>m.Estimated_cost)  @Html.ValidationMessage("invalid-amount")
                 </td>
                 <td>
-                    @Html.ValidationMessage("invalid-date")
+                    @Html.ValidationMessageFor(m=>m.SubmissionDate) @Html.ValidationMessage("invalid-date")
                 </td>
                 <td></td>
             </tr>

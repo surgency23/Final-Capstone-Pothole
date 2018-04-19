@@ -185,8 +185,7 @@ namespace Capstone.Web.Controllers
         {
             if (CurrentUser == "EmptyUserName" || CurrentUser != "")
             {
-                if (ModelState.IsValid)
-                {
+               
                     claim.Pothole_ID = (int)Session["Pothole_id"];
                     Users user = userDAL.GetUser(CurrentUser);
                     claim.UserID = user.UserID;
@@ -194,13 +193,6 @@ namespace Capstone.Web.Controllers
                     int claimID = claimsDAL.NewClaim(claim);
                     Session["claimID"] = claimID;
                     return View("ClaimConfirmation", claim);
-                }
-                else
-                {
-                    ModelState.AddModelError("invalid-amount", "Please enter a valid dollar amount.");
-                    ModelState.AddModelError("invalid-date", "Please enter a valid date.");
-                    return View("ClaimSubmit", claim);
-                }
             }
             else
             {

@@ -3,14 +3,14 @@
 var map, infoWindow;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: 40.367474, lng: -82.996216 },
-        zoom: 8,
+        center: { lat: 39.9612, lng: -82.9988 },
+        zoom: 10,
         mapTypeId: 'roadmap'
     });
 
     var geocoder = new google.maps.Geocoder();
     var image = {
-        url: 'https://image.ibb.co/m5wBRn/mild_pothole.png',
+        url: 'https://image.ibb.co/iVP197/pothole_marker_green.png',
         scaledSize: new google.maps.Size(74, 74),
         origin: new google.maps.Point(0, 0),
         anchor: new google.maps.Point(37, 37)

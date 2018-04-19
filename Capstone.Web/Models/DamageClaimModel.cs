@@ -9,15 +9,14 @@ namespace Capstone.Web.Models
 {
     public class DamageClaimModel
     {
+        
+
+        public decimal Estimated_cost { get; set; }
+
+        public DateTime SubmissionDate { get; set; }
+
         public int UserID { get; set; }/*not sure if we need specific user ID*/
         public string Description { get; set; }
-
-        [Required]
-        [DataType(DataType.Currency, ErrorMessage = "Enter a valid dollar amount.")]
-        public decimal Estimated_cost { get; set; }
-        [Required]
-        [DataType(DataType.Date, ErrorMessage = "Please enter a valid date.")]
-        public DateTime SubmissionDate { get; set; }
         public string Status { get; set; }
         public int Pothole_ID { get; set; }
         public int Claim_ID { get; set; }

@@ -58,7 +58,7 @@ namespace Capstone.Web.Controllers
             }
             else
             {
-                return RedirectToAction("ViewPotholes");
+                return RedirectToAction("Login");
             }
         }
 
