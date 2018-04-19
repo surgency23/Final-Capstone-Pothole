@@ -95,7 +95,6 @@ $(document).ready(function () {
             shape: shape,
             animation: google.maps.Animation.DROP,
         });
-
     }
 });
 

@@ -68,11 +68,8 @@ namespace Capstone.Web.Models
                 case 5:
                     severityString = "Extreme Danger";
                     break;
-
             }
             return severityString;
         }
-
-        
     }
 }

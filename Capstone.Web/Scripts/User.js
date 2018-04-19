@@ -8,7 +8,6 @@ $(document).ready(function () {
             {
                 Username: username,
                 Password: password,
-
             };
 
         $.ajax({
@@ -19,11 +18,6 @@ $(document).ready(function () {
             contentType: "application/json",
         }).done(function (result2) {
             console.log(result2);
-
         });
     });
-
-
-
-
 });

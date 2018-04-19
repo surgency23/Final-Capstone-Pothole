@@ -8,17 +8,6 @@ function initMap() {
         mapTypeId: 'roadmap'
     });
 
-
-//    $("#reportSeverity").change(function () {
-//        alert(document.getElementById("reportSeverity").value);
-//});
-
-    // orange: https://ibb.co/gJg3NS
-    //purple pink https://ibb.co/iT58p7
-    // gren https://ibb.co/e83HhS
-    //blue https://ibb.co/mZ7A2S
-    //yellow https://ibb.co/m05V2S
-    //red https://ibb.co/eOiuU7
     var geocoder = new google.maps.Geocoder();
     var image = {
         url: 'https://image.ibb.co/m5wBRn/mild_pothole.png',
@@ -55,7 +44,6 @@ function initMap() {
                             alert('Geocode was not successful for the following reason: ' + status);
                         }
                     });
-                
                 }
             }
         });
@@ -70,22 +58,17 @@ function initMap() {
     });
 
     var markers = [];
-    // Listen for the event fired when the user selects a prediction and retrieve
-    // more details for that place.
+
     searchBox.addListener('places_changed', function () {
         var places = searchBox.getPlaces();
 
         if (places.length == 0) {
             return;
         }
-
-        // Clear out the old markers.
         markers.forEach(function (marker) {
             marker.setMap(null);
         });
         markers = [];
-
-        // For each place, get the icon, name and location.
         var bounds = new google.maps.LatLngBounds();
         places.forEach(function (place) {
             if (!place.geometry) {
@@ -117,33 +100,6 @@ function initMap() {
         });
         map.fitBounds(bounds);
     });
-
-
-
-
-//    infoWindow = new google.maps.InfoWindow;
-
-//    // Try HTML5 geolocation.
-//    if (navigator.geolocation) {
-//        navigator.geolocation.getCurrentPosition(function (position) {
-//            var pos = {
-//                lat: position.coords.latitude,
-//                lng: position.coords.longitude
-//            };
-//            infoWindow.setPosition(pos);
-//            infoWindow.setContent('Current Location.');
-//            infoWindow.open(map);
-//            map.setCenter(pos);
-//        }, function () {
-//            handleLocationError(true, infoWindow, map.getCenter());
-//        });
-//    } else {
-//        // Browser doesn't support Geolocation
-//        handleLocationError(false, infoWindow, map.getCenter());
-//    }
-
-//}
-
 }
 
 

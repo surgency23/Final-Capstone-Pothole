@@ -30,7 +30,6 @@ namespace Capstone.Web.Controllers
         [HttpPost]
         public ActionResult Login(LoginModel model)
         {
-
             if (ModelState.IsValid)
             {
                 var currentUser = userDAL.GetUser(model.Username);
@@ -56,8 +55,6 @@ namespace Capstone.Web.Controllers
                 {
                     return RedirectToAction("Index", "Home");
                 }
-
-
             }
             else
             {
@@ -68,7 +65,6 @@ namespace Capstone.Web.Controllers
         [HttpGet]
         public ActionResult LogOut()
         {
-
             base.LogUserOut();
 
             return RedirectToAction("ViewPotholes", "Home");
@@ -117,7 +113,6 @@ namespace Capstone.Web.Controllers
 
             var model = new ChangePasswordModel();
             return View("ChangePassword", model);
-
         }
 
         [HttpPost]
