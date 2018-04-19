@@ -45,25 +45,25 @@ namespace Capstone.Web.Controllers
             }
         }
 
-        [HttpPost]
-        public ActionResult DetailManualHole(decimal? latitude, decimal? longitude)
-        {
-            string lat = Request.Form.Get("Latitude");
-            string lng = Request.Form.Get("Longitude");
-            Pothole pothole = new Pothole();
-            pothole.Latitude = Int32.Parse(lat);
-            pothole.Longitude = Int32.Parse(lng);
+        //[HttpPost]
+        //public ActionResult DetailManualHole(decimal? latitude, decimal? longitude)
+        //{
+        //    string lat = Request.Form.Get("Latitude");
+        //    string lng = Request.Form.Get("Longitude");
+        //    Pothole pothole = new Pothole();
+        //    pothole.Latitude = Int32.Parse(lat);
+        //    pothole.Longitude = Int32.Parse(lng);
 
-            if (CurrentUser == "EmptyUserName" || CurrentUser != "")
-            {
-                potholeDAL.InsertPothole(pothole);
-                return View("DetailHole", pothole);
-            }
-            else
-            {
-                return RedirectToAction("Login", "User");
-            }
-        }
+        //    if (CurrentUser == "EmptyUserName" || CurrentUser != "")
+        //    {
+        //        potholeDAL.InsertPothole(pothole);
+        //        return View("DetailHole", pothole);
+        //    }
+        //    else
+        //    {
+        //        return RedirectToAction("Login", "User");
+        //    }
+        //}
 
         public ActionResult ManualPotHoleEntry()
         {
@@ -86,6 +86,7 @@ namespace Capstone.Web.Controllers
             IPagedList<Pothole> pagedPotholes = null;
             List<Pothole> potholeList = potholeDAL.SortedPotholeList(id);
             pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+
             if (IsEmployee())
             {
                 return View("ViewPotholesForEmp", pagedPotholes);
@@ -123,6 +124,7 @@ namespace Capstone.Web.Controllers
             IPagedList<Pothole> pagedPotholes = null;
             List<Pothole> potholeList = potholeDAL.GetAllPotholes();
             pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+
             if (IsEmployee())
             {
                 return View("ViewPotholesForEmp", pagedPotholes);
@@ -151,10 +153,12 @@ namespace Capstone.Web.Controllers
             string id = updatedPothole.PotholeID.ToString();
             int pageSize = 15;
             int pageIndex = 1;
+
             pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
             IPagedList<Pothole> pagedPotholes = null;
             List<Pothole> potholeList = potholeDAL.GetAllPotholes();
             pagedPotholes = potholeList.ToPagedList(pageIndex, pageSize);
+
             if (IsEmployee())
             {
                 return View("ViewPotholesForEmp", pagedPotholes);
@@ -167,9 +171,7 @@ namespace Capstone.Web.Controllers
 
         public ActionResult SelectedPothole(string id)
         {
-
             return View("SinglePothole", potholeDAL.GetOnePotholes(id));
-
         }
 
         public ActionResult ViewAllClaims(int? page, string id)
@@ -179,6 +181,7 @@ namespace Capstone.Web.Controllers
             pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
             IPagedList<DamageClaimModel> pagedClaims = null;
             List<DamageClaimModel> claimList;
+
             if (id == null)
             {
                 claimList = claimsDAL.AllClaims();
@@ -226,8 +229,6 @@ namespace Capstone.Web.Controllers
             {
                 return RedirectToAction("Login", "User");
             }
-
-
         }
 
         public ActionResult ClaimConfirmation(DamageClaimModel claim)
@@ -239,6 +240,7 @@ namespace Capstone.Web.Controllers
         {
             return View();
         }
+
         public ActionResult FileUpload(HttpPostedFileBase file)
         {
             int potholeId = (int)Session["Pothole_id"];
@@ -259,12 +261,9 @@ namespace Capstone.Web.Controllers
                     file.InputStream.CopyTo(ms);
                     byte[] array = ms.GetBuffer();
                 }
-
             }
             // after successfully uploading redirect the user
             return RedirectToAction("ViewPotholes");
         }
-
-
     }
 }

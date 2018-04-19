@@ -8,7 +8,6 @@ namespace Capstone.Web.Models
 {
     public class LoginModel
     {
-
         [Required(ErrorMessage = "This field is required.")]
         [Display(Name = "Username:")]
         public string Username { get; set; }
@@ -16,7 +15,5 @@ namespace Capstone.Web.Models
         [Required(ErrorMessage = "This field is required.")]
         [Display(Name = "Password:")]
         public string Password { get; set; }
-
-
     }
 }

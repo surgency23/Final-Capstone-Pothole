@@ -1,5 +1,4 @@
-
-﻿/// <reference path="../Scripts/jquery-3.1.1.js" />
+﻿﻿/// <reference path="../Scripts/jquery-3.1.1.js" />
 
 $(document).ready(function () {
 
@@ -17,14 +16,12 @@ $(document).ready(function () {
         $("#content").load("/Home/ManualPotHoleEntry").$("body");
     });
 
-﻿function ColorChange() {/*method for navbar color change*/
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") 
-	{
-        x.className += " responsive";
-    } else {
-        x.className = "topnav";
+    ﻿function ColorChange() {/*method for navbar color change*/
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
     }
-}
 });
-
