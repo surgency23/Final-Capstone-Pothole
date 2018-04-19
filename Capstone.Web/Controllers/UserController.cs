@@ -30,7 +30,6 @@ namespace Capstone.Web.Controllers
         [HttpPost]
         public ActionResult Login(LoginModel model)
         {
-
             if (ModelState.IsValid)
             {
                 var currentUser = userDAL.GetUser(model.Username);
@@ -38,12 +37,12 @@ namespace Capstone.Web.Controllers
                 if (currentUser == null)
                 {
                     ModelState.AddModelError("invalid-user", "The username provided does not match an existing user");
-                    return RedirectToAction("ViewPotholes", "Home", model);
+                    return RedirectToAction("Login", model);
                 }
                 else if (currentUser.Password != model.Password)
                 {
                     ModelState.AddModelError("invalid-password", "The password provided is not correct");
-                    return RedirectToAction("ViewPotholes","Home", model);
+                    return RedirectToAction("Login", model);
                 }
 
                 base.LogUserIn(currentUser.Username);
@@ -56,8 +55,6 @@ namespace Capstone.Web.Controllers
                 {
                     return RedirectToAction("Index", "Home");
                 }
-
-
             }
             else
             {
@@ -68,7 +65,6 @@ namespace Capstone.Web.Controllers
         [HttpGet]
         public ActionResult LogOut()
         {
-
             base.LogUserOut();
 
             return RedirectToAction("ViewPotholes", "Home");
@@ -117,7 +113,6 @@ namespace Capstone.Web.Controllers
 
             var model = new ChangePasswordModel();
             return View("ChangePassword", model);
-
         }
 
         [HttpPost]

@@ -5,39 +5,49 @@
 <span hidden id="Severity">@Model.Severity</span>
 <h1>Selected Pothole: ID @Model.PotholeID</h1>
 <script src="~/Scripts/Detailedmap.js"></script>
-<p>Status: 
-    @if (Model.ReturnSeverity(Model.Severity) == "Minor")
-    {
-        <span style="color:lawngreen">@Model.ReturnSeverity(Model.Severity)</span>
-    }
-    else if (Model.ReturnSeverity(Model.Severity) == "Moderate")
-    {
-        <span style="color:yellow">@Model.ReturnSeverity(Model.Severity)</span>
-    }
-    else if (Model.ReturnSeverity(Model.Severity) == "Hazard")
-    {
-        <span
-            style="color:orange">@Model.ReturnSeverity(Model.Severity)
-        </span>
-    }
-    else if (Model.ReturnSeverity(Model.Severity) == "Severe")
-    {
-        <span
-            style="color:red">@Model.ReturnSeverity(Model.Severity)
-        </span>
-    }
-    else if (Model.ReturnSeverity(Model.Severity) == "Extreme Danger")
-    {
-        <span
-            style="color:deeppink">@Model.ReturnSeverity(Model.Severity)
-        </span>
-    }
-</p>
-<p>Latitude: <span id="lat">@Model.Latitude</span> Longitude: <span id="lng">@Model.Longitude</span></p>
+<div class="container-fluid">
+    <div class="row">
+        <div id="potholeImageContainer"class="col-md-4" >
+        <img id="potholeImage" onerror="this.style.opacity='0'" src="~/Images/@id" /></div>
+        <div class="col-md-8, singlePotholeDetails">
+            <p>
+                Status:
+                @if (Model.ReturnSeverity(Model.Severity) == "Minor")
+            {
+                    <span style="color:lawngreen">@Model.ReturnSeverity(Model.Severity)</span>
+                }
+                else if (Model.ReturnSeverity(Model.Severity) == "Moderate")
+                {
+                    <span style="color:yellow">@Model.ReturnSeverity(Model.Severity)</span>
+                }
+                else if (Model.ReturnSeverity(Model.Severity) == "Hazard")
+                {
+                    <span style="color:orange">
+                        @Model.ReturnSeverity(Model.Severity)
+                    </span>
+                }
+                else if (Model.ReturnSeverity(Model.Severity) == "Severe")
+                {
+                    <span style="color:red">
+                        @Model.ReturnSeverity(Model.Severity)
+                    </span>
+                }
+                else if (Model.ReturnSeverity(Model.Severity) == "Extreme Danger")
+                {
+                    <span style="color:deeppink">
+                        @Model.ReturnSeverity(Model.Severity)
+                    </span>
+                }
+            </p>
+            <p hidden>Latitude: <span hidden id="lat">@Model.Latitude</span> Longitude: <span hidden id="lng">@Model.Longitude</span></p>
+        </div>
+    </div>
+</div>
+<br />
 <div id="wrapper">
     <div id="map"></div>
 </div>
-<div><img style="height:auto;width:auto" onerror="this.style.opacity='0'" src="~/Images/@id" /></div>
+
 
 <a class="btn btn-primary viewbutton" href="~/Home/ViewPotholes/">Return to Submitted Potholes</a>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSatSYUL3YwnEgUtqsIpU1Cd-mR9OT148&callback=initMap"></script>

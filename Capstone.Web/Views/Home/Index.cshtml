@@ -5,7 +5,7 @@
 @using Capstone.Web.Models;
 
 @model Pothole
-
+<script src="~/Scripts/main.js"></script>
 <script src="~/Scripts/manualEntry.js"></script>
 
 <h2 class="headersmall">Report a Pothole</h2>
@@ -44,13 +44,12 @@
 
 
 <div id="wrapper">
-    <input id="search-box" class="controls form-control" style="width:auto;margin-top:10px;" type="text" placeholder="Search" />
     <div id="map"></div>
+    <input id="search-box" class="controls form-control" style="width:auto;margin-top:10px;" type="text" placeholder="Search" />
     <div id="lat"></div>
 </div>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBugEcO0-7dk62GbFYyVE2tNfTgmPjUpGs&libraries=places&callback=initMap">
 </script>
 
-<script src="~/Scripts/main.js"></script>
 <br />

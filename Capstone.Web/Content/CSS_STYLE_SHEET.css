@@ -72,7 +72,7 @@ td {
     text-align:left;
 }
 .registertable td {
-    border-top: none !important;
+    border: none !important;
     width: auto;
     margin: auto;
 }
@@ -135,6 +135,21 @@ section {
 
     float: left;
 }
+#potholeImage{
+    border-radius: 5px;
+    width: 350px;
+    border-style: solid;
+    border-width: 5px;
+}
 
+#potholeImageContainer{
+    padding-left: 65px;
+}
 
+.singlePotholeDetails{
+    text-align:left;
+    font-size: 20px;
+    padding-left: 100px;
+    padding-top: 30px;
+}
 
