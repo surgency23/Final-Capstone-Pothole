@@ -25,10 +25,12 @@
                 @Html.HiddenFor(m => m.Pothole_ID, pothole_id)
                 <td>
                     @Html.TextBoxFor(m => m.Estimated_cost, new { placeholder = "$" })
+                    @Html.ValidationMessageFor(m => m.Estimated_cost)  @Html.ValidationMessage("invalid-amount")
                 </td>
                 <td>
                     <div class="input-group date" data-provide="datepicker">
                         @Html.TextBoxFor(m => m.SubmissionDate, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.SubmissionDate)  @Html.ValidationMessage("invalid-date")
                         <div class="input-group-addon">
                         </div>
                     </div>
@@ -36,16 +38,6 @@
                 <td>
                     @Html.TextAreaFor(m => m.Description)
                 </td>
-            </tr>
-            <tr class="registertable">
-                <td></td>
-                <td>
-                    @Html.ValidationMessage("invalid-amount")
-                </td>
-                <td>
-                    @Html.ValidationMessage("invalid-date")
-                </td>
-                <td></td>
             </tr>
         </table>
         <button class="btn btn-primary">Submit Claim</button>
