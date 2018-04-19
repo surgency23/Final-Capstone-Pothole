@@ -13,7 +13,7 @@ namespace Capstone.Web.DAL
 
         private const string SQL_GetAllPotholes = @"SELECT * FROM Pothole ORDER BY Date_Reported";
         private const string SQL_InsertPothole = @"INSERT INTO [dbo].[Pothole] ([Status],[Severity],[Date_Reported],[Longitude],[Latitude]) VALUES('Reported', @severity,@dateReported,@longitude,@latitude); SELECT CAST(SCOPE_IDENTITY() as int);";
-        private const string SQL_DeletePothole = @"Delete from Pothole where PotHole_ID = @potholeID";
+        private const string SQL_DeletePothole = @"delete from Claims where PotHole_ID= @potholeID; Delete from pothole where PotHole_ID= @potholeID;";
         private const string SQL_UpdatePothole = @"UPDATE[dbo].[Pothole] SET[Status] = @status,[Severity] = @severity,[Repair_Date] = @repairDate,[Inspect_Date] = @inspectDate WHERE PotHole_ID = @potholeid";
         private const string SQL_GetSinglePothole = @"SELECT * FROM Pothole WHERE PotHole_ID = @id";
 
