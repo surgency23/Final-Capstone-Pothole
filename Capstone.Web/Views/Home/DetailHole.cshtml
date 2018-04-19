@@ -7,7 +7,7 @@
 
 <h2 class="headersmall">Pothole No. @id  Submitted! </h2>
 <script src="~/Scripts/Detailedmap.js"></script>
-<p>Status:  @Model.ReturnSeverity(Model.Severity)</p>
+<p>Status:  <span id="severity">@Model.ReturnSeverity(Model.Severity)</span></p>
 <p>Latitude: <span id="lat">@Model.Latitude</span> Longitude: <span id="lng">@Model.Longitude</span></p>
 <div id="wrapper">
     <div id="map"></div>

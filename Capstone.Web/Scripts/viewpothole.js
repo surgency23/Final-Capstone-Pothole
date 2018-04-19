@@ -86,7 +86,6 @@ $(document).ready(function () {
             case "5":
                 image = pinkmarker;
                 break;
-
         }
 
         marker = new google.maps.Marker({
@@ -98,10 +97,6 @@ $(document).ready(function () {
         });
 
     }
-
-
-
-
 });
 
 
