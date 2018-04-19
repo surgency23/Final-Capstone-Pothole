@@ -16,6 +16,7 @@ $(document).ready(function () {
         var latString = $("#lat"+i).html();
         var lngString = $("#lng" + i).html();
         var severity = $("#Severity"+i).html();
+//#region icon
         var image = {
             url: 'https://image.ibb.co/m5wBRn/mild_pothole.png',
             scaledSize: new google.maps.Size(74, 74),
@@ -62,6 +63,8 @@ $(document).ready(function () {
             coords: [1, 1, 1, 20, 18, 20, 18, 1],
             type: 'poly'
         };
+//#endregion 
+
         var latVal = parseFloat(latString);
         var lngVal = parseFloat(lngString);
         var markerpos = { lat: latVal, lng: lngVal };

@@ -21,7 +21,7 @@
         @Html.HiddenFor(m => m.DateReported, DateTime.UtcNow.Date);
         <div class="row" style="margin:auto">
             
-            <div class="col-sm-3; offset-4">
+            <div id="reportSeverity" class="col-sm-3; offset-4">
                 @Html.DropDownListFor(m => m.Severity, Pothole.SeverityLevels, new { @class = "custom-select" })
             </div>
 

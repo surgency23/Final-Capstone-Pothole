@@ -7,6 +7,12 @@ function initMap() {
         zoom: 8,
         mapTypeId: 'roadmap'
     });
+
+
+//    $("#reportSeverity").change(function () {
+//        alert(document.getElementById("reportSeverity").value);
+//});
+
     // orange: https://ibb.co/gJg3NS
     //purple pink https://ibb.co/iT58p7
     // gren https://ibb.co/e83HhS
