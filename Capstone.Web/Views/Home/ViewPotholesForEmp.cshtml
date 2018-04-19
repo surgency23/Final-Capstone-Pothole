@@ -37,11 +37,11 @@
         }
         else if (sort == "DateDsc")
         {
-            <a class="dropdown-item" href="~/Home/ViewPotholesForEmp/DateAsc">Date▲</a>
+            <a class="dropdown-item" href="~/Home/ViewPotholesForEmp/Date">Date▲</a>
         }
         else
         {
-            <a class="dropdown-item" href="~/Home/ViewPotholesForEmp/DateAsc">Date▲</a>
+            <a class="dropdown-item" href="~/Home/ViewPotholesForEmp/Date">Date▲</a>
         }
         @if (sort == "Status")
         {
@@ -116,9 +116,29 @@
         <span id="@severity" hidden>@pothole.Severity</span>
         <tr>
             <td id="count">@pothole.PotholeID</td>
-            <td><span id="@lat">@pothole.Latitude</span>, <span id="@lng">@pothole.Longitude</span></td>
+            <td><a href="~/Home/SelectedPothole/@pothole.PotholeID"><span id="@lat">@pothole.Latitude</span>, <span id="@lng">@pothole.Longitude</span></a></td>
             <td>@pothole.Status</td>
-            <td>@pothole.ReturnSeverity(pothole.Severity)</td>
+            @if (pothole.ReturnSeverity(pothole.Severity) == "Minor")
+            {
+                <td style="color:lawngreen">@pothole.ReturnSeverity(pothole.Severity)</td>
+            }
+            else if (pothole.ReturnSeverity(pothole.Severity) == "Moderate")
+            {
+                <td style="color:yellow">@pothole.ReturnSeverity(pothole.Severity)</td>
+            }
+            else if (pothole.ReturnSeverity(pothole.Severity) == "Hazard")
+            {
+                <td style="color:orange">@pothole.ReturnSeverity(pothole.Severity)</td>
+            }
+            else if (pothole.ReturnSeverity(pothole.Severity) == "Severe")
+            {
+                <td style="color:red">@pothole.ReturnSeverity(pothole.Severity)</td>
+            }
+            else if (pothole.ReturnSeverity(pothole.Severity) == "Extreme Danger")
+            {
+                <td style="color:deeppink">@pothole.ReturnSeverity(pothole.Severity)</td>
+            }
+
             <td>@pothole.DateReported.ToShortDateString() </td>
             @{if (pothole.InspectDate != null && pothole.RepairDate == null)
                 {

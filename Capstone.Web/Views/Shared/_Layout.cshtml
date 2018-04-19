@@ -23,6 +23,7 @@
     <link href="~/Content/PagedList.css" rel="stylesheet" />
 </head>
 <body>
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.bundle.min.js" integrity="sha384-lZmvU/TzxoIQIOD9yQDEpvxp6wEU32Fy0ckUgOH4EIlMOCdR823rg4+3gWRwnX1M" crossorigin="anonymous"></script>
     <div class="container-fluid">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -31,9 +32,9 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav mr-auto">
+                <div class="navbar-nav mr-auto" id="navbaractive">
 
-                    <a class="nav-item nav-link active" href="~/Home/Index">Report Pothole <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link " href="~/Home/Index">Report Pothole <span class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link" href="~/Home/ViewPotholes">View Reported Potholes</a>
                     @if (Session["isEmployee"] == null)
                     {
@@ -60,7 +61,7 @@
                 </div>
             </div>
         </nav>
-    </div><!-- /.container-fluid -->
+    </div>
     <div class="container-fluid">
         <div class="layoutheaderdiv">
             @*<img class="imgsize" src="~/Content/Images/officialogo.png" />*@

@@ -7,7 +7,35 @@
 
 <h2 class="headersmall">Pothole No. @id  Submitted! </h2>
 <script src="~/Scripts/Detailedmap.js"></script>
-<p>Status:  @Model.ReturnSeverity(Model.Severity)</p>
+<p>
+    Status:
+    @if (Model.ReturnSeverity(Model.Severity) == "Minor")
+    {
+        <span style="color:lawngreen">@Model.ReturnSeverity(Model.Severity)</span>
+    }
+    else if (Model.ReturnSeverity(Model.Severity) == "Moderate")
+    {
+        <span style="color:yellow">@Model.ReturnSeverity(Model.Severity)</span>
+    }
+    else if (Model.ReturnSeverity(Model.Severity) == "Hazard")
+    {
+        <span style="color:orange">
+            @Model.ReturnSeverity(Model.Severity)
+        </span>
+    }
+    else if (Model.ReturnSeverity(Model.Severity) == "Severe")
+    {
+        <span style="color:red">
+            @Model.ReturnSeverity(Model.Severity)
+        </span>
+    }
+    else if (Model.ReturnSeverity(Model.Severity) == "Extreme Danger")
+    {
+        <span style="color:deeppink">
+            @Model.ReturnSeverity(Model.Severity)
+        </span>
+    }
+</p>
 <p>Latitude: <span id="lat">@Model.Latitude</span> Longitude: <span id="lng">@Model.Longitude</span></p>
 <div id="wrapper">
     <div id="map"></div>
@@ -24,8 +52,5 @@
 
     </div>
     <input class="btn btn-success submit" type="submit" value="Upload" style="padding-right:75px;padding-left:75px;margin-left:20px;" />
-    @*<label for="file">Upload Pothole Image:</label>
-        <input class="btn custom-file-input "type="file" name="file" id="file" style="width: auto;margin:auto;" />
-    *@
 }
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSatSYUL3YwnEgUtqsIpU1Cd-mR9OT148&callback=initMap"></script>
