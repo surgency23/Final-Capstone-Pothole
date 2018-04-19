@@ -108,7 +108,7 @@ section {
     /*vertical-align: top;*/
     text-align: center;
     min-height: 450px;
-    max-height: 1000px;
+    max-height: 2000px;
     background: rgba(0,0,0,0.8);
     border-radius: 7px;
     overflow: auto;
