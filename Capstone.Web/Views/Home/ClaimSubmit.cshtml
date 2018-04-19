@@ -37,6 +37,16 @@
                     @Html.TextAreaFor(m => m.Description)
                 </td>
             </tr>
+            <tr class="registertable">
+                <td></td>
+                <td>
+                    @Html.ValidationMessage("invalid-amount")
+                </td>
+                <td>
+                    @Html.ValidationMessage("invalid-date")
+                </td>
+                <td></td>
+            </tr>
         </table>
         <button class="btn btn-primary">Submit Claim</button>
     }

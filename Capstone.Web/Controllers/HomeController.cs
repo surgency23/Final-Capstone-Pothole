@@ -45,38 +45,6 @@ namespace Capstone.Web.Controllers
             }
         }
 
-        //[HttpPost]
-        //public ActionResult DetailManualHole(decimal? latitude, decimal? longitude)
-        //{
-        //    string lat = Request.Form.Get("Latitude");
-        //    string lng = Request.Form.Get("Longitude");
-        //    Pothole pothole = new Pothole();
-        //    pothole.Latitude = Int32.Parse(lat);
-        //    pothole.Longitude = Int32.Parse(lng);
-
-        //    if (CurrentUser == "EmptyUserName" || CurrentUser != "")
-        //    {
-        //        potholeDAL.InsertPothole(pothole);
-        //        return View("DetailHole", pothole);
-        //    }
-        //    else
-        //    {
-        //        return RedirectToAction("Login", "User");
-        //    }
-        //}
-
-        public ActionResult ManualPotHoleEntry()
-        {
-            if (CurrentUser != "EmptyUserName" || CurrentUser != "")
-            {
-                return View();
-            }
-            else
-            {
-                return View("Login", "User");
-            }
-        }
-
         public ActionResult ViewPotholes(int? page, string id)
         {
             ViewBag.Sorting = id;
@@ -217,13 +185,22 @@ namespace Capstone.Web.Controllers
         {
             if (CurrentUser == "EmptyUserName" || CurrentUser != "")
             {
-                claim.Pothole_ID = (int)Session["Pothole_id"];
-                Users user = userDAL.GetUser(CurrentUser);
-                claim.UserID = user.UserID;
-                claimsDAL.NewClaim(claim);
-                int claimID = claimsDAL.NewClaim(claim);
-                Session["claimID"] = claimID;
-                return View("ClaimConfirmation", claim);
+                if (ModelState.IsValid)
+                {
+                    claim.Pothole_ID = (int)Session["Pothole_id"];
+                    Users user = userDAL.GetUser(CurrentUser);
+                    claim.UserID = user.UserID;
+                    claimsDAL.NewClaim(claim);
+                    int claimID = claimsDAL.NewClaim(claim);
+                    Session["claimID"] = claimID;
+                    return View("ClaimConfirmation", claim);
+                }
+                else
+                {
+                    ModelState.AddModelError("invalid-amount", "Please enter a valid dollar amount.");
+                    ModelState.AddModelError("invalid-date", "Please enter a valid date.");
+                    return View("ClaimSubmit", claim);
+                }
             }
             else
             {

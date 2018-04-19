@@ -7,7 +7,8 @@
 <script src="~/Scripts/Detailedmap.js"></script>
 <div class="container-fluid">
     <div class="row">
-        <div id="potholeImageContainer"class="col-md-4" ><img id="potholeImage" src="~/Images/@id" /></div>
+        <div id="potholeImageContainer"class="col-md-4" >
+        <img id="potholeImage" onerror="this.style.opacity='0'" src="~/Images/@id" /></div>
         <div class="col-md-8, singlePotholeDetails">
             <p>
                 Status:
@@ -38,7 +39,7 @@
                     </span>
                 }
             </p>
-            <p>Latitude: <span id="lat">@Model.Latitude</span> Longitude: <span id="lng">@Model.Longitude</span></p>
+            <p hidden>Latitude: <span hidden id="lat">@Model.Latitude</span> Longitude: <span hidden id="lng">@Model.Longitude</span></p>
         </div>
     </div>
 </div>

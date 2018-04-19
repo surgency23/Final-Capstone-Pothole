@@ -15,7 +15,7 @@ $(document).ready(function () {
     for (var i = 1; i <= countval; i++) {
         var latString = $("#lat"+i).html();
         var lngString = $("#lng" + i).html();
-        var severity = $("#Severity"+i).html();
+        var severity = $("#Severity" + i).html();
 //#region icon
         var image = {
             url: 'https://image.ibb.co/m5wBRn/mild_pothole.png',

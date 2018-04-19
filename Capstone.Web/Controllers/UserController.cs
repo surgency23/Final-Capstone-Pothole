@@ -37,12 +37,12 @@ namespace Capstone.Web.Controllers
                 if (currentUser == null)
                 {
                     ModelState.AddModelError("invalid-user", "The username provided does not match an existing user");
-                    return RedirectToAction("ViewPotholes", "Home", model);
+                    return RedirectToAction("Login", model);
                 }
                 else if (currentUser.Password != model.Password)
                 {
                     ModelState.AddModelError("invalid-password", "The password provided is not correct");
-                    return RedirectToAction("ViewPotholes","Home", model);
+                    return RedirectToAction("Login", model);
                 }
 
                 base.LogUserIn(currentUser.Username);
