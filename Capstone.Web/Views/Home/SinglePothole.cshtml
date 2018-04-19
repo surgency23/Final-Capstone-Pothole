@@ -1,11 +1,38 @@
 ﻿@model Capstone.Web.Models.Pothole
-@{ 
+@{
     string id = $"pothole{Model.PotholeID}.jpg";
 }
-
+<span hidden id="Severity">@Model.Severity</span>
 <h1>Selected Pothole: ID @Model.PotholeID</h1>
 <script src="~/Scripts/Detailedmap.js"></script>
-<p>Status:  <span id="severity">@Model.ReturnSeverity(Model.Severity)</span></p>
+<p>Status: 
+    @if (Model.ReturnSeverity(Model.Severity) == "Minor")
+    {
+        <span style="color:lawngreen">@Model.ReturnSeverity(Model.Severity)</span>
+    }
+    else if (Model.ReturnSeverity(Model.Severity) == "Moderate")
+    {
+        <span style="color:yellow">@Model.ReturnSeverity(Model.Severity)</span>
+    }
+    else if (Model.ReturnSeverity(Model.Severity) == "Hazard")
+    {
+        <span
+            style="color:orange">@Model.ReturnSeverity(Model.Severity)
+        </span>
+    }
+    else if (Model.ReturnSeverity(Model.Severity) == "Severe")
+    {
+        <span
+            style="color:red">@Model.ReturnSeverity(Model.Severity)
+        </span>
+    }
+    else if (Model.ReturnSeverity(Model.Severity) == "Extreme Danger")
+    {
+        <span
+            style="color:deeppink">@Model.ReturnSeverity(Model.Severity)
+        </span>
+    }
+</p>
 <p>Latitude: <span id="lat">@Model.Latitude</span> Longitude: <span id="lng">@Model.Longitude</span></p>
 <div id="wrapper">
     <div id="map"></div>
@@ -14,3 +41,4 @@
 
 <a class="btn btn-primary viewbutton" href="~/Home/ViewPotholes/">Return to Submitted Potholes</a>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSatSYUL3YwnEgUtqsIpU1Cd-mR9OT148&callback=initMap"></script>
+

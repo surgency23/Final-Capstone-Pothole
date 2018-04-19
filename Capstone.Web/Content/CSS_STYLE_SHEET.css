@@ -6,6 +6,7 @@
     font-family: 'Schilderwald';
     src: url('Fonts/Schilderwald.ttf') format('truetype');
 }
+
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
