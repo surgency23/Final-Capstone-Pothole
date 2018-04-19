@@ -6,6 +6,9 @@ using System.Data.SqlClient;
 using System.Configuration;
 using Capstone.Web.Models;
 using Capstone.Web.DAL;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Capstone.Web.Tests.DAL
 {
@@ -13,11 +16,12 @@ namespace Capstone.Web.Tests.DAL
     public class ClaimsDALTest
     {
         private TransactionScope tran;
-        private string connectionString = @"Data Source=.\sqlexpress;Initial Catalog = Potholes; Integrated Security = True";
+        private string connectionString = ConfigurationManager.ConnectionStrings["Potholes"].ConnectionString;
         private int claimID = 0;
         private int claimsCount = 0;
         private int potHoleID = 0;
         private int potholeClaims = 0;
+
 
         [TestInitialize]
         public void TestInitialize()
