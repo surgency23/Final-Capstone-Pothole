@@ -8,7 +8,9 @@ namespace Capstone.Web.App_Start
     using Capstone.Web.DAL;
     using Capstone.Web.Models;
     using System.Configuration;
+
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+
     using Ninject;
     using Ninject.Web.Common;
 

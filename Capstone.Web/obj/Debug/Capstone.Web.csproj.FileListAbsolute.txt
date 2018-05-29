@@ -1,0 +1,185 @@
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\Content\Fonts\Schilderwald.gif
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\Content\Fonts\Schilderwald alt.ttf
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\Content\Fonts\Schilderwald.ttf
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\csc.exe
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\csc.exe.config
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\csc.rsp
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\csi.exe
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\csi.exe.config
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\csi.rsp
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\System.AppContext.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\System.Console.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\System.Diagnostics.Process.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\System.IO.Compression.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\System.IO.Pipes.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\System.Security.Claims.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\System.Threading.Thread.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\System.ValueTuple.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\System.Xml.XPath.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\vbc.exe
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\vbc.exe.config
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\vbc.rsp
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\VBCSCompiler.exe
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\Capstone.Web.dll.config
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\Capstone.Web.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\Capstone.Web.pdb
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\GoogleMaps.LocationServices.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\Newtonsoft.Json.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\Ninject.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\Ninject.Web.Common.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\Ninject.Web.Mvc.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\PagedList.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\PagedList.Mvc.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\System.Net.Http.Formatting.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\System.Web.Helpers.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\System.Web.Http.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\System.Web.Mvc.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\System.Web.Razor.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\System.Web.WebPages.Deployment.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\System.Web.WebPages.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\System.Web.WebPages.Razor.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\WebActivatorEx.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\Newtonsoft.Json.xml
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\Ninject.xml
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\Ninject.Web.Common.xml
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\Ninject.Web.Mvc.xml
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\PagedList.xml
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\PagedList.Mvc.xml
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\System.Net.Http.Formatting.xml
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\System.Web.Helpers.xml
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\System.Web.Http.xml
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\System.Web.Mvc.xml
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\System.Web.Razor.xml
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\System.Web.WebPages.xml
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\System.Web.WebPages.Deployment.xml
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\bin\System.Web.WebPages.Razor.xml
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\obj\Debug\Capstone.Web.csprojResolveAssemblyReference.cache
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\obj\Debug\Capstone.Web.csproj.CoreCompileInputs.cache
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\obj\Debug\Capstone.Web.dll
+C:\Users\ahalasa\Team exercises\c-capstone-team-echo\Capstone.Web\obj\Debug\Capstone.Web.pdb
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\Content\Fonts\Schilderwald.gif
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\Content\Fonts\Schilderwald alt.ttf
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\Content\Fonts\Schilderwald.ttf
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\csc.exe
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\csc.exe.config
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\csc.rsp
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\csi.exe
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\csi.exe.config
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\csi.rsp
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\System.AppContext.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\System.Collections.Immutable.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\System.Console.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\System.Diagnostics.Process.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\System.IO.Compression.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\System.IO.FileSystem.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\System.IO.Pipes.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\System.Reflection.Metadata.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\System.Security.AccessControl.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\System.Security.Claims.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\System.Security.Principal.Windows.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\System.Threading.Thread.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\System.ValueTuple.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\System.Xml.XmlDocument.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\System.Xml.XPath.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\vbc.exe
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\vbc.exe.config
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\vbc.rsp
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\VBCSCompiler.exe
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\roslyn\VBCSCompiler.exe.config
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\Capstone.Web.dll.config
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\Capstone.Web.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\Capstone.Web.pdb
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\GoogleMaps.LocationServices.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\Microsoft.Web.Infrastructure.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\Newtonsoft.Json.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\Ninject.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\Ninject.Web.Common.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\Ninject.Web.Mvc.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\PagedList.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\PagedList.Mvc.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\System.Net.Http.Formatting.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\System.Web.Helpers.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\System.Web.Http.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\System.Web.Mvc.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\System.Web.Razor.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\System.Web.WebPages.Deployment.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\System.Web.WebPages.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\System.Web.WebPages.Razor.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\WebActivatorEx.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\Newtonsoft.Json.xml
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\Ninject.xml
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\Ninject.Web.Common.xml
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\Ninject.Web.Mvc.xml
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\PagedList.xml
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\PagedList.Mvc.xml
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\System.Net.Http.Formatting.xml
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\System.Web.Helpers.xml
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\System.Web.Http.xml
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\System.Web.Mvc.xml
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\System.Web.Razor.xml
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\System.Web.WebPages.xml
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\System.Web.WebPages.Deployment.xml
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\bin\System.Web.WebPages.Razor.xml
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\obj\Debug\Capstone.Web.csprojResolveAssemblyReference.cache
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\obj\Debug\Capstone.Web.csproj.CoreCompileInputs.cache
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\obj\Debug\Capstone.Web.csproj.CopyComplete
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\obj\Debug\Capstone.Web.dll
+C:\newfolder\Chris-Halasa-Repo\Pothole Tracking Website\Capstone.Web\obj\Debug\Capstone.Web.pdb
